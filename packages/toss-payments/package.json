@@ -1,0 +1,52 @@
+{
+  "name": "@appmonster/mcp-toss-payments",
+  "version": "0.1.0",
+  "description": "MCP server for Toss Payments: look up payments, cancel/refund (approval-gated), transactions and settlements. 토스페이먼츠 MCP 서버.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-toss-payments": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-toss-payments",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "toss",
+    "tosspayments",
+    "payments",
+    "refund",
+    "settlement",
+    "토스페이먼츠"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/toss-payments"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@appmonster/approval": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

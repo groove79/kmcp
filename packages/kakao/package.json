@@ -1,0 +1,51 @@
+{
+  "name": "@appmonster/mcp-kakao",
+  "version": "0.1.0",
+  "description": "MCP server for KakaoTalk messages: send to self or friends via Kakao Developers message API, friends list, OAuth with auto-refresh. 카카오톡 메시지 MCP 서버.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-kakao": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-kakao",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "kakao",
+    "kakaotalk",
+    "카카오톡",
+    "message",
+    "notification"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/kakao"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@appmonster/approval": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

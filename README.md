@@ -11,6 +11,8 @@ Model Context Protocol servers for Korean platforms — so AI agents can actuall
 | [`@appmonster/mcp-public-data`](packages/public-data) | 0.1.0 | 공공데이터: business status (NTS), holidays, road addresses, apartment trades |
 | [`@appmonster/mcp-hwp`](packages/hwp) | 0.1.0 | HWP/HWPX (한글) → Markdown + tables as JSON, no keys |
 | [`@appmonster/mcp-coupang`](packages/coupang) | 0.1.0 | Coupang Wing: products, item stock/price, order sheets, ship confirmation (HMAC) |
+| [`@appmonster/mcp-kakao`](packages/kakao) | 0.1.0 | KakaoTalk messages: send to self/friends, friends list (OAuth, auto-refresh) |
+| [`@appmonster/mcp-toss-payments`](packages/toss-payments) | 0.1.0 | Toss Payments: payment lookup, cancel/refund (approval-gated), transactions, settlements |
 
 ## Quick start
 
