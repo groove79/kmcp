@@ -1,6 +1,21 @@
 # Distribution checklist — where the server is listed and how
 
-Published: npm `@appmonster/mcp-naver-commerce@0.1.0` · MCP Registry `io.github.groove79/mcp-naver-commerce` (2026-10-21).
+Published (2026-10-21): npm `@appmonster/*` 0.1.0 × 10 servers + `@appmonster/approval` · MCP Registry `io.github.groove79/*`.
+
+## Toolkit blurb (for directories that list one entry per repo)
+
+**Name:** K-MCP — Korean toolkit for AI agents
+
+**One-liner (EN):** 10 MCP servers so agents can work in Korea: Naver Smart Store, Coupang, Cafe24, public data (business status, holidays, addresses), HWP files, KakaoTalk, Popbill e-tax invoices & 알림톡, Toss Payments, Japan→Korea sourcing, tax calendar — with human approval on every write.
+
+**One-liner (KO):** AI 에이전트가 한국에서 일하기 위한 MCP 서버 10종 — 스마트스토어·쿠팡·카페24, 공공데이터, HWP, 카카오톡, 세금계산서·알림톡, 토스페이먼츠, 일본구매대행, 세무 일정. 쓰기는 전부 사람 승인.
+
+**Tags:** mcp, korea, korean, e-commerce, smartstore, coupang, cafe24, hwp, kakao, tax-invoice, payments, agents
+
+**Repo:** https://github.com/groove79/kmcp
+
+**Zero-key servers to list first (instant try):** `@appmonster/mcp-hwp`, `@appmonster/mcp-kr-biz-calendar`
+
 
 ## Copy-paste blurb (use the same text everywhere)
 
