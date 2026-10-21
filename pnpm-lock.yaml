@@ -146,6 +146,31 @@ importers:
         specifier: ^5.6.3
         version: 5.9.3
 
+  packages/popbill:
+    dependencies:
+      '@appmonster/approval':
+        specifier: workspace:*
+        version: link:../approval
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.12.0
+        version: 1.32.1(zod@3.25.76)
+      popbill:
+        specifier: ^1.64.2
+        version: 1.64.2
+      zod:
+        specifier: ^3.23.8
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.5
+      tsx:
+        specifier: ^4.19.2
+        version: 4.23.15
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+
   packages/public-data:
     dependencies:
       '@modelcontextprotocol/sdk':
@@ -188,6 +213,11 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@appmonster/mcp-popbill@file:packages/popbill':
+    resolution: {directory: packages/popbill, type: directory}
+    engines: {node: '>=20'}
+    hasBin: true
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -611,6 +641,10 @@ packages:
   json-schema-typed@8.0.2:
     resolution: {integrity: sha512-fQhoXdcvc3V28x7C7BMs4P5+kNlgUURe2jmUT1T//oBRMDrqy1QPelJimwZGo7Hg9VPV3EQV5Bnq4hbFy2vetA==}
 
+  linkhub@1.8.2:
+    resolution: {integrity: sha512-7f5uedgRpdacfZpg+R+A9iNpmDvwL9qn97GAiuG6rUGPKMykDjyDPIF7gyG2mzt3+ey+iXQtzYWzRNfTp4WIGQ==}
+    engines: {node: '>= 0.10.0'}
+
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -671,6 +705,10 @@ packages:
   pkce-challenge@5.0.1:
     resolution: {integrity: sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ==}
     engines: {node: '>=16.20.0'}
+
+  popbill@1.64.2:
+    resolution: {integrity: sha512-ciZg1YZKwLHioldIamydM2OQUkYnqMwBu+CittdvjnATuZftF7w+u127Rk/0WR4aAdcvRW/WzfrqEc78BEiNDg==}
+    engines: {node: '>= 0.10.0'}
 
   proxy-addr@2.0.8:
     resolution: {integrity: sha512-5nnx0yGyVUcY6t9RnWcARWtwT9F1D8O9rt08htPvnd49W1IgZtmLkhu9WfMzQj1cFxjHIO6connUNVW5k7AVyQ==}
@@ -782,6 +820,10 @@ packages:
     resolution: {integrity: sha512-ghig2TBE/H11aOVgmahA3MhimvkBr6JIYknH/Dhdk10nXwdbIqBJsbfMxpvFPG8bAw77gN29aQWvKpmVoPlvPQ==}
     engines: {node: '>=16.0.0'}
 
+  xmlhttprequest@1.8.0:
+    resolution: {integrity: sha512-58Im/U0mlVBLM38NdZjHyhuMtCqa61469k2YP/AaPbvCoV9aQGUpbJBj1QRm2ytRiVQBD/fsw7L2bJGDVQswBA==}
+    engines: {node: '>=0.4.0'}
+
   zod-to-json-schema@3.25.2:
     resolution: {integrity: sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA==}
     peerDependencies:
@@ -791,6 +833,16 @@ packages:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
+
+  '@appmonster/mcp-popbill@file:packages/popbill':
+    dependencies:
+      '@appmonster/approval': link:packages/approval
+      '@modelcontextprotocol/sdk': 1.32.1(zod@3.25.76)
+      popbill: 1.64.2
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - '@cfworker/json-schema'
+      - supports-color
 
   '@esbuild/aix-ppc64@0.28.2':
     optional: true
@@ -1182,6 +1234,10 @@ snapshots:
 
   json-schema-typed@8.0.2: {}
 
+  linkhub@1.8.2:
+    dependencies:
+      xmlhttprequest: 1.8.0
+
   math-intrinsics@1.1.0: {}
 
   media-typer@1.1.1: {}
@@ -1221,6 +1277,14 @@ snapshots:
   path-to-regexp@8.4.2: {}
 
   pkce-challenge@5.0.1: {}
+
+  popbill@1.64.2:
+    dependencies:
+      linkhub: 1.8.2
+      popbill: '@appmonster/mcp-popbill@file:packages/popbill'
+    transitivePeerDependencies:
+      - '@cfworker/json-schema'
+      - supports-color
 
   proxy-addr@2.0.8:
     dependencies:
@@ -1351,6 +1415,8 @@ snapshots:
   wrappy@1.0.2: {}
 
   xml-naming@0.3.0: {}
+
+  xmlhttprequest@1.8.0: {}
 
   zod-to-json-schema@3.25.2(zod@3.25.76):
     dependencies:

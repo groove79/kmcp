@@ -1,0 +1,55 @@
+{
+  "name": "@appmonster/mcp-popbill",
+  "version": "0.1.0",
+  "description": "MCP server for Popbill (팝빌): Korean e-tax invoices (issue/cancel/search, Hometax sync) and KakaoTalk 알림톡 — approval-gated writes. 팝빌 MCP 서버.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-popbill": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-popbill",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "popbill",
+    "팝빌",
+    "세금계산서",
+    "tax-invoice",
+    "hometax",
+    "홈택스",
+    "알림톡",
+    "alimtalk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/popbill"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@appmonster/approval": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8",
+    "popbill": "^1.64.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
