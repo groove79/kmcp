@@ -93,7 +93,7 @@ export const listTransactions = define({
   name: "toss_list_transactions",
   access: "read",
   description:
-    "List Toss transactions (approvals and cancels) in a date range, newest first, paged with startingAfter. Max 5000 per call. " +
+    "List Toss transactions (approvals and cancels) in a date range, newest first, paged with startingAfter. Max 5000 per call. Test merchants may query at most 3 days per call (the tool clamps the range and says so). " +
     "기간별 거래 내역을 조회합니다. Use for daily reconciliation or 'what was paid today'. Needs startDate/endDate (yyyy-MM-dd or ISO datetime).",
   schema: {
     startDate: z.string().regex(dateRe),
@@ -102,12 +102,21 @@ export const listTransactions = define({
     startingAfter: z.string().optional().describe("transactionKey of the last item from the previous page"),
   },
   handler: async (c, a) => {
-    const rows = await c.get<Array<Record<string, unknown>>>("/v1/transactions", { startDate: a.startDate, endDate: a.endDate, limit: a.limit, startingAfter: a.startingAfter });
+    let startDate = a.startDate;
+    const notes: string[] = [];
+    if (c.isTest) {
+      const s = Date.parse(a.startDate.slice(0, 10)), e = Date.parse(a.endDate.slice(0, 10));
+      if (e - s > 2 * 86400_000) {
+        startDate = new Date(e - 2 * 86400_000).toISOString().slice(0, 10);
+        notes.push(`Test merchants can query at most 3 days per call — startDate clamped to ${startDate}. Use a live key for longer ranges.`);
+      }
+    }
+    const rows = await c.get<Array<Record<string, unknown>>>("/v1/transactions", { startDate, endDate: a.endDate, limit: a.limit, startingAfter: a.startingAfter });
     const transactions = (rows ?? []).map((t) => ({
       transactionKey: t.transactionKey, paymentKey: t.paymentKey, orderId: t.orderId, method: t.method, status: t.status,
       amount: t.amount, currency: t.currency, transactionAt: t.transactionAt, receiptUrl: t.receiptUrl, customerKey: t.customerKey,
     }));
-    return { transactions, nextStartingAfter: transactions.length === a.limit ? transactions[transactions.length - 1]?.transactionKey ?? null : null };
+    return { startDate, endDate: a.endDate, transactions, nextStartingAfter: transactions.length === a.limit ? transactions[transactions.length - 1]?.transactionKey ?? null : null, notes };
   },
 });
 

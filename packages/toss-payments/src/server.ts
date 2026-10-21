@@ -12,7 +12,7 @@ export interface ServerOptions {
 
 export function createServer(opts: ServerOptions): McpServer {
   const client = new TossClient(opts.secretKey, { fetchImpl: opts.fetchImpl });
-  const server = new McpServer({ name: "kmcp-toss-payments", version: "0.1.0" });
+  const server = new McpServer({ name: "kmcp-toss-payments", version: "0.1.1" });
   for (const t of tools) {
     server.registerTool(
       t.name,

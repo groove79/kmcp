@@ -64,9 +64,15 @@ test("transactions: paging cursor only when the page is full; settlements sum pa
   const tx = (n: number) => Array.from({ length: n }, (_, i) => ({ transactionKey: `t${i}`, paymentKey: "p", orderId: "o", amount: 100, status: "DONE" }));
   const a = fakeFetch(() => ({ body: tx(2) }));
   const c = new TossClient("test_sk_abc", { fetchImpl: a.fetchImpl });
-  const full = await listTransactions.handler(c, { startDate: "2026-10-01", endDate: "2026-10-21", limit: 2 }) as { nextStartingAfter: string | null };
+  const full = await listTransactions.handler(c, { startDate: "2026-10-01", endDate: "2026-10-21", limit: 2 }) as { nextStartingAfter: string | null; startDate: string; notes: string[] };
   assert.equal(full.nextStartingAfter, "t1");
   assert.equal(a.calls[0].url.searchParams.get("limit"), "2");
+  assert.equal(full.startDate, "2026-10-19", "test key → 3-day clamp (verified against the live sandbox: INVALID_DATE beyond 3 days)");
+  assert.equal(a.calls[0].url.searchParams.get("startDate"), "2026-10-19");
+  assert.equal(full.notes.length, 1);
+  const live = new TossClient("live_sk_x", { fetchImpl: a.fetchImpl });
+  const unclamped = await listTransactions.handler(live, { startDate: "2026-10-01", endDate: "2026-10-21", limit: 2 }) as { startDate: string };
+  assert.equal(unclamped.startDate, "2026-10-01");
   const partial = await listTransactions.handler(c, { startDate: "2026-10-01", endDate: "2026-10-21", limit: 5 }) as { nextStartingAfter: string | null };
   assert.equal(partial.nextStartingAfter, null);
 

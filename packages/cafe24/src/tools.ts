@@ -74,8 +74,14 @@ export const updateInventory = define({
     variant_code: z.string().describe("Variant code like P000000A000A"),
     quantity: z.number().int().min(0),
   },
-  handler: (c, { product_no, variant_code, quantity }) =>
-    c.put(`/products/${product_no}/variants/${variant_code}/inventories`, { shop_no: c.shopNo, request: { quantity, use_inventory: "T" } }),
+  handler: async (c, { product_no, variant_code, quantity }) => {
+    const r = await c.put<{ inventory?: unknown }>(`/products/${product_no}/variants/${variant_code}/inventories`, { shop_no: c.shopNo, request: { quantity, use_inventory: "T" } });
+    return {
+      ...r,
+      // Verified live (2026-10): the PUT response already reflects the new quantity, but a GET within ~1–2 s can still return the old value.
+      note: "Applied. Cafe24 reads can lag 1–2 seconds after a write — re-read after a short wait if you need to confirm.",
+    };
+  },
 });
 
 export const listOrders = define({

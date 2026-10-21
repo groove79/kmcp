@@ -6,15 +6,19 @@ MCP server for the **Cafe24 Admin API**. Lets Claude, Cursor or ChatGPT manage a
 
 ## Setup (one time)
 
-1. Create an app at [Cafe24 Developers](https://developers.cafe24.com) → 앱 만들기.
-   - Redirect URI: `http://localhost:8787/callback`
-   - Scopes: 상품 읽기/쓰기, 주문 읽기/쓰기, 게시판 읽기/쓰기, 쇼핑몰 정보 읽기
-   - Note the **client id** and **client secret**; your **mall id** is the subdomain of your admin (`{mall_id}.cafe24.com`).
-2. Authorize once (opens the browser, stores a token in `~/.config/kmcp/cafe24/<mall_id>.json`):
+1. Create an app at [Cafe24 Developers](https://developers.cafe24.com) (log in with your Cafe24 mall account → 파트너 가입 → App 관리 → ADD PRODUCT → Web).
+   - **Redirect URI** must be `https://` on a domain you control — Cafe24 rejects `http://` and IPs. Any page works, even one that 404s: the code arrives in the address bar (e.g. `https://yourdomain.com/cafe24/callback`).
+   - 권한선택 (쇼핑몰 운영자): 상품·주문·게시판 → 읽기+쓰기, 상점 → 읽기. 타임존 `Asia/Seoul`. 저장.
+   - Note the **Client ID** and **Client Secret Key** (인증정보 → 보기); your **mall id** is the subdomain of your admin (`{mall_id}.cafe24.com`).
+2. Authorize once (stores a token in `~/.config/kmcp/cafe24/<mall_id>.json`):
    ```bash
-   CAFE24_MALL_ID=yourmall CAFE24_CLIENT_ID=... CAFE24_CLIENT_SECRET=... npx -y @appmonster/mcp-cafe24 auth
+   CAFE24_MALL_ID=yourmall CAFE24_CLIENT_ID=... CAFE24_CLIENT_SECRET=... \
+   CAFE24_REDIRECT_URI=https://yourdomain.com/cafe24/callback npx -y @appmonster/mcp-cafe24 auth
    ```
-   The refresh token rotates automatically and lasts 2 weeks; if the server goes unused longer than that, run `auth` again.
+   It opens the mall admin; click **동의함**; the browser lands on your redirect URL with `?code=…`. Paste that URL back into the terminal within 1 minute. (With an `http://localhost` redirect the CLI catches it automatically — local dev only.)
+   Access tokens last 2 h and refresh themselves; the refresh token rotates and lasts 2 weeks, so if the server goes unused longer than that, run `auth` again.
+
+Verified live against a real mall (2026-10): products, variants, inventory write, orders, boards, token refresh rotation. Writes are applied immediately but a read within ~1–2 s may still show the old value.
 
 ## Install
 
