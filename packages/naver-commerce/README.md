@@ -1,4 +1,4 @@
-# @kmcp/naver-commerce
+# @appmonster/mcp-naver-commerce
 
 MCP server for the **Naver Commerce API** (Smart Store). Lets Claude, Cursor, ChatGPT and any MCP client list products, read orders, answer "any new orders?", and change stock — in Korean or English.
 
@@ -13,7 +13,7 @@ MCP server for the **Naver Commerce API** (Smart Store). Lets Claude, Cursor, Ch
   "mcpServers": {
     "naver-commerce": {
       "command": "npx",
-      "args": ["-y", "@kmcp/naver-commerce"],
+      "args": ["-y", "@appmonster/mcp-naver-commerce"],
       "env": {
         "NAVER_COMMERCE_CLIENT_ID": "your-client-id",
         "NAVER_COMMERCE_CLIENT_SECRET": "your-client-secret"
@@ -28,7 +28,7 @@ MCP server for the **Naver Commerce API** (Smart Store). Lets Claude, Cursor, Ch
 **Claude Code**:
 
 ```bash
-claude mcp add naver-commerce -e NAVER_COMMERCE_CLIENT_ID=... -e NAVER_COMMERCE_CLIENT_SECRET=... -- npx -y @kmcp/naver-commerce
+claude mcp add naver-commerce -e NAVER_COMMERCE_CLIENT_ID=... -e NAVER_COMMERCE_CLIENT_SECRET=... -- npx -y @appmonster/mcp-naver-commerce
 ```
 
 Get credentials at [커머스API센터](https://apicenter.commerce.naver.com) → 애플리케이션 등록. The secret is used as a bcrypt salt and never leaves your machine.
@@ -60,7 +60,7 @@ Write tools carry `destructiveHint: true` so clients can ask before running them
 ## Develop
 
 ```bash
-pnpm install && pnpm -F @kmcp/naver-commerce build && pnpm -F @kmcp/naver-commerce test
+pnpm install && pnpm -F @appmonster/mcp-naver-commerce build && pnpm -F @appmonster/mcp-naver-commerce test
 ```
 
 MIT © Appmonster

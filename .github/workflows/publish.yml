@@ -1,0 +1,60 @@
+name: Publish
+
+# Tag a package release as  naver-commerce-v0.1.0  → publishes to npm, then to the official MCP Registry.
+on:
+  push:
+    tags:
+      - "*-v*.*.*"
+
+permissions:
+  contents: read
+  id-token: write # npm provenance + mcp-publisher GitHub OIDC login
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Resolve package + version from tag
+        id: tag
+        run: |
+          TAG="${GITHUB_REF_NAME}"            # e.g. naver-commerce-v0.1.0
+          PKG="${TAG%-v*}"                    # naver-commerce
+          VER="${TAG##*-v}"                   # 0.1.0
+          DIR="packages/${PKG}"
+          test -d "$DIR" || { echo "no package dir $DIR"; exit 1; }
+          PKG_VER=$(node -p "require('./$DIR/package.json').version")
+          SRV_VER=$(node -p "require('./$DIR/server.json').version")
+          [ "$PKG_VER" = "$VER" ] || { echo "package.json version $PKG_VER != tag $VER"; exit 1; }
+          [ "$SRV_VER" = "$VER" ] || { echo "server.json version $SRV_VER != tag $VER"; exit 1; }
+          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test
+
+      - name: Publish to npm (with provenance)
+        working-directory: ${{ steps.tag.outputs.dir }}
+        run: pnpm publish --access public --no-git-checks --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/').tar.gz" | tar xz mcp-publisher
+          sudo mv mcp-publisher /usr/local/bin/
+
+      - name: Publish to MCP Registry
+        working-directory: ${{ steps.tag.outputs.dir }}
+        run: |
+          mcp-publisher login github-oidc
+          mcp-publisher publish
