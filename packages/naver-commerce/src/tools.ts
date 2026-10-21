@@ -159,4 +159,128 @@ export const listInquiries = define({
   },
 });
 
-export const tools = [listProducts, getProduct, updateStock, listOrders, listInquiries] as const;
+
+/** 상품 이미지 업로드 — 등록 시 representativeImage.url 은 네이버가 호스팅한 URL이어야 한다. */
+export const uploadImages = define({
+  name: "naver_upload_images",
+  access: "write",
+  description:
+    "Upload up to 10 product images (from https URLs or base64) to Naver and get back the Naver-hosted URLs that naver_create_product requires. JPG/PNG/GIF, ≤10MB each. " +
+    "상품 이미지를 네이버 서버에 올리고 등록에 쓸 URL을 받습니다. Use before naver_create_product. Needs image URLs or base64 data.",
+  schema: {
+    images: z.array(z.object({
+      url: z.string().url().optional().describe("https image URL to fetch"),
+      base64: z.string().optional().describe("Raw base64 (no data: prefix)"),
+      filename: z.string().default("image.jpg"),
+      contentType: z.enum(["image/jpeg", "image/png", "image/gif"]).default("image/jpeg"),
+    })).min(1).max(10),
+  },
+  handler: async (client, { images }) => {
+    const files: Array<{ name: string; bytes: Uint8Array; contentType: string }> = [];
+    for (const im of images) {
+      let bytes: Uint8Array;
+      if (im.base64) bytes = new Uint8Array(Buffer.from(im.base64, "base64"));
+      else if (im.url) {
+        const res = await client.fetchRaw(im.url);
+        if (!res.ok) throw new Error(`Image download failed ${im.url}: HTTP ${res.status}`);
+        bytes = new Uint8Array(await res.arrayBuffer());
+      } else throw new Error("Each image needs url or base64");
+      if (bytes.length > 10 * 1024 * 1024) throw new Error(`${im.filename} exceeds 10MB`);
+      files.push({ name: im.filename, bytes, contentType: im.contentType });
+    }
+    const res = await client.postMultipart<{ images?: Array<{ url: string }> }>("/v1/product-images/upload", files);
+    return { urls: (res.images ?? []).map((i) => i.url) };
+  },
+});
+
+const noticeSchema = z.object({
+  productInfoProvidedNoticeType: z.string().default("ETC").describe("고시 유형 코드, e.g. ETC(기타), WEAR(의류), FOOD, ELECTRONICS…"),
+  fields: z.record(z.string()).default({}).describe("That type's fields. For ETC: itemName, modelName, manufacturer, afterServiceDirector (+ certificationType etc.). '상세페이지 참조' is accepted for most."),
+});
+
+/** 상품 등록 — 스마트스토어 채널 포함. japan-bridge의 jp_listing_draft 출력과 같은 모양을 받는다. */
+export const createProduct = define({
+  name: "naver_create_product",
+  access: "write",
+  description:
+    "Create a new Smart Store product (origin product + smartstore channel product) and put it on sale. Accepts the draft shape from jp_listing_draft. Images must already be Naver-hosted (naver_upload_images). Returns originProductNo and channelProductNo. " +
+    "스마트스토어에 새 상품을 등록합니다. IRREVERSIBLE: goes live immediately unless statusType is WAIT. Needs leafCategoryId, name, detailContent, salePrice, stockQuantity, representative image URL, origin (원산지), A/S info, and 상품정보제공고시.",
+  schema: {
+    name: z.string().min(1).max(100),
+    leafCategoryId: z.string().min(1).describe("Naver leaf category id (리프 카테고리), e.g. 50000803"),
+    detailContent: z.string().min(1).describe("HTML or text detail page content"),
+    salePrice: z.number().int().positive().describe("KRW, multiple of 10"),
+    stockQuantity: z.number().int().min(0),
+    representativeImageUrl: z.string().url().describe("Naver-hosted URL from naver_upload_images"),
+    optionalImageUrls: z.array(z.string().url()).max(9).optional(),
+    statusType: z.enum(["SALE", "WAIT"]).default("SALE").describe("WAIT = 판매대기 (review first)"),
+    saleType: z.enum(["NEW", "OLD"]).default("NEW"),
+    originArea: z.object({
+      code: z.string().default("03").describe("원산지 코드: 00 국산, 03 수입산(해외구매대행 포함), 04 기타"),
+      content: z.string().optional().describe("e.g. 일본"),
+      importer: z.string().optional().describe("수입사/구매대행 표기"),
+    }).default({ code: "03" }),
+    afterService: z.object({ telephone: z.string().min(1), guide: z.string().min(1) }),
+    delivery: z.object({
+      deliveryFeeType: z.enum(["FREE", "PAID", "CONDITIONAL_FREE"]).default("FREE"),
+      baseFee: z.number().int().min(0).optional().describe("PAID/CONDITIONAL_FREE 배송비"),
+      freeConditionalAmount: z.number().int().min(0).optional().describe("CONDITIONAL_FREE 기준 금액"),
+      returnDeliveryFee: z.number().int().min(0).default(3000),
+      exchangeDeliveryFee: z.number().int().min(0).default(6000),
+      deliveryAttributeType: z.enum(["NORMAL", "TODAY", "OPTION_TODAY", "HOPE", "ORDER_MAKE", "SELLER_GUARANTEE"]).default("NORMAL"),
+    }).default({}),
+    notice: noticeSchema.default({}),
+    minorPurchasable: z.boolean().default(true),
+    sellerManagementCode: z.string().optional().describe("판매자 관리코드 (SKU)"),
+    brandName: z.string().optional(),
+    manufacturerName: z.string().optional(),
+    naverShoppingRegistration: z.boolean().default(true),
+    maxPurchaseQuantityPerOrder: z.number().int().positive().optional(),
+  },
+  handler: async (client, a) => {
+    const noticeFields = { ...a.notice.fields };
+    if (a.notice.productInfoProvidedNoticeType === "ETC") {
+      for (const k of ["itemName", "modelName", "manufacturer", "afterServiceDirector"]) if (!noticeFields[k]) noticeFields[k] = k === "afterServiceDirector" ? a.afterService.telephone : "상세페이지 참조";
+    }
+    const deliveryFee: Record<string, unknown> = { deliveryFeeType: a.delivery.deliveryFeeType };
+    if (a.delivery.deliveryFeeType !== "FREE") deliveryFee.baseFee = a.delivery.baseFee ?? 3000;
+    if (a.delivery.deliveryFeeType === "CONDITIONAL_FREE") deliveryFee.freeConditionalAmount = a.delivery.freeConditionalAmount ?? 50000;
+    const body = {
+      originProduct: {
+        statusType: a.statusType,
+        saleType: a.saleType,
+        leafCategoryId: a.leafCategoryId,
+        name: a.name,
+        detailContent: a.detailContent,
+        images: { representativeImage: { url: a.representativeImageUrl }, optionalImages: (a.optionalImageUrls ?? []).map((url) => ({ url })) },
+        salePrice: a.salePrice,
+        stockQuantity: a.stockQuantity,
+        deliveryInfo: {
+          deliveryType: "DELIVERY",
+          deliveryAttributeType: a.delivery.deliveryAttributeType,
+          deliveryFee,
+          claimDeliveryInfo: { returnDeliveryFee: a.delivery.returnDeliveryFee, exchangeDeliveryFee: a.delivery.exchangeDeliveryFee },
+        },
+        detailAttribute: {
+          naverShoppingSearchInfo: { brandName: a.brandName, manufacturerName: a.manufacturerName },
+          afterServiceInfo: { afterServiceTelephoneNumber: a.afterService.telephone, afterServiceGuideContent: a.afterService.guide },
+          originAreaInfo: { originAreaCode: a.originArea.code, content: a.originArea.content, importer: a.originArea.importer, plural: false },
+          minorPurchasable: a.minorPurchasable,
+          productInfoProvidedNotice: { productInfoProvidedNoticeType: a.notice.productInfoProvidedNoticeType, [a.notice.productInfoProvidedNoticeType.toLowerCase()]: noticeFields },
+          sellerCodeInfo: a.sellerManagementCode ? { sellerManagementCode: a.sellerManagementCode } : undefined,
+          purchaseQuantityInfo: a.maxPurchaseQuantityPerOrder ? { maxPurchaseQuantityPerOrder: a.maxPurchaseQuantityPerOrder } : undefined,
+        },
+      },
+      smartstoreChannelProduct: { naverShoppingRegistration: a.naverShoppingRegistration, channelProductDisplayStatusType: "ON" },
+    };
+    const res = await client.post<{ originProductNo?: number; smartstoreChannelProductNo?: number }>("/v2/products", body);
+    return {
+      originProductNo: res.originProductNo ?? null,
+      channelProductNo: res.smartstoreChannelProductNo ?? null,
+      status: a.statusType,
+      url: res.smartstoreChannelProductNo ? `https://smartstore.naver.com/main/products/${res.smartstoreChannelProductNo}` : null,
+    };
+  },
+});
+
+export const tools = [listProducts, getProduct, updateStock, listOrders, listInquiries, uploadImages, createProduct] as const;

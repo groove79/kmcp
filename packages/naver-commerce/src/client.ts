@@ -79,4 +79,25 @@ export class NaverClient {
   put<T>(path: string, body?: unknown) {
     return this.request<T>("PUT", path, { body });
   }
+
+  /** plain fetch for downloading external resources (images) with the same fetch implementation */
+  fetchRaw(url: string) { return this.fetchImpl(url); }
+
+  /** multipart upload (product images). Files: [{name, bytes, contentType}] under the field "imageFiles". */
+  async postMultipart<T>(path: string, files: Array<{ name: string; bytes: Uint8Array; contentType: string }>): Promise<T> {
+    const form = new FormData();
+    for (const f of files) form.append("imageFiles", new Blob([f.bytes as BlobPart], { type: f.contentType }), f.name);
+    const doFetch = async (token: string) =>
+      this.fetchImpl(this.baseUrl + path, { method: "POST", headers: { Authorization: `Bearer ${token}`, Accept: "application/json" }, body: form });
+    let res = await doFetch(await this.tokens.getToken());
+    if (res.status === 401) res = await doFetch(await this.tokens.refresh());
+    const text = await res.text();
+    let json: unknown;
+    try { json = text ? JSON.parse(text) : undefined; } catch { json = text; }
+    if (!res.ok) {
+      const j = (json ?? {}) as { code?: string; message?: string };
+      throw new NaverApiError(res.status, j.code, `Naver API POST ${path} → HTTP ${res.status}${j.code ? ` [${j.code}]` : ""}: ${j.message ?? text}`, json);
+    }
+    return json as T;
+  }
 }

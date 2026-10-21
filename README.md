@@ -10,7 +10,7 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 
 | Server | Install name | What the agent can do |
 |---|---|---|
-| 🛒 **Naver Smart Store** | `@appmonster/mcp-naver-commerce` | list/get products, **update stock**, orders, customer inquiries |
+| 🛒 **Naver Smart Store** | `@appmonster/mcp-naver-commerce` | list/get products, **update stock**, **create product** (+ image upload), orders, customer inquiries |
 | 🛒 **Coupang Wing** | `@appmonster/mcp-coupang` | products, **item stock/price**, order sheets, **ship confirmation** |
 | 🛒 **Cafe24** | `@appmonster/mcp-cafe24` | products, **variant stock**, orders, board posts (OAuth auto-refresh) |
 | 🏛 **Public data** | `@appmonster/mcp-public-data` | 사업자 상태(국세청), 공휴일(천문연), 도로명주소, 아파트 실거래가 |
@@ -57,7 +57,7 @@ The first two need no keys. Each package README has the exact env vars and where
 - **"첨부한 공문(.hwp)에서 표를 뽑아서 수량·단가 합계 내고, 담당자에게 카톡으로 요약 보내줘."**
   → `hwp_extract_tables` → `kakao_send_to_me`
 - **"라쿠텐에서 이 상품 찾아서 한국 판매가 계산하고 스마트스토어 등록 초안 만들어."**
-  → `jp_search_rakuten` → `jp_fx_rate` → `jp_landed_cost` → `jp_listing_draft`
+  → `jp_search_rakuten` → `jp_fx_rate` → `jp_landed_cost` → `jp_listing_draft` → `naver_upload_images` → `naver_create_product` *(approval)*
 - **"이번 달 우리 법인이 신고할 거 뭐 있고, 각각 영업일 기준 며칠 남았어?"**
   → `kr_tax_calendar` → `kr_add_business_days`
 - **"Shopify 재고를 스마트스토어에도 똑같이 맞춰줘."**
@@ -84,7 +84,6 @@ Money and irreversible actions (refunds, stock changes, invoices, 알림톡) go 
 - Hosted gateway (Streamable HTTP, API keys, fixed IP for Naver/11st whitelists) → Claude.ai connectors, ChatGPT apps, n8n cloud — see [docs/GATEWAY.md](docs/GATEWAY.md)
 - 11번가·ESM, 아임웹 (app-store model, needs the gateway)
 - Korea customs: HS code & duty-rate lookup, 세관장확인 요건
-- `naver_create_product` to close the Japan-bridge loop
 
 ## Development
 

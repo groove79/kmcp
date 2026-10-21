@@ -42,6 +42,8 @@ Get credentials at [커머스API센터](https://apicenter.commerce.naver.com) �
 | `naver_update_stock` | **write** | Change stock. No-option product: GET channel product → change `stockQuantity` → `PUT /v2/products/channel-products/{no}` whole (Naver has no stock-only API). Option product: `PUT …/option-stock` |
 | `naver_list_orders` | read | Orders changed since a time, with details (`last-changed-statuses` → `query`) |
 | `naver_list_inquiries` | read | Customer 1:1 inquiries in a date range (`GET /v1/pay-user/inquiries`) |
+| `naver_upload_images` | write | Upload images (URL/base64) to Naver → hosted URLs for product creation (`POST /v1/product-images/upload`) |
+| `naver_create_product` | **write** | Create a product + smartstore channel product (`POST /v2/products`). Accepts the `jp_listing_draft` shape from the Japan bridge; `statusType: WAIT` to review before sale |
 
 Write tools carry `destructiveHint: true` so clients can ask before running them. `createServer({ approveWrite })` lets you plug in an external approval step.
 

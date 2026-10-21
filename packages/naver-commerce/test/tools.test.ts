@@ -39,12 +39,12 @@ async function connect(fetchImpl: typeof fetch, approveWrite?: (n: string, a: un
   return client;
 }
 
-test("registers the five tools with read/write annotations", async () => {
+test("registers the seven tools with read/write annotations", async () => {
   const { fetchImpl } = fakeNaver({});
   const client = await connect(fetchImpl);
   const { tools } = await client.listTools();
   const names = tools.map((t) => t.name).sort();
-  assert.deepEqual(names, ["naver_get_product", "naver_list_inquiries", "naver_list_orders", "naver_list_products", "naver_update_stock"]);
+  assert.deepEqual(names, ["naver_create_product", "naver_get_product", "naver_list_inquiries", "naver_list_orders", "naver_list_products", "naver_update_stock", "naver_upload_images"]);
   const upd = tools.find((t) => t.name === "naver_update_stock")!;
   assert.equal(upd.annotations?.readOnlyHint, false);
   assert.equal(upd.annotations?.destructiveHint, true);
@@ -118,4 +118,50 @@ test("API errors surface Naver code and message to the agent", async () => {
 
 test("toKstIso formats with +09:00", () => {
   assert.equal(toKstIso(new Date("2026-10-21T00:00:00Z")), "2026-10-21T09:00:00.000+09:00");
+});
+
+test("naver_create_product builds the v2 body (images, delivery, notice defaults) and returns numbers", async () => {
+  const { fetchImpl, calls } = fakeNaver({ "POST /v2/products": () => ({ originProductNo: 111, smartstoreChannelProductNo: 222 }) });
+  const client = await connect(fetchImpl);
+  const r = await client.callTool({ name: "naver_create_product", arguments: {
+    name: "포켓몬 인형", leafCategoryId: "50000803", detailContent: "<p>일본 정품</p>", salePrice: 45000, stockQuantity: 10,
+    representativeImageUrl: "https://shop-phinf.pstatic.net/x.jpg", afterService: { telephone: "010-0000-0000", guide: "제조사 정책" },
+    originArea: { code: "03", content: "일본", importer: "해외구매대행" }, statusType: "WAIT",
+  } });
+  assert.equal(r.isError, undefined, JSON.stringify(r.content));
+  const call = calls.find((c) => c.url.endsWith("/v2/products"))!;
+  const op = call.body.originProduct;
+  assert.equal(op.statusType, "WAIT");
+  assert.equal(op.images.representativeImage.url, "https://shop-phinf.pstatic.net/x.jpg");
+  assert.equal(op.deliveryInfo.deliveryFee.deliveryFeeType, "FREE");
+  assert.equal(op.deliveryInfo.claimDeliveryInfo.returnDeliveryFee, 3000);
+  assert.equal(op.detailAttribute.originAreaInfo.content, "일본");
+  assert.equal(op.detailAttribute.productInfoProvidedNotice.productInfoProvidedNoticeType, "ETC");
+  assert.equal(op.detailAttribute.productInfoProvidedNotice.etc.itemName, "상세페이지 참조");
+  assert.equal(call.body.smartstoreChannelProduct.channelProductDisplayStatusType, "ON");
+  const out = JSON.parse((r.content as Array<{ text: string }>)[0].text);
+  assert.equal(out.channelProductNo, 222);
+  assert.ok(out.url.endsWith("/222"));
+});
+
+test("naver_upload_images fetches URLs, posts multipart to /v1/product-images/upload, returns hosted urls", async () => {
+  const calls: Call[] = [];
+  const fetchImpl = (async (url: string | URL, init?: RequestInit) => {
+    const u = String(url);
+    calls.push({ method: init?.method ?? "GET", url: u, body: init?.body });
+    if (u.endsWith("/oauth2/token")) return json({ access_token: "t", expires_in: 10800, token_type: "Bearer" });
+    if (u === "https://img.test/a.jpg") return new Response(new Uint8Array([1, 2, 3]), { status: 200, headers: { "Content-Type": "image/jpeg" } });
+    if (u.endsWith("/v1/product-images/upload")) {
+      assert.ok(init?.body instanceof FormData, "multipart body");
+      const f = (init!.body as FormData).get("imageFiles") as File;
+      assert.equal(f.size, 3);
+      return json({ images: [{ url: "https://shop-phinf.pstatic.net/hosted.jpg" }] });
+    }
+    return new Response("{}", { status: 404 });
+  }) as unknown as typeof fetch;
+  const client = await connect(fetchImpl);
+  const r = await client.callTool({ name: "naver_upload_images", arguments: { images: [{ url: "https://img.test/a.jpg", filename: "a.jpg" }] } });
+  assert.equal(r.isError, undefined, JSON.stringify(r.content));
+  const out = JSON.parse((r.content as Array<{ text: string }>)[0].text);
+  assert.deepEqual(out.urls, ["https://shop-phinf.pstatic.net/hosted.jpg"]);
 });

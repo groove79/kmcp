@@ -24,7 +24,7 @@ export function createServer(opts: ServerOptions): McpServer {
   });
   const client = new NaverClient(tokens, { fetchImpl: opts.fetchImpl });
 
-  const server = new McpServer({ name: "kmcp-naver-commerce", version: "0.1.0" });
+  const server = new McpServer({ name: "kmcp-naver-commerce", version: "0.2.0" });
 
   for (const t of tools) {
     server.registerTool(
