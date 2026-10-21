@@ -15,6 +15,7 @@ Model Context Protocol servers for Korean platforms — so AI agents can actuall
 | [`@appmonster/mcp-toss-payments`](packages/toss-payments) | 0.1.0 | Toss Payments: payment lookup, cancel/refund (approval-gated), transactions, settlements |
 | [`@appmonster/mcp-popbill`](packages/popbill) | 0.1.0 | Popbill: e-tax invoices (issue/cancel/search), Hometax sync, KakaoTalk 알림톡 |
 | [`@appmonster/mcp-japan-bridge`](packages/japan-bridge) | 0.1.0 | Japan → Korea sourcing: Rakuten/Yahoo search, landed cost + price calc, Smart Store draft |
+| [`@appmonster/mcp-kr-biz-calendar`](packages/kr-biz-calendar) | 0.1.0 | Tax/payroll deadlines, public holidays, business-day math — no keys |
 
 ## Quick start
 

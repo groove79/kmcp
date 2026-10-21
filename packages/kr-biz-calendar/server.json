@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-kr-biz-calendar",
+  "description": "Korean tax/payroll deadlines, public holidays, business-day math. No keys. 세무 일정·영업일 MCP.",
+  "title": "Korea Business Calendar",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/kr-biz-calendar"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-kr-biz-calendar",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": []
+    }
+  ]
+}

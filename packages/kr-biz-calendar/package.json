@@ -1,0 +1,54 @@
+{
+  "name": "@appmonster/mcp-kr-biz-calendar",
+  "version": "0.1.0",
+  "description": "MCP server for Korean business dates: tax/payroll filing deadlines (부가세·원천세·종소세·법인세·4대보험), public holidays, business-day arithmetic. No keys. 한국 세무·영업일 캘린더 MCP.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-kr-biz-calendar": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-kr-biz-calendar",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "tax",
+    "calendar",
+    "holidays",
+    "business-days",
+    "세무",
+    "부가세",
+    "원천세",
+    "공휴일",
+    "영업일"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/kr-biz-calendar"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

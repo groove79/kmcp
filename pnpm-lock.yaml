@@ -137,6 +137,25 @@ importers:
         specifier: ^5.6.3
         version: 5.9.3
 
+  packages/kr-biz-calendar:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.12.0
+        version: 1.32.1(zod@3.25.76)
+      zod:
+        specifier: ^3.23.8
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.5
+      tsx:
+        specifier: ^4.19.2
+        version: 4.23.15
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+
   packages/naver-commerce:
     dependencies:
       '@appmonster/approval':
