@@ -19,7 +19,7 @@ const TAG = {
   get CTRL_HEADER() { return this.BEGIN + 55; },
   get LIST_HEADER() { return this.BEGIN + 56; },
   get TABLE() { return this.BEGIN + 61; },
-  get SHAPE_PICTURE() { return this.BEGIN + 76; },
+  get SHAPE_PICTURE() { return this.BEGIN + 69; },
 };
 
 interface Rec { tag: number; level: number; data: Buffer }
@@ -131,42 +131,44 @@ export function parseHwp5(file: Buffer): HwpDocument {
 
 function parseSection(recs: Rec[], headings: Map<number, number>, meta: HwpDocument["meta"]): Block[] {
   const blocks: Block[] = [];
-  // Table state machine
+  // Real-file layout (verified against 한글 2018+ output):
+  //   PARA_HEADER(L) PARA_TEXT(L+1) … CTRL_HEADER 'tbl '(L+1) TABLE(L+2)
+  //   then for each cell: LIST_HEADER(L+2) PARA_HEADER(L+2) PARA_TEXT(L+3) …
+  //   the table ends at the first record with level < L+2.
   let table: { rows: number; cols: number; cells: TableCell[]; level: number; cell: TableCell | null } | null = null;
   let curPara: Paragraph | null = null;
-  let paraStyle = 0;
 
   const flushTable = () => { if (table) { blocks.push({ kind: "table", rows: table.rows, cols: table.cols, cells: table.cells }); table = null; } };
 
   for (const r of recs) {
-    if (table && r.level <= table.level && r.tag !== TAG.LIST_HEADER && r.tag !== TAG.TABLE) {
-      // left the table (a record at the table's own level or above that is not a cell header)
-      if (!(r.tag === TAG.PARA_HEADER && r.level > table.level)) flushTable();
-    }
+    if (table && r.level < table.level) flushTable();
     switch (r.tag) {
       case TAG.PARA_HEADER: {
-        paraStyle = r.data.length >= 12 ? r.data.readUInt8(10) : 0; // styleId is a BYTE at offset 10 (after nChars u32, controlMask u32, paraShapeId u16)
-        curPara = { kind: "paragraph", text: "", heading: headings.get(paraStyle) ?? 0 };
-        if (table && table.cell && r.level > table.level) { /* cell paragraph; appended on PARA_TEXT */ }
-        else if (!table) blocks.push(curPara);
+        const styleId = r.data.length >= 12 ? r.data.readUInt8(10) : 0; // nChars u32, controlMask u32, paraShapeId u16, styleId u8
+        if (table) {
+          if (table.cell && table.cell.text && r.level === table.level) table.cell.text += "\n"; // new paragraph inside the same cell
+          break;
+        }
+        curPara = { kind: "paragraph", text: "", heading: headings.get(styleId) ?? 0 };
+        blocks.push(curPara);
         break;
       }
       case TAG.PARA_TEXT: {
         const { text } = decodeParaText(r.data);
-        if (table && table.cell && r.level > table.level) table.cell.text += (table.cell.text ? "\n" : "") + text;
+        if (table) { if (table.cell) table.cell.text += text; }
         else if (curPara) curPara.text += text;
         break;
       }
       case TAG.TABLE: {
-        flushTable();
+        if (table) break; // nested table: flatten its text into the current cell
         const rows = r.data.readUInt16LE(4), cols = r.data.readUInt16LE(6);
         table = { rows, cols, cells: [], level: r.level, cell: null };
         break;
       }
       case TAG.LIST_HEADER: {
-        if (table && r.level === table.level && r.data.length >= 14) {
-          // list header: u16 nParas, u32 attr, then cell: u16 col, u16 row, u16 colSpan, u16 rowSpan
-          const col = r.data.readUInt16LE(6), row = r.data.readUInt16LE(8), colSpan = r.data.readUInt16LE(10), rowSpan = r.data.readUInt16LE(12);
+        if (table && r.level === table.level && r.data.length >= 16) {
+          // u16 nParas, u32 attr, u16 (reserved), then cell: u16 col, u16 row, u16 colSpan, u16 rowSpan, u32 width, u32 height …
+          const col = r.data.readUInt16LE(8), row = r.data.readUInt16LE(10), colSpan = r.data.readUInt16LE(12), rowSpan = r.data.readUInt16LE(14);
           table.cell = { row, col, rowSpan: Math.max(1, rowSpan), colSpan: Math.max(1, colSpan), text: "" };
           table.cells.push(table.cell);
         }

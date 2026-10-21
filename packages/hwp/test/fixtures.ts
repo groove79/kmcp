@@ -32,8 +32,8 @@ export function buildHwp5(): Buffer {
   const docInfo = Buffer.concat([style("바탕글"), style("개요 1"), style("개요 2")]);
 
   const cell = (col: number, row: number, text: string) => Buffer.concat([
-    rec(TAG_BEGIN + 56, 2, Buffer.concat([u16(1), u32(0), u16(col), u16(row), u16(1), u16(1), u32(100), u32(50), Buffer.alloc(10)])),
-    paraHeader(3, 0, text.length), paraText(3, text),
+    rec(TAG_BEGIN + 56, 2, Buffer.concat([u16(1), u32(0), u16(0), u16(col), u16(row), u16(1), u16(1), u32(100), u32(50), Buffer.alloc(10)])),
+    paraHeader(2, 0, text.length), paraText(3, text),
   ]);
   const section = Buffer.concat([
     paraHeader(0, 1, 5), paraText(1, "입찰 공고"),
