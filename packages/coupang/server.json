@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-coupang",
+  "description": "Coupang Wing seller MCP: products, item stock/price, order sheets, ship confirmation. 쿠팡 윙 MCP.",
+  "title": "Coupang Wing",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/coupang"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-coupang",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "COUPANG_ACCESS_KEY", "description": "Wing Open API access key", "isRequired": true, "isSecret": true },
+        { "name": "COUPANG_SECRET_KEY", "description": "Wing Open API secret key", "isRequired": true, "isSecret": true },
+        { "name": "COUPANG_VENDOR_ID", "description": "Seller vendor id, e.g. A00012345", "isRequired": true, "isSecret": false },
+        { "name": "APPROVAL_URL", "description": "OK Agent base URL — if set, write tools wait for human approval", "isRequired": false, "isSecret": false },
+        { "name": "APPROVAL_API_KEY", "description": "OK Agent API key", "isRequired": false, "isSecret": true }
+      ]
+    }
+  ]
+}

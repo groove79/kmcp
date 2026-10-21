@@ -10,6 +10,7 @@ Model Context Protocol servers for Korean platforms — so AI agents can actuall
 | [`@appmonster/mcp-cafe24`](packages/cafe24) | 0.1.0 | Cafe24: products, variant stock, orders, board posts (OAuth, auto-refresh) |
 | [`@appmonster/mcp-public-data`](packages/public-data) | 0.1.0 | 공공데이터: business status (NTS), holidays, road addresses, apartment trades |
 | [`@appmonster/mcp-hwp`](packages/hwp) | 0.1.0 | HWP/HWPX (한글) → Markdown + tables as JSON, no keys |
+| [`@appmonster/mcp-coupang`](packages/coupang) | 0.1.0 | Coupang Wing: products, item stock/price, order sheets, ship confirmation (HMAC) |
 
 ## Quick start
 
