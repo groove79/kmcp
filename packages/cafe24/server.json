@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-cafe24",
+  "description": "Cafe24 mall MCP: products, variant stock, orders, board posts. 카페24 쇼핑몰 MCP 서버.",
+  "title": "Cafe24",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/cafe24"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-cafe24",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "CAFE24_MALL_ID", "description": "Mall id (subdomain of your Cafe24 admin)", "isRequired": true, "isSecret": false },
+        { "name": "CAFE24_CLIENT_ID", "description": "App client id from developers.cafe24.com", "isRequired": true, "isSecret": false },
+        { "name": "CAFE24_CLIENT_SECRET", "description": "App client secret", "isRequired": true, "isSecret": true },
+        { "name": "CAFE24_REFRESH_TOKEN", "description": "Optional: seed refresh token instead of running `mcp-cafe24 auth`", "isRequired": false, "isSecret": true }
+      ]
+    }
+  ]
+}

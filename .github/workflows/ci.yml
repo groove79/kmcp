@@ -22,4 +22,4 @@ jobs:
         continue-on-error: true
         run: |
           curl -fsSL -o /tmp/schema.json https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json
-          npx --yes -p ajv-cli@5 -p ajv-formats@2 ajv validate -c ajv-formats -s /tmp/schema.json -d packages/naver-commerce/server.json --spec=draft7 --strict=false
+          npx --yes -p ajv-cli@5 -p ajv-formats@2 ajv validate -c ajv-formats -s /tmp/schema.json -d "packages/*/server.json" --spec=draft7 --strict=false
