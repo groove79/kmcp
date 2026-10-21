@@ -204,7 +204,7 @@ export const createProduct = define({
   access: "write",
   description:
     "Create a new Smart Store product (origin product + smartstore channel product) and put it on sale. Accepts the draft shape from jp_listing_draft. Images must already be Naver-hosted (naver_upload_images). Returns originProductNo and channelProductNo. " +
-    "스마트스토어에 새 상품을 등록합니다. IRREVERSIBLE: goes live immediately unless statusType is WAIT. Needs leafCategoryId, name, detailContent, salePrice, stockQuantity, representative image URL, origin (원산지), A/S info, and 상품정보제공고시.",
+    "스마트스토어에 새 상품을 등록합니다. IRREVERSIBLE: goes live immediately unless statusType is SUSPENSION. Needs leafCategoryId, name, detailContent, salePrice, stockQuantity, representative image URL, origin (원산지), A/S info, and 상품정보제공고시.",
   schema: {
     name: z.string().min(1).max(100),
     leafCategoryId: z.string().min(1).describe("Naver leaf category id (리프 카테고리), e.g. 50000803"),
@@ -213,7 +213,7 @@ export const createProduct = define({
     stockQuantity: z.number().int().min(0),
     representativeImageUrl: z.string().url().describe("Naver-hosted URL from naver_upload_images"),
     optionalImageUrls: z.array(z.string().url()).max(9).optional(),
-    statusType: z.enum(["SALE", "WAIT"]).default("SALE").describe("WAIT = 판매대기 (review first)"),
+    statusType: z.enum(["SALE", "SUSPENSION", "WAIT"]).default("SALE").describe("SALE = live now. SUSPENSION = 판매중지: created but not purchasable, review in 스마트스토어센터 then switch to SALE. (WAIT is accepted as an alias of SUSPENSION — Naver rejects WAIT on create, verified live.)"),
     saleType: z.enum(["NEW", "OLD"]).default("NEW"),
     originArea: z.object({
       code: z.string().default("03").describe("원산지 코드: 00 국산, 03 수입산(해외구매대행 포함), 04 기타"),
@@ -228,6 +228,7 @@ export const createProduct = define({
       returnDeliveryFee: z.number().int().min(0).default(3000),
       exchangeDeliveryFee: z.number().int().min(0).default(6000),
       deliveryAttributeType: z.enum(["NORMAL", "TODAY", "OPTION_TODAY", "HOPE", "ORDER_MAKE", "SELLER_GUARANTEE"]).default("NORMAL"),
+      deliveryCompany: z.string().default("CJGLS").describe("택배사 코드 — required by Naver for parcel delivery (verified live). CJGLS=CJ대한통운, HYUNDAI=롯데택배, HANJIN=한진택배, KGB=로젠택배, EPOST=우체국택배, KDEXP=경동택배"),
     }).default({}),
     notice: noticeSchema.default({}),
     minorPurchasable: z.boolean().default(true),
@@ -245,9 +246,10 @@ export const createProduct = define({
     const deliveryFee: Record<string, unknown> = { deliveryFeeType: a.delivery.deliveryFeeType };
     if (a.delivery.deliveryFeeType !== "FREE") deliveryFee.baseFee = a.delivery.baseFee ?? 3000;
     if (a.delivery.deliveryFeeType === "CONDITIONAL_FREE") deliveryFee.freeConditionalAmount = a.delivery.freeConditionalAmount ?? 50000;
+    const wantLive = a.statusType === "SALE";
     const body = {
       originProduct: {
-        statusType: a.statusType,
+        statusType: wantLive ? "SALE" : "SUSPENSION",
         saleType: a.saleType,
         leafCategoryId: a.leafCategoryId,
         name: a.name,
@@ -258,6 +260,7 @@ export const createProduct = define({
         deliveryInfo: {
           deliveryType: "DELIVERY",
           deliveryAttributeType: a.delivery.deliveryAttributeType,
+          deliveryCompany: a.delivery.deliveryCompany,
           deliveryFee,
           claimDeliveryInfo: { returnDeliveryFee: a.delivery.returnDeliveryFee, exchangeDeliveryFee: a.delivery.exchangeDeliveryFee },
         },
@@ -271,14 +274,39 @@ export const createProduct = define({
           purchaseQuantityInfo: a.maxPurchaseQuantityPerOrder ? { maxPurchaseQuantityPerOrder: a.maxPurchaseQuantityPerOrder } : undefined,
         },
       },
-      smartstoreChannelProduct: { naverShoppingRegistration: a.naverShoppingRegistration, channelProductDisplayStatusType: "ON" },
+      // Verified live (2026-10): Naver ignores originProduct.statusType on create and puts the product on SALE,
+      // so for a "review first" request we also hide the channel product and follow up with a status update below.
+      smartstoreChannelProduct: { naverShoppingRegistration: a.naverShoppingRegistration, channelProductDisplayStatusType: wantLive ? "ON" : "SUSPENSION" },
     };
     const res = await client.post<{ originProductNo?: number; smartstoreChannelProductNo?: number }>("/v2/products", body);
+    const originProductNo = res.originProductNo ?? null;
+    const channelProductNo = res.smartstoreChannelProductNo ?? null;
+    const notes: string[] = [];
+    if (!wantLive && originProductNo) {
+      try {
+        await client.put(`/v2/products/origin-products/${originProductNo}`, { ...body, originProduct: { ...body.originProduct, statusType: "SUSPENSION" } });
+      } catch (e) {
+        notes.push(`Follow-up status update to SUSPENSION failed: ${(e as Error).message.slice(0, 200)} — the product may be LIVE; check 스마트스토어센터 now.`);
+      }
+    }
+    let actualStatus: string | null = null;
+    let actualDisplay: string | null = null;
+    if (channelProductNo) {
+      try {
+        const back = await client.get<{ originProduct?: { statusType?: string }; smartstoreChannelProduct?: { channelProductDisplayStatusType?: string } }>(`/v2/products/channel-products/${channelProductNo}`);
+        actualStatus = back.originProduct?.statusType ?? null;
+        actualDisplay = back.smartstoreChannelProduct?.channelProductDisplayStatusType ?? null;
+      } catch { /* read-back is best effort */ }
+    }
+    if (!wantLive && actualStatus === "SALE" && actualDisplay === "ON") notes.push("WARNING: Naver reports the product as SALE and displayed — it is live. Suspend it in 스마트스토어센터.");
     return {
-      originProductNo: res.originProductNo ?? null,
-      channelProductNo: res.smartstoreChannelProductNo ?? null,
-      status: a.statusType,
-      url: res.smartstoreChannelProductNo ? `https://smartstore.naver.com/main/products/${res.smartstoreChannelProductNo}` : null,
+      originProductNo,
+      channelProductNo,
+      requestedStatus: wantLive ? "SALE" : "SUSPENSION",
+      status: actualStatus,
+      displayStatus: actualDisplay,
+      url: channelProductNo ? `https://smartstore.naver.com/main/products/${channelProductNo}` : null,
+      notes,
     };
   },
 });

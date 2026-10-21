@@ -43,7 +43,7 @@ Get credentials at [커머스API센터](https://apicenter.commerce.naver.com) �
 | `naver_list_orders` | read | Orders changed since a time, with details (`last-changed-statuses` → `query`) |
 | `naver_list_inquiries` | read | Customer 1:1 inquiries in a date range (`GET /v1/pay-user/inquiries`) |
 | `naver_upload_images` | write | Upload images (URL/base64) to Naver → hosted URLs for product creation (`POST /v1/product-images/upload`) |
-| `naver_create_product` | **write** | Create a product + smartstore channel product (`POST /v2/products`). Accepts the `jp_listing_draft` shape from the Japan bridge; `statusType: WAIT` to review before sale |
+| `naver_create_product` | **write** | Create a product + smartstore channel product (`POST /v2/products`). Accepts the `jp_listing_draft` shape from the Japan bridge; `statusType: SUSPENSION` (or `WAIT`) to review before sale — Naver ignores the status on create and goes live, so the tool hides the channel product and follows up with a 판매중지 update, then returns the **actual** status |
 
 Write tools carry `destructiveHint: true` so clients can ask before running them. `createServer({ approveWrite })` lets you plug in an external approval step.
 
@@ -66,3 +66,7 @@ pnpm install && pnpm -F @appmonster/mcp-naver-commerce build && pnpm -F @appmons
 ```
 
 MIT © Appmonster
+
+## Verified live (2026-10-21)
+
+Against a real Smart Store: `naver_upload_images` (PNG → shop-phinf URL), `naver_create_product` with `statusType: SUSPENSION` → read back `status: SUSPENSION, displayStatus: SUSPENSION` → deleted. Findings baked into the tool: `WAIT` is rejected on create (mapped to `SUSPENSION`); `deliveryInfo.deliveryCompany` (택배사 코드, default `CJGLS`) is required; the status sent on create is ignored (product appears as `SALE`), hence the follow-up update. Re-run the check any time: `node scripts/create-probe.mjs` (creates one 판매중지 product and deletes it).

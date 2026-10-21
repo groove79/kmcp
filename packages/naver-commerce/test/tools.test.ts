@@ -121,7 +121,12 @@ test("toKstIso formats with +09:00", () => {
 });
 
 test("naver_create_product builds the v2 body (images, delivery, notice defaults) and returns numbers", async () => {
-  const { fetchImpl, calls } = fakeNaver({ "POST /v2/products": () => ({ originProductNo: 111, smartstoreChannelProductNo: 222 }) });
+  const { fetchImpl, calls } = fakeNaver({
+    "POST /v2/products": () => ({ originProductNo: 111, smartstoreChannelProductNo: 222 }),
+    // Naver puts a new product on SALE regardless of statusType (verified live) → the tool follows up with a PUT and reads back.
+    "PUT /v2/products/origin-products/111": () => ({}),
+    "GET /v2/products/channel-products/222": () => ({ originProduct: { statusType: "SUSPENSION" }, smartstoreChannelProduct: { channelProductDisplayStatusType: "SUSPENSION" } }),
+  });
   const client = await connect(fetchImpl);
   const r = await client.callTool({ name: "naver_create_product", arguments: {
     name: "포켓몬 인형", leafCategoryId: "50000803", detailContent: "<p>일본 정품</p>", salePrice: 45000, stockQuantity: 10,
@@ -131,16 +136,22 @@ test("naver_create_product builds the v2 body (images, delivery, notice defaults
   assert.equal(r.isError, undefined, JSON.stringify(r.content));
   const call = calls.find((c) => c.url.endsWith("/v2/products"))!;
   const op = call.body.originProduct;
-  assert.equal(op.statusType, "WAIT");
+  assert.equal(op.statusType, "SUSPENSION", "WAIT is mapped to SUSPENSION — Naver rejects WAIT on create (verified live)");
   assert.equal(op.images.representativeImage.url, "https://shop-phinf.pstatic.net/x.jpg");
   assert.equal(op.deliveryInfo.deliveryFee.deliveryFeeType, "FREE");
   assert.equal(op.deliveryInfo.claimDeliveryInfo.returnDeliveryFee, 3000);
   assert.equal(op.detailAttribute.originAreaInfo.content, "일본");
   assert.equal(op.detailAttribute.productInfoProvidedNotice.productInfoProvidedNoticeType, "ETC");
   assert.equal(op.detailAttribute.productInfoProvidedNotice.etc.itemName, "상세페이지 참조");
-  assert.equal(call.body.smartstoreChannelProduct.channelProductDisplayStatusType, "ON");
+  assert.equal(call.body.smartstoreChannelProduct.channelProductDisplayStatusType, "SUSPENSION", "review-first also hides the channel product");
+  assert.equal(op.deliveryInfo.deliveryCompany, "CJGLS", "택배사 is required by Naver (verified live)");
+  const follow = calls.find((c) => c.method === "PUT" && c.url.endsWith("/origin-products/111"))!;
+  assert.equal(follow.body.originProduct.statusType, "SUSPENSION");
   const out = JSON.parse((r.content as Array<{ text: string }>)[0].text);
   assert.equal(out.channelProductNo, 222);
+  assert.equal(out.status, "SUSPENSION");
+  assert.equal(out.displayStatus, "SUSPENSION");
+  assert.deepEqual(out.notes, []);
   assert.ok(out.url.endsWith("/222"));
 });
 
