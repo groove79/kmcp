@@ -31,9 +31,14 @@ jobs:
           DIR="packages/${PKG}"
           test -d "$DIR" || { echo "no package dir $DIR"; exit 1; }
           PKG_VER=$(node -p "require('./$DIR/package.json').version")
-          SRV_VER=$(node -p "require('./$DIR/server.json').version")
           [ "$PKG_VER" = "$VER" ] || { echo "package.json version $PKG_VER != tag $VER"; exit 1; }
-          [ "$SRV_VER" = "$VER" ] || { echo "server.json version $SRV_VER != tag $VER"; exit 1; }
+          if [ -f "$DIR/server.json" ]; then
+            SRV_VER=$(node -p "require('./$DIR/server.json').version")
+            [ "$SRV_VER" = "$VER" ] || { echo "server.json version $SRV_VER != tag $VER"; exit 1; }
+            echo "mcp=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "no server.json → npm-only package (library)"; echo "mcp=false" >> "$GITHUB_OUTPUT"
+          fi
           echo "dir=$DIR" >> "$GITHUB_OUTPUT"
 
       - run: pnpm install --frozen-lockfile
@@ -68,11 +73,13 @@ jobs:
           exit 1
 
       - name: Install mcp-publisher
+        if: steps.tag.outputs.mcp == 'true'
         run: |
           curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/').tar.gz" | tar xz mcp-publisher
           sudo mv mcp-publisher /usr/local/bin/
 
       - name: Publish to MCP Registry
+        if: steps.tag.outputs.mcp == 'true'
         working-directory: ${{ steps.tag.outputs.dir }}
         run: |
           mcp-publisher login github-oidc
