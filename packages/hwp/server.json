@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-hwp",
+  "description": "Convert Korean HWP/HWPX (한글) documents to Markdown and extract tables. No keys needed.",
+  "title": "HWP to Markdown",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/hwp"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-hwp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
