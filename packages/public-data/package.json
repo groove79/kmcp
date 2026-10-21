@@ -1,0 +1,51 @@
+{
+  "name": "@appmonster/mcp-public-data",
+  "version": "0.1.0",
+  "description": "MCP server for Korean public data (data.go.kr): business registration status, public holidays, road addresses, apartment trades. 공공데이터 MCP 서버.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-public-data": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-public-data",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "public-data",
+    "data.go.kr",
+    "사업자",
+    "공휴일",
+    "주소",
+    "실거래가"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/public-data"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

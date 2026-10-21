@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-public-data",
+  "description": "Korean public data MCP: business status, holidays, addresses, apartment trades. 공공데이터 MCP.",
+  "title": "Korea Public Data",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/public-data"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-public-data",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "DATA_GO_KR_KEY", "description": "data.go.kr service key (decoded form)", "isRequired": false, "isSecret": true },
+        { "name": "JUSO_KEY", "description": "business.juso.go.kr confirm key for address search", "isRequired": false, "isSecret": true }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ Model Context Protocol servers for Korean platforms — so AI agents can actuall
 | --- | --- | --- |
 | [`@appmonster/mcp-naver-commerce`](packages/naver-commerce) | 0.1.0 | Naver Smart Store: products, stock, orders, inquiries |
 | [`@appmonster/mcp-cafe24`](packages/cafe24) | 0.1.0 | Cafe24: products, variant stock, orders, board posts (OAuth, auto-refresh) |
-| `@appmonster/mcp-public-data` | planned | 공공데이터포털: business status, apartment data, holidays |
+| [`@appmonster/mcp-public-data`](packages/public-data) | 0.1.0 | 공공데이터: business status (NTS), holidays, road addresses, apartment trades |
 | `@appmonster/mcp-hwp` | planned | HWP/HWPX → Markdown for agents |
 
 ## Quick start
