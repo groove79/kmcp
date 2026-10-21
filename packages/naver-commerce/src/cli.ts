@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { approverFromEnv } from "@appmonster/approval";
 import { createServer } from "./server.js";
 
 const clientId = process.env.NAVER_COMMERCE_CLIENT_ID;
@@ -17,6 +18,7 @@ const server = createServer({
   clientSecret,
   type: (process.env.NAVER_COMMERCE_TYPE as "SELF" | "SELLER") ?? "SELF",
   accountId: process.env.NAVER_COMMERCE_ACCOUNT_ID,
+  approveWrite: approverFromEnv(process.env, { source: "naver-commerce" }),
 });
 
 const transport = new StdioServerTransport();

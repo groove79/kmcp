@@ -45,7 +45,8 @@ jobs:
         run: |
           NAME=$(node -p "require('./package.json').name")
           VER=$(node -p "require('./package.json').version")
-          if npm view "$NAME@$VER" version >/dev/null 2>&1; then
+          ENC=$(node -p "encodeURIComponent('$NAME')")
+          if curl -fsS "https://registry.npmjs.org/$ENC/$VER" >/dev/null 2>&1; then
             echo "$NAME@$VER already on npm — skipping publish"
           else
             pnpm publish --access public --no-git-checks --provenance
@@ -58,9 +59,10 @@ jobs:
         run: |
           NAME=$(node -p "require('./package.json').name")
           VER=$(node -p "require('./package.json').version")
-          for i in $(seq 1 20); do
-            if npm view "$NAME@$VER" version >/dev/null 2>&1; then echo "npm has $NAME@$VER"; exit 0; fi
-            echo "waiting for $NAME@$VER on npm ($i/20)…"; sleep 15
+          ENC=$(node -p "encodeURIComponent('$NAME')")
+          for i in $(seq 1 40); do
+            if curl -fsS "https://registry.npmjs.org/$ENC/$VER" >/dev/null 2>&1; then echo "npm has $NAME@$VER"; exit 0; fi
+            echo "waiting for $NAME@$VER on npm ($i/40)…"; sleep 15
           done
           echo "::error::$NAME@$VER is not public on npm. If the package is staged, approve it at https://www.npmjs.com/settings/appmonster/staged-packages and re-run this job."
           exit 1

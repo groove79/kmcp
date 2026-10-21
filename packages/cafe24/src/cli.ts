@@ -8,6 +8,7 @@ import http from "node:http";
 import { randomBytes } from "node:crypto";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Cafe24Auth, FileTokenStore } from "./auth.js";
+import { approverFromEnv } from "@appmonster/approval";
 import { createServer } from "./server.js";
 
 const env = (k: string) => process.env[k]?.trim();
@@ -58,6 +59,7 @@ if (process.argv[2] === "auth") {
     refreshToken: env("CAFE24_REFRESH_TOKEN"),
     apiVersion: env("CAFE24_API_VERSION"),
     shopNo: env("CAFE24_SHOP_NO") ? Number(env("CAFE24_SHOP_NO")) : undefined,
+    approveWrite: approverFromEnv(process.env, { source: "cafe24" }),
   });
   await server.connect(new StdioServerTransport());
 }
