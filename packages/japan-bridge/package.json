@@ -1,0 +1,53 @@
+{
+  "name": "@appmonster/mcp-japan-bridge",
+  "version": "0.1.0",
+  "description": "MCP bridge Japan → Korea: search Rakuten/Yahoo! Shopping, JPY→KRW landed-cost & price calculator (duties, VAT, shipping, fees, margin), Smart Store listing draft. 일본구매대행 MCP.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-japan-bridge": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-japan-bridge",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "korea",
+    "japan",
+    "rakuten",
+    "yahoo-shopping",
+    "구매대행",
+    "일본구매대행",
+    "landed-cost",
+    "관세",
+    "smartstore"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/japan-bridge"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -14,6 +14,7 @@ Model Context Protocol servers for Korean platforms — so AI agents can actuall
 | [`@appmonster/mcp-kakao`](packages/kakao) | 0.1.0 | KakaoTalk messages: send to self/friends, friends list (OAuth, auto-refresh) |
 | [`@appmonster/mcp-toss-payments`](packages/toss-payments) | 0.1.0 | Toss Payments: payment lookup, cancel/refund (approval-gated), transactions, settlements |
 | [`@appmonster/mcp-popbill`](packages/popbill) | 0.1.0 | Popbill: e-tax invoices (issue/cancel/search), Hometax sync, KakaoTalk 알림톡 |
+| [`@appmonster/mcp-japan-bridge`](packages/japan-bridge) | 0.1.0 | Japan → Korea sourcing: Rakuten/Yahoo search, landed cost + price calc, Smart Store draft |
 
 ## Quick start
 
