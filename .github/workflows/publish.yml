@@ -40,11 +40,30 @@ jobs:
       - run: pnpm build
       - run: pnpm test
 
-      - name: Publish to npm (with provenance)
+      - name: Publish to npm (with provenance) — skipped if this version already exists
         working-directory: ${{ steps.tag.outputs.dir }}
-        run: pnpm publish --access public --no-git-checks --provenance
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VER=$(node -p "require('./package.json').version")
+          if npm view "$NAME@$VER" version >/dev/null 2>&1; then
+            echo "$NAME@$VER already on npm — skipping publish"
+          else
+            pnpm publish --access public --no-git-checks --provenance
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Wait until npm serves this version (staged publishes need approval on npmjs.com)
+        working-directory: ${{ steps.tag.outputs.dir }}
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VER=$(node -p "require('./package.json').version")
+          for i in $(seq 1 20); do
+            if npm view "$NAME@$VER" version >/dev/null 2>&1; then echo "npm has $NAME@$VER"; exit 0; fi
+            echo "waiting for $NAME@$VER on npm ($i/20)…"; sleep 15
+          done
+          echo "::error::$NAME@$VER is not public on npm. If the package is staged, approve it at https://www.npmjs.com/settings/appmonster/staged-packages and re-run this job."
+          exit 1
 
       - name: Install mcp-publisher
         run: |

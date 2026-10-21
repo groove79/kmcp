@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.groove79/mcp-naver-commerce",
-  "description": "Naver Smart Store (Commerce API): list products, read orders and inquiries, update stock. 네이버 스마트스토어 MCP 서버.",
+  "description": "Naver Smart Store MCP: list products, read orders and inquiries, update stock. 네이버 스마트스토어 MCP 서버.",
   "title": "Naver Commerce",
   "version": "0.1.0",
   "websiteUrl": "https://appmonster.co.kr",
@@ -16,10 +16,22 @@
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-naver-commerce",
       "version": "0.1.0",
-      "transport": { "type": "stdio" },
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "NAVER_COMMERCE_CLIENT_ID", "description": "Application client id from apicenter.commerce.naver.com", "isRequired": true, "isSecret": false },
-        { "name": "NAVER_COMMERCE_CLIENT_SECRET", "description": "Application client secret (used as bcrypt salt)", "isRequired": true, "isSecret": true }
+        {
+          "name": "NAVER_COMMERCE_CLIENT_ID",
+          "description": "Application client id from apicenter.commerce.naver.com",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "NAVER_COMMERCE_CLIENT_SECRET",
+          "description": "Application client secret (used as bcrypt salt)",
+          "isRequired": true,
+          "isSecret": true
+        }
       ]
     }
   ]
