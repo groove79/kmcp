@@ -9,6 +9,7 @@ export interface Ctx {
   fetchImpl: typeof fetch;
   rakutenAppId?: string;
   rakutenAccessKey?: string;
+  rakutenReferer?: string;
   yahooAppId?: string;
   defaults: { shippingBaseJpy: number; shippingPerKgJpy: number; platformFeeRate: number };
 }
@@ -52,7 +53,9 @@ export const searchRakuten = define({
     const url = new URL(RAKUTEN_URL);
     const q: Record<string, string | number | undefined> = { applicationId: ctx.rakutenAppId, accessKey: ctx.rakutenAccessKey, formatVersion: 2, keyword: a.keyword, sort: a.sort, hits: a.hits, page: a.page, availability: a.inStockOnly ? 1 : 0, imageFlag: 1, minPrice: a.minPrice, maxPrice: a.maxPrice };
     for (const [k, v] of Object.entries(q)) if (v !== undefined) url.searchParams.set(k, String(v));
-    const res = await getJson<{ count?: number; page?: number; pageCount?: number; items?: Array<Record<string, unknown>> }>(ctx, url);
+    // Rakuten apps registered since 2026 carry an allowed-referrer (or IP) list; a stdio tool runs on each user's
+    // machine, so we identify ourselves by Referer and the app is registered with the repo domain allowed.
+    const res = await getJson<{ count?: number; page?: number; pageCount?: number; items?: Array<Record<string, unknown>> }>(ctx, url, { Referer: ctx.rakutenReferer ?? "https://github.com/groove79/kmcp" });
     return {
       total: res.count ?? 0, page: res.page ?? a.page, pageCount: res.pageCount ?? null,
       items: (res.items ?? []).map((it) => ({
