@@ -1,0 +1,52 @@
+{
+  "name": "@kmcp/naver-commerce",
+  "version": "0.1.0",
+  "description": "MCP server for Naver Commerce API (Smart Store): products, stock, orders, customer inquiries. 네이버 커머스 API(스마트스토어) MCP 서버.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "kmcp-naver-commerce": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "kr.appmonster.kmcp/naver-commerce",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "naver",
+    "smartstore",
+    "commerce",
+    "korea",
+    "네이버",
+    "스마트스토어"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yumi-kim-79/kmcp",
+    "directory": "packages/naver-commerce"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "bcryptjs": "^2.4.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
