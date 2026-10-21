@@ -13,7 +13,7 @@
     "dist",
     "README.md"
   ],
-  "mcpName": "io.github.yumi-kim-79/mcp-naver-commerce",
+  "mcpName": "io.github.groove79/mcp-naver-commerce",
   "keywords": [
     "mcp",
     "model-context-protocol",
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yumi-kim-79/kmcp",
+    "url": "https://github.com/groove79/kmcp",
     "directory": "packages/naver-commerce"
   },
   "scripts": {

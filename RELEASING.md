@@ -3,7 +3,7 @@
 One-time setup (repo owner):
 
 1. npm: create the `appmonster` org (or confirm you own the `@appmonster` scope), create an **Automation** token, add it to the GitHub repo as secret `NPM_TOKEN`.
-2. GitHub: repo must be public under `yumi-kim-79/kmcp` — the MCP Registry namespace `io.github.yumi-kim-79/*` is proven by GitHub OIDC in the workflow, no extra secret.
+2. GitHub: repo must be public under `groove79/kmcp` — the MCP Registry namespace `io.github.groove79/*` is proven by GitHub OIDC in the workflow, no extra secret.
 
 Per release:
 

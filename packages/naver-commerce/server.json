@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
-  "name": "io.github.yumi-kim-79/mcp-naver-commerce",
+  "name": "io.github.groove79/mcp-naver-commerce",
   "description": "Naver Smart Store (Commerce API): list products, read orders and inquiries, update stock. 네이버 스마트스토어 MCP 서버.",
   "title": "Naver Commerce",
   "version": "0.1.0",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
-    "url": "https://github.com/yumi-kim-79/kmcp",
+    "url": "https://github.com/groove79/kmcp",
     "source": "github",
     "subfolder": "packages/naver-commerce"
   },
