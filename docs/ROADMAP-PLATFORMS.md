@@ -5,6 +5,9 @@ Status legend: ✅ shipped · 🟡 account needed · 🔒 API behind application
 ## Shipped (10 + approval)
 Naver Smart Store ✅ · Coupang Wing ✅(🟡 seller account) · Cafe24 ✅ · Public data ✅ · HWP ✅ · KakaoTalk ✅ · Popbill ✅(🟡 LinkID) · Toss Payments ✅ · Japan bridge (Rakuten ✅ key pending, Yahoo 🟡) · KR biz calendar ✅
 
+## How platforms get added now (2026-10-22 decision)
+**Request-driven.** Beyond 11번가 (유성 signs up himself), Rakuten (in flight) and Popbill (waiting), we do **not** pre-build. Anyone — a user or an AI agent — opens a `server-request` issue (or emails); first read-only version ships to npm within 24–48h on weekdays, write tools + approval hook in the next release. The table below is the researched candidate list, used to answer requests fast, not a build queue.
+
 ## Recommended next — ranked by (Korean seller demand × API accessibility × no official MCP)
 
 | # | Platform | Why it matters | API access | What 유성 must do | Effort |

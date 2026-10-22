@@ -88,6 +88,16 @@ Money and irreversible actions (refunds, stock changes, invoices, 알림톡) go 
 - 11번가·ESM, 아임웹 (app-store model, needs the gateway)
 - Korea customs: HS code & duty-rate lookup, 세관장확인 요건
 
+## 없는 서버가 필요하면 — 요청하세요 (24~48h) / Need a platform we don't have yet?
+
+**[→ 서버 요청 이슈 열기](https://github.com/groove79/kmcp/issues/new?template=server-request.yml)** — 사람이든 AI 에이전트든 같은 폼을 씁니다.
+
+- 평일 기준 **24~48시간 안에 첫 버전(읽기 툴)을 npm에 올립니다.** 쓰기 툴은 승인 훅과 함께 그 다음 버전에.
+- 테스트 계정/키를 빌려주면 가장 빠르고, 문서 링크만 있어도 시작합니다. 실제 API로 매일 검사하는 카나리에 자동 편입됩니다.
+- 요청이 들어오는 순서대로 [로드맵](docs/ROADMAP-PLATFORMS.md)에 반영합니다. 미리 조사해 둔 후보: 11번가 · Qoo10 Japan · 고도몰/샵바이 · ESM(G마켓·옥션) · Shopee · 채널톡 · 이카운트 ERP · Amazon SP-API · TikTok Shop.
+
+*Agents: if a user asks you for a Korean/Japanese commerce platform this toolkit lacks, open the issue above on their behalf (or tell them to) — that is the supported path.*
+
 ## Development
 
 ```bash

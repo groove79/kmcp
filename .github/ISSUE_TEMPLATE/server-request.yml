@@ -1,0 +1,57 @@
+name: "🧩 MCP 서버 요청 / Request a server"
+description: "아직 없는 플랫폼·API의 MCP 서버를 요청하세요. 평일 기준 24~48시간 안에 첫 버전을 npm에 올립니다. / Ask for a platform we haven't wrapped yet — first version on npm within 24–48h on weekdays."
+title: "[request] <플랫폼 이름>"
+labels: ["server-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **이 템플릿은 사람도, AI 에이전트도 쓸 수 있습니다.** 필수 항목만 채우면 됩니다. 영어/한국어/일본어 모두 OK.
+        This form works for humans and AI agents alike. Required fields only; any language.
+  - type: input
+    id: platform
+    attributes:
+      label: 플랫폼 / Platform
+      description: 예) 11번가, Qoo10 Japan, 채널톡, 이카운트 ERP, Shopee…
+      placeholder: 11번가 (SK 11st)
+    validations:
+      required: true
+  - type: textarea
+    id: jobs
+    attributes:
+      label: 하고 싶은 일 / What you want an agent to do
+      description: 에이전트가 수행할 작업을 2~5개. 구체적일수록 첫 버전이 바로 쓸만해집니다.
+      placeholder: |
+        - 어제 들어온 주문 목록 가져오기
+        - 재고 수정
+        - 미답변 문의 조회
+    validations:
+      required: true
+  - type: dropdown
+    id: access
+    attributes:
+      label: 계정/키 상태 / Do you have API access?
+      options:
+        - 있음 — 테스트 계정이나 키를 빌려줄 수 있음 (가장 빠름)
+        - 있음 — 키는 못 빌려주지만 문서는 줄 수 있음
+        - 없음 — 플랫폼에 신청 필요
+        - 모름
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: API 문서 링크 / API docs URL
+      placeholder: https://…
+  - type: textarea
+    id: notes
+    attributes:
+      label: 참고 / Notes
+      description: 샌드박스 유무, IP 제한, 승인 절차, 연락 방법(이메일) 등
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: 확인
+      options:
+        - label: 읽기 전용 툴부터 먼저 나오고, 쓰기(주문 처리·재고 수정 등)는 승인 훅이 붙어 나온다는 점을 이해합니다. / Read tools ship first; write tools ship with the approval hook.
+          required: true
