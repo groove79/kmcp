@@ -53,11 +53,15 @@ const p = <T>(fn: Cb<T>) => new Promise<T>((resolve, reject) => fn(resolve, (e) 
 
 /** Build Services from the real SDK. Called once per server. */
 export async function sdkServices(c: Credentials): Promise<Services> {
-  const popbill = await import("popbill");
+  // popbill is CommonJS and its *Service() factories cache on `this`; calling them on the ESM namespace object
+  // leaves `this` frozen and returns undefined. Use the real module.exports object.
+  const mod = (await import("popbill")) as unknown as { default?: typeof import("popbill") } & typeof import("popbill");
+  const popbill = (mod.default ?? mod) as typeof import("popbill");
   popbill.config({ LinkID: c.linkId, SecretKey: c.secretKey, IsTest: c.isTest, IPRestrictOnOff: c.ipRestrict ?? true, UseLocalTimeYN: true, defaultErrorHandler: () => undefined });
   const ti = popbill.TaxinvoiceService();
   const ht = popbill.HTTaxinvoiceService();
   const kk = popbill.KakaoService();
+  if (!ti || !ht || !kk) throw new Error("Popbill SDK did not initialise (TaxinvoiceService/HTTaxinvoiceService/KakaoService returned nothing)");
   const U = c.userId;
   const N = c.corpNum;
   return {

@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-popbill",
   "description": "Popbill MCP: Korean e-tax invoices (issue/cancel/search, Hometax sync) + KakaoTalk 알림톡. 팝빌 MCP.",
   "title": "Popbill (세금계산서·알림톡)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-popbill",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "POPBILL_LINK_ID", "description": "Popbill API link id (developers.popbill.com)", "isRequired": true, "isSecret": false },

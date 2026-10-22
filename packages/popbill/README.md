@@ -17,7 +17,7 @@ All writes cost Popbill points and/or reach the 국세청 or real phones, so eve
 | `popbill_get_taxinvoice` | read | 세금계산서 상세 + 보기 URL |
 | `popbill_issue_taxinvoice` | **write** | 정발행 즉시발행 — 품목에서 공급가액·세액·합계 자동 계산 |
 | `popbill_cancel_taxinvoice` | **write** | 발행취소 (국세청 전송 전) |
-| `popbill_hometax_request` | read | 홈택스 수집 작업 요청 → jobId |
+| `popbill_hometax_request` | read | 홈택스 수집 작업 요청 → jobId (팝빌 **홈택스수집 정액제** 별도 신청 필요 — 테스트 연동키에도 기본 미포함) |
 | `popbill_hometax_results` | read | 수집 상태/결과 (collecting · done · failed) |
 | `popbill_list_alimtalk_templates` | read | 승인 템플릿 목록 (변수 확인용) |
 | `popbill_send_alimtalk` | **write** | 알림톡 발송 (≤1,000명, SMS 대체 발송) |
