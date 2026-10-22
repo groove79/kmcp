@@ -1,0 +1,321 @@
+{
+  "ranAt": "2026-10-22T09:53:22.548+09:00",
+  "mode": "live",
+  "summary": {
+    "OK": 22,
+    "DRIFT": 1,
+    "BREAK": 0,
+    "AUTH": 0,
+    "DOWN": 0,
+    "SKIP": 5
+  },
+  "checks": [
+    {
+      "id": "kr-biz-calendar.isBusinessDay",
+      "platform": "kr-biz-calendar",
+      "access": "pure",
+      "class": "OK",
+      "ms": 4,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "kr-biz-calendar.taxCalendar",
+      "platform": "kr-biz-calendar",
+      "access": "pure",
+      "class": "OK",
+      "ms": 1,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "hwp.convertRealFile",
+      "platform": "hwp",
+      "access": "pure",
+      "class": "SKIP",
+      "ms": 0,
+      "note": "needs CANARY_HWP_FILE — set CANARY_HWP_FILE=/path/to/any.hwp"
+    },
+    {
+      "id": "japan-bridge.searchRakuten",
+      "platform": "japan-bridge",
+      "access": "read",
+      "class": "SKIP",
+      "ms": 0,
+      "note": "needs RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY — https://webservice.rakuten.co.jp/app/create"
+    },
+    {
+      "id": "japan-bridge.searchYahoo",
+      "platform": "japan-bridge",
+      "access": "read",
+      "class": "SKIP",
+      "ms": 0,
+      "note": "needs YAHOO_JP_APP_ID — https://e.developer.yahoo.co.jp/register"
+    },
+    {
+      "id": "japan-bridge.fxRate",
+      "platform": "japan-bridge",
+      "access": "read",
+      "class": "OK",
+      "ms": 478,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "japan-bridge.landedCost",
+      "platform": "japan-bridge",
+      "access": "pure",
+      "class": "OK",
+      "ms": 2,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "public-data.checkBusiness",
+      "platform": "public-data",
+      "access": "read",
+      "class": "OK",
+      "ms": 86,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "public-data.holidays",
+      "platform": "public-data",
+      "access": "read",
+      "class": "OK",
+      "ms": 1125,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "public-data.searchAddress",
+      "platform": "public-data",
+      "access": "read",
+      "class": "OK",
+      "ms": 91,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "public-data.aptTrades",
+      "platform": "public-data",
+      "access": "read",
+      "class": "OK",
+      "ms": 73,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "cafe24.listProducts",
+      "platform": "cafe24",
+      "access": "read",
+      "class": "OK",
+      "ms": 1686,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "cafe24.getProduct",
+      "platform": "cafe24",
+      "access": "read",
+      "class": "OK",
+      "ms": 898,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "cafe24.listOrders",
+      "platform": "cafe24",
+      "access": "read",
+      "class": "OK",
+      "ms": 224,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "cafe24.listBoards",
+      "platform": "cafe24",
+      "access": "read",
+      "class": "OK",
+      "ms": 465,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "cafe24.updateInventory",
+      "platform": "cafe24",
+      "access": "write-sandbox",
+      "class": "OK",
+      "ms": 2651,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "naver-commerce.listProducts",
+      "platform": "naver-commerce",
+      "access": "read",
+      "class": "OK",
+      "ms": 245,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "naver-commerce.getProduct",
+      "platform": "naver-commerce",
+      "access": "read",
+      "class": "OK",
+      "ms": 484,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "naver-commerce.listOrders",
+      "platform": "naver-commerce",
+      "access": "read",
+      "class": "OK",
+      "ms": 135,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "naver-commerce.listInquiries",
+      "platform": "naver-commerce",
+      "access": "read",
+      "class": "OK",
+      "ms": 83,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "naver-commerce.createDecoyProduct",
+      "platform": "naver-commerce",
+      "access": "write-sandbox",
+      "class": "OK",
+      "ms": 2719,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "kakao.me",
+      "platform": "kakao",
+      "access": "read",
+      "class": "OK",
+      "ms": 122,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "kakao.sendToMe",
+      "platform": "kakao",
+      "access": "write-sandbox",
+      "class": "OK",
+      "ms": 114,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "toss-payments.listSettlements",
+      "platform": "toss-payments",
+      "access": "read",
+      "class": "OK",
+      "ms": 225,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "toss-payments.listTransactions",
+      "platform": "toss-payments",
+      "access": "read",
+      "class": "DRIFT",
+      "ms": 20004,
+      "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
+      "shapeDiff": null
+    },
+    {
+      "id": "toss-payments.getPaymentNotFound",
+      "platform": "toss-payments",
+      "access": "read",
+      "class": "OK",
+      "ms": 89,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "coupang.listProducts",
+      "platform": "coupang",
+      "access": "read",
+      "class": "SKIP",
+      "ms": 0,
+      "note": "needs COUPANG_ACCESS_KEY, COUPANG_SECRET_KEY, COUPANG_VENDOR_ID — https://wing.coupang.com → 추가판매정보 → OPEN API 키"
+    },
+    {
+      "id": "popbill.checkAccount",
+      "platform": "popbill",
+      "access": "read",
+      "class": "SKIP",
+      "ms": 0,
+      "note": "needs POPBILL_LINK_ID, POPBILL_SECRET_KEY, POPBILL_CORP_NUM — https://developers.popbill.com (API 연동신청 → 테스트 LinkID)"
+    }
+  ],
+  "watch": [
+    {
+      "platform": "naver-commerce",
+      "source": "https://apicenter.commerce.naver.com/ko/basic/notice",
+      "ok": false,
+      "new": [],
+      "note": "extractor found 0 entries (layout changed?)"
+    },
+    {
+      "platform": "cafe24",
+      "source": "https://developers.cafe24.com/docs/api/admin/",
+      "ok": true,
+      "new": []
+    },
+    {
+      "platform": "coupang",
+      "source": "https://developers.coupangcorp.com/hc/ko/sections/360001148053",
+      "ok": false,
+      "new": [],
+      "note": "extractor found 0 entries (layout changed?)"
+    },
+    {
+      "platform": "toss-payments",
+      "source": "https://docs.tosspayments.com/reference/changelog",
+      "ok": false,
+      "new": [],
+      "note": "HTTP 404"
+    },
+    {
+      "platform": "kakao",
+      "source": "https://devtalk.kakao.com/c/notice/15.rss",
+      "ok": true,
+      "new": []
+    },
+    {
+      "platform": "popbill",
+      "source": "https://registry.npmjs.org/popbill/latest",
+      "ok": true,
+      "new": []
+    },
+    {
+      "platform": "public-data",
+      "source": "https://www.data.go.kr/data/15081808/openapi.do",
+      "ok": true,
+      "new": []
+    },
+    {
+      "platform": "japan-bridge",
+      "source": "https://webservice.rakuten.co.jp/information/",
+      "ok": false,
+      "new": [],
+      "note": "HTTP 503"
+    },
+    {
+      "platform": "mcp-sdk",
+      "source": "https://registry.npmjs.org/@modelcontextprotocol%2fsdk/latest",
+      "ok": true,
+      "new": []
+    }
+  ]
+}
