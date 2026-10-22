@@ -1,0 +1,23 @@
+{
+  "name": "@appmonster/mcp-delivery",
+  "version": "0.1.0",
+  "description": "MCP server for parcel tracking in Korea and abroad (CJ대한통운, 우체국, 한진, 롯데, 로젠, 쿠팡, 일본 야마토/사가와, DHL, UPS…) via Delivery Tracker — status, events, delivered-or-not, batch tracking. 택배 조회 MCP.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": { "mcp-delivery": "dist/cli.js" },
+  "files": ["dist", "README.md"],
+  "mcpName": "io.github.groove79/mcp-delivery",
+  "keywords": ["mcp", "model-context-protocol", "delivery", "tracking", "parcel", "korea", "택배", "배송조회", "cj대한통운", "우체국"],
+  "repository": { "type": "git", "url": "https://github.com/groove79/kmcp", "directory": "packages/delivery" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.12.0", "zod": "^3.23.8" },
+  "devDependencies": { "@types/node": "^22.10.0", "tsx": "^4.19.2", "typescript": "^5.6.3" },
+  "engines": { "node": ">=20" }
+}

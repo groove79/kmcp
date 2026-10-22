@@ -1,0 +1,10 @@
+{
+  "carriers": "array",
+  "carriers[]": "object",
+  "carriers[].id": "string",
+  "carriers[].name": "string",
+  "carriers[].aliases": "array",
+  "carriers[].aliases[]": "string",
+  "hasMore": "boolean",
+  "note": "string"
+}

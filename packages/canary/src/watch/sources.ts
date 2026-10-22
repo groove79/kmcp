@@ -43,5 +43,6 @@ export const sources: WatchSource[] = [
   { platform: "popbill", url: "https://registry.npmjs.org/popbill/latest", kind: "json", extract: (t) => { const j = JSON.parse(t); return [{ title: `popbill SDK ${j.version}`, date: undefined, url: "https://www.npmjs.com/package/popbill" }]; } },
   { platform: "public-data", url: "https://www.data.go.kr/data/15081808/openapi.do", kind: "html", extract: (h) => { const d = (h.match(/수정일[\s\S]{0,80}?(20\d{2}-\d{2}-\d{2})/) ?? [])[1]; return d ? [{ title: `국세청 사업자등록정보 진위확인 API 수정일 ${d}`, date: d }] : []; } },
   { platform: "japan-bridge", url: "https://webservice.rakuten.co.jp/information/", kind: "html", extract: (h, u) => anchorsWithDates(h, u, /information|news/) },
+  { platform: "delivery", url: "https://tracker.delivery/docs/changelog", kind: "html", extract: (h, u) => anchorsWithDates(h, u, /changelog|docs/) },
   { platform: "mcp-sdk", url: "https://registry.npmjs.org/@modelcontextprotocol%2fsdk/latest", kind: "json", extract: (t) => [{ title: `@modelcontextprotocol/sdk ${JSON.parse(t).version}`, url: "https://github.com/modelcontextprotocol/typescript-sdk/releases" }] },
 ];

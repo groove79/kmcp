@@ -1,0 +1,64 @@
+{
+  "recordedAt": "2026-10-22T01:20:49.403Z",
+  "exchanges": [
+    {
+      "key": "POST https://apis.tracker.delivery/graphql #746f2aac40",
+      "req": {
+        "method": "POST",
+        "url": "https://apis.tracker.delivery/graphql",
+        "bodyHash": "746f2aac40",
+        "bodyPreview": {
+          "query": "query Track($carrierId: ID!, $trackingNumber: String!, $first: Int) {\n  track(carrierId: $carrierId, trackingNumber: $trackingNumber) {\n    trackingNumber\n    lastEvent { time status { code name } description location { name } }\n    events(first: $first) { edges { node { time status { code name } description location { name } } } }\n  }\n}",
+          "variables": {
+            "carrierId": "kr.cjlogistics",
+            "trackingNumber": "000000000000",
+            "first": 20
+          }
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "date": "Thu, 22 Oct 2026 01:20:49 GMT"
+        },
+        "body": {
+          "data": {
+            "track": {
+              "trackingNumber": "000000000000",
+              "lastEvent": {
+                "time": "2026-07-02T15:11:06.000+09:00",
+                "status": {
+                  "code": "DELIVERED",
+                  "name": "***"
+                },
+                "description": "고객님의 상품이 배송완료 되었습니다.(담당사원:권진홍 ***)",
+                "location": {
+                  "name": "***"
+                }
+              },
+              "events": {
+                "edges": [
+                  {
+                    "node": {
+                      "time": "2026-07-02T15:11:06.000+09:00",
+                      "status": {
+                        "code": "DELIVERED",
+                        "name": "***"
+                      },
+                      "description": "고객님의 상품이 배송완료 되었습니다.(담당사원:권진홍 ***)",
+                      "location": {
+                        "name": "***"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

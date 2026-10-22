@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-delivery",
+  "description": "Parcel tracking for Korean and global carriers (CJ, 우체국, 한진, 롯데, 로젠, 쿠팡, Yamato, DHL…). 택배 조회 MCP.",
+  "title": "Delivery Tracking (Korea)",
+  "version": "0.1.0",
+  "websiteUrl": "https://appmonster.co.kr",
+  "repository": { "url": "https://github.com/groove79/kmcp", "source": "github", "subfolder": "packages/delivery" },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-delivery",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "DELIVERY_TRACKER_CLIENT_ID", "description": "Client ID from console.tracker.delivery (free)", "isRequired": true, "isSecret": false },
+        { "name": "DELIVERY_TRACKER_CLIENT_SECRET", "description": "Client Secret from console.tracker.delivery", "isRequired": true, "isSecret": true }
+      ]
+    }
+  ]
+}

@@ -52,6 +52,9 @@ jobs:
       POPBILL_LINK_ID: ${{ secrets.POPBILL_LINK_ID }}
       POPBILL_SECRET_KEY: ${{ secrets.POPBILL_SECRET_KEY }}
       POPBILL_CORP_NUM: ${{ secrets.POPBILL_CORP_NUM }}
+      DELIVERY_TRACKER_CLIENT_ID: ${{ secrets.DELIVERY_TRACKER_CLIENT_ID }}
+      DELIVERY_TRACKER_CLIENT_SECRET: ${{ secrets.DELIVERY_TRACKER_CLIENT_SECRET }}
+      CANARY_TRACKING: ${{ secrets.CANARY_TRACKING }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

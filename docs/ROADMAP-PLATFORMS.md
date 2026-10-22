@@ -19,7 +19,7 @@ Naver Smart Store ✅ · Coupang Wing ✅(🟡 seller account) · Cafe24 ✅ · 
 | 8 | **Amazon SP-API (JP/US)** | biggest cross-border target; official docs, no official MCP for sellers | 🔒 Seller Central developer registration + LWA; review for restricted roles | Amazon 셀러 계정 + developer profile 승인(며칠) | 3 days |
 | 9 | **TikTok Shop Partner API** | fastest-growing channel 2025–26 (KR launch) | 🔒 Partner Center app, review | 판매자 + 파트너센터 | 2 days |
 | 10 | **이카운트(Ecount) ERP** | most-used SMB ERP in KR; invoices/inventory sync with the stores above | 🔒 ERP 로그인 → API 인증키 (유료 ERP 가입 필요) | 이카운트 가입(월 4만원대) | 1.5 days |
-| 11 | **택배 추적 (스마트택배/Delivery Tracker)** | "내 주문 어디쯤?" — zero-key public API (tracker.delivery) | ✅ open | none | 0.5 day |
+| 11 | **택배 추적 (Delivery Tracker)** ✅ shipped as `@appmonster/mcp-delivery` | "내 주문 어디쯤?" | 🟡 free credentials from console.tracker.delivery | 콘솔 가입(구글) → Client ID/Secret | done |
 | 12 | **채널톡 Open API** | CS automation: unanswered chats → draft reply; pairs with naver inquiries | 🔒 채널톡 계정 → Open API 키 (무료 플랜 가능) | 채널톡 가입 | 1 day |
 | 13 | **네이버 검색광고 API** | sellers' biggest cost center; report + bid adjust | 🔒 광고주 계정 → API 라이선스 | 광고주 가입 | 1.5 days |
 | — | PortOne (포트원) | ↔ official MCP (`@portone/mcp-server`, docs + console) — we don't duplicate; our Toss server covers direct Toss merchants | | | |

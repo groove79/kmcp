@@ -9,8 +9,9 @@ import { checks as calendar } from "./kr-biz-calendar.js";
 import { checks as hwp } from "./hwp.js";
 import { checks as coupang } from "./coupang.js";
 import { checks as popbill } from "./popbill.js";
+import { checks as delivery } from "./delivery.js";
 
 /** Order = order in the report. Pure/offline first so a network outage never hides a code regression. */
-export const allChecks: Check[] = [...calendar, ...hwp, ...japan, ...publicData, ...cafe24, ...naver, ...kakao, ...toss, ...coupang, ...popbill];
+export const allChecks: Check[] = [...calendar, ...hwp, ...japan, ...publicData, ...cafe24, ...naver, ...kakao, ...toss, ...delivery, ...coupang, ...popbill];
 /** Names the token bag must be seeded with from env on first run. */
 export const ROTATING_SEEDS: string[] = [];

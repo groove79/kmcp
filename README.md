@@ -20,6 +20,7 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 | 💳 **Toss Payments** | `@appmonster/mcp-toss-payments` | payment lookup, **cancel/refund**, transactions, settlements |
 | 🇯🇵 **Japan bridge** | `@appmonster/mcp-japan-bridge` | Rakuten/Yahoo! search → landed cost & price → Smart Store draft |
 | 📅 **Biz calendar** | `@appmonster/mcp-kr-biz-calendar` | tax/payroll deadlines, holidays, business-day math — no keys, offline |
+| 📦 **Delivery** | `@appmonster/mcp-delivery` | parcel tracking: CJ·우체국·한진·롯데·로젠·쿠팡 + Yamato/DHL/UPS, batch status (free key) |
 | ✅ **Approval** (library) | `@appmonster/approval` | the `approveWrite` hook every server above uses → [OK Agent](https://github.com/yumi-kim-79/okagent) |
 
 **Bold** = write tools. They are annotated `destructiveHint`, and when `APPROVAL_URL` is set they wait for a human tap on the phone before running.
@@ -50,6 +51,8 @@ The first two need no keys. Each package README has the exact env vars and where
 
 ## What becomes possible — prompts that only work with these together
 
+- **"어제 발송한 주문 전부 지금 어디쯤인지 보고, 배송 이상 건만 고객 안내 문자 초안 써줘."**
+  → `naver_list_orders` → `delivery_track_many` → `kakao_send_to_me`
 - **"어제 결제된 쿠팡 주문 전부 상품준비중 처리하고, 재고 5개 이하인 옵션은 스마트스토어에서도 품절 처리해줘."**
   → `coupang_list_orders` → `coupang_confirm_orders` *(approval)* → `naver_update_stock` *(approval)*
 - **"이 거래처 사업자번호 확인하고 문제 없으면 이번 달 납품분 세금계산서 발행해."**
@@ -88,7 +91,7 @@ Money and irreversible actions (refunds, stock changes, invoices, 알림톡) go 
 ## Development
 
 ```bash
-pnpm install && pnpm build && pnpm test   # 11 packages, ~65 tests, no network
+pnpm install && pnpm build && pnpm test   # 13 packages, ~85 tests, no network (+ nightly real-API canary, see docs/QUALITY.md)
 ```
 
 See [AGENTS.md](AGENTS.md) for conventions, [RELEASING.md](RELEASING.md) for the tag → npm → registry pipeline, [SECURITY.md](SECURITY.md) for reporting.

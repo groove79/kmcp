@@ -1,0 +1,5 @@
+{
+  "status": "string",
+  "delivered": "boolean",
+  "events": "array"
+}

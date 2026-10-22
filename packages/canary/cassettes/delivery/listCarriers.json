@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-10-22T01:20:49.360Z",
+  "exchanges": [
+    {
+      "key": "POST https://apis.tracker.delivery/graphql #a371d6987b",
+      "req": {
+        "method": "POST",
+        "url": "https://apis.tracker.delivery/graphql",
+        "bodyHash": "a371d6987b",
+        "bodyPreview": {
+          "query": "query Carriers($searchText: String, $countryCode: String, $first: Int, $after: String) {\n  carriers(searchText: $searchText, countryCode: $countryCode, first: $first, after: $after) {\n    edges { node { id name } }\n    pageInfo { hasNextPage endCursor }\n  }\n}",
+          "variables": {
+            "searchText": "CJ",
+            "first": 5
+          }
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "date": "Thu, 22 Oct 2026 01:20:49 GMT"
+        },
+        "body": {
+          "data": {
+            "carriers": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "kr.cjlogistics",
+                    "name": "***"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJpbmRleCI6NH0="
+              }
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

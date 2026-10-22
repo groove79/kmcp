@@ -14,6 +14,7 @@
   "dependencies": {
     "@appmonster/mcp-cafe24": "workspace:*",
     "@appmonster/mcp-coupang": "workspace:*",
+    "@appmonster/mcp-delivery": "workspace:*",
     "@appmonster/mcp-hwp": "workspace:*",
     "@appmonster/mcp-japan-bridge": "workspace:*",
     "@appmonster/mcp-kakao": "workspace:*",
