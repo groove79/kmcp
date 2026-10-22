@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "kr-biz-calendar": { "type": "stdio", "command": "npx", "args": ["-y", "@appmonster/mcp-kr-biz-calendar"] },
+    "hwp": { "type": "stdio", "command": "npx", "args": ["-y", "@appmonster/mcp-hwp"] },
+    "public-data": { "type": "stdio", "command": "npx", "args": ["-y", "@appmonster/mcp-public-data"] },
+    "japan-bridge": { "type": "stdio", "command": "npx", "args": ["-y", "@appmonster/mcp-japan-bridge"] }
+  }
+}

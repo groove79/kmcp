@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kmcp",
+  "version": "1.0.0",
+  "description": "K-MCP: open-source MCP servers for Korean & Japanese commerce. Works without keys: Korean business calendar (tax/payroll deadlines, holidays), HWP/HWPX reader, public data (address, business status), Japan sourcing bridge. With your own keys (see README): Naver Smart Store, Coupang, Cafe24, KakaoTalk, Toss Payments, Popbill, parcel tracking.",
+  "author": { "name": "Appmonster (앱몬스터)", "email": "yusung790926@gmail.com", "url": "https://github.com/groove79" },
+  "homepage": "https://github.com/groove79/kmcp#readme",
+  "repository": "https://github.com/groove79/kmcp",
+  "license": "MIT",
+  "keywords": ["korea", "ecommerce", "naver", "coupang", "cafe24", "kakao", "toss", "hwp", "mcp"]
+}
