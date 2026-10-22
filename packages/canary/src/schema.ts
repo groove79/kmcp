@@ -41,7 +41,7 @@ export interface Classified { class: DriftClass; note: string | null }
 export function classifyError(e: unknown): Classified {
   const msg = e instanceof Error ? e.message : String(e);
   const status = (e as { status?: number })?.status;
-  if (status === 401 || status === 403 || /unauthorized|invalid_token|token.*expired|expired.*token|refresh token.*expired|Enter access_token|AUTH/i.test(msg)) return { class: "AUTH", note: msg.slice(0, 300) };
+  if (status === 401 || status === 403 || /unauthorized|invalid_token|token.*expired|expired.*token|refresh token.*expired|Enter access_token|IP_NOT_ALLOWED|허용되지 않은 IP|AUTH/i.test(msg)) return { class: "AUTH", note: msg.slice(0, 300) }; // IP allow-list = environment/credential class, a human must act
   if ((status && status >= 500) || /ETIMEDOUT|ECONNRESET|ENOTFOUND|EAI_AGAIN|timeout|timed out|did not answer|TIMEOUT|fetch failed|503|502|504/i.test(msg)) return { class: "DOWN", note: msg.slice(0, 300) };
   return { class: "BREAK", note: msg.slice(0, 300) };
 }

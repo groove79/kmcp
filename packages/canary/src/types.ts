@@ -27,6 +27,8 @@ export interface Check {
   signup?: string;
   expect: z.ZodTypeAny;
   timeoutMs?: number;
+  /** A confirmed platform-side problem we are tracking: DOWN/BREAK is reported as DRIFT with this note, so it does not page every night. Remove when fixed. */
+  knownIssue?: string;
   run(ctx: Ctx): Promise<unknown>;
   /** for write-sandbox: undo whatever run did (best effort, errors reported as DRIFT note) */
   revert?(ctx: Ctx, out: unknown): Promise<void>;

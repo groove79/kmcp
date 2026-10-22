@@ -12,7 +12,17 @@ NAMES=(CAFE24_MALL_ID CAFE24_CLIENT_ID CAFE24_CLIENT_SECRET CAFE24_REFRESH_TOKEN
        COUPANG_ACCESS_KEY COUPANG_SECRET_KEY COUPANG_VENDOR_ID
        POPBILL_LINK_ID POPBILL_SECRET_KEY POPBILL_CORP_NUM
        CANARY_DATABASE_URL)
-set -a; for f in "$DIR"/*.env; do [ -f "$f" ] && . "$f"; done; set +a
+# parse KEY=VALUE lines literally (values like Naver's "$2a$04$…" must not be shell-expanded)
+for f in "$DIR"/*.env; do
+  [ -f "$f" ] || continue
+  while IFS= read -r line || [ -n "$line" ]; do
+    case "$line" in ''|'#'*) continue;; esac
+    key="${line%%=*}"; val="${line#*=}"
+    [[ "$key" =~ ^[A-Z0-9_]+$ ]] || continue
+    val="${val%\"}"; val="${val#\"}"
+    printf -v "$key" '%s' "$val"
+  done < "$f"
+done
 # the newest Cafe24 refresh token lives in the canary's own token file once it has run
 if [ -f "$DIR/canary-tokens.json" ]; then
   t=$(node -e 'const j=require(process.argv[1]);const c=j.CAFE24_TOKENSET?JSON.parse(j.CAFE24_TOKENSET):null;process.stdout.write(c?.refresh_token||"")' "$DIR/canary-tokens.json")

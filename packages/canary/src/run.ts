@@ -52,6 +52,7 @@ export async function runChecks(checks: Check[], o: RunOptions): Promise<CheckRe
       const r = e instanceof ReplayMiss ? { class: "BREAK" as DriftClass, note: e.message } : classifyError(e);
       cls = r.class; note = r.note;
     }
+    if (c.knownIssue && (cls === "DOWN" || cls === "BREAK")) { cls = "DRIFT"; note = `known issue: ${c.knownIssue}${note ? " · " + note : ""}`; }
     if (c.revert && out !== undefined) {
       try { await withTimeout(c.revert(ctx, out), c.timeoutMs ?? 30_000, c.id + " revert"); }
       catch (e) { note = `${note ? note + " · " : ""}REVERT FAILED: ${(e as Error).message.slice(0, 200)}`; if (cls === "OK") cls = "DRIFT"; }

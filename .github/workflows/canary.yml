@@ -9,13 +9,19 @@ on:
         description: "Only this platform (blank = all)"
         required: false
         default: ""
+      runner:
+        description: "self-hosted (Mac mini, KR IP — default) or cloud (ubuntu, no Naver/data.go.kr access)"
+        required: false
+        default: "self-hosted"
 
 concurrency: canary
 
 jobs:
   live:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Naver Commerce (IP allow-list) and data.go.kr/juso (KR-only) are unreachable from GitHub's cloud runners,
+    # so the nightly run uses the self-hosted runner on the Mac mini (KR residential IP, already allow-listed).
+    runs-on: ${{ github.event.inputs.runner == 'cloud' && 'ubuntu-latest' || 'self-hosted' }}
+    timeout-minutes: 20
     permissions:
       contents: write          # push status branch
       issues: write            # open/close canary issues
@@ -61,11 +67,16 @@ jobs:
         if: always()
         run: |
           set -e
-          git config user.name "kmcp-canary"; git config user.email "canary@appmonster.co.kr"
-          git fetch origin canary-status || true
-          if git show-ref --quiet refs/remotes/origin/canary-status; then git worktree add /tmp/status origin/canary-status; else mkdir -p /tmp/status && git -C /tmp/status init -q && git -C /tmp/status checkout -q -b canary-status; fi
-          mkdir -p /tmp/status/status /tmp/status/snapshots
-          cp -r "$RUNNER_TEMP/status/." /tmp/status/status/ 2>/dev/null || true
-          cp -r packages/canary/snapshots/. /tmp/status/snapshots/ 2>/dev/null || true
-          cd /tmp/status && git add -A && (git commit -q -m "canary $(date -u +%Y-%m-%dT%H:%MZ)" || true)
+          S="$RUNNER_TEMP/status-repo"; rm -rf "$S"; mkdir -p "$S"
+          if git ls-remote --exit-code --heads origin canary-status >/dev/null 2>&1; then
+            git clone -q --depth 1 --branch canary-status "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$S"
+          else
+            git -C "$S" init -q -b canary-status
+          fi
+          git -C "$S" config user.name "kmcp-canary"; git -C "$S" config user.email "canary@appmonster.co.kr"
+          mkdir -p "$S/status" "$S/snapshots"
+          cp -r "$RUNNER_TEMP/status/." "$S/status/" 2>/dev/null || true
+          cp -r packages/canary/snapshots/. "$S/snapshots/" 2>/dev/null || true
+          printf '# canary-status\n\nMachine-written by .github/workflows/canary.yml. Latest: status/latest.md\n' > "$S/README.md"
+          cd "$S" && git add -A && (git commit -q -m "canary $(date -u +%Y-%m-%dT%H:%MZ)" || echo "nothing to commit")
           git push -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:canary-status

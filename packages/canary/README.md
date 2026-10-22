@@ -27,3 +27,14 @@ Keys: on the Mac they load automatically from `/Volumes/Dev/.secrets/*.env`; in 
 ## Safety rules
 - Writes only on sandboxes/decoys: Cafe24 test mall stock, a Naver product the canary creates in 판매중지 and deletes, Kakao message to self, Popbill TEST server. Real sale products are never touched.
 - Cassettes are committed to a public repo: `mask.ts` strips credentials and PII before anything is written. If you add a platform with new PII field names, extend `PII_KEY_RE`.
+
+## Self-hosted runner (Mac mini) — why and how
+
+Naver Commerce requires an IP allow-list and data.go.kr / juso.go.kr only answer Korean IPs, so the nightly job runs on a GitHub self-hosted runner on the Mac mini (`runs-on: self-hosted`). One-time setup (repo admin, i.e. the groove79 account):
+
+1. github.com/groove79/kmcp → Settings → Actions → Runners → **New self-hosted runner** → macOS / ARM64 → run the shown `curl`/`tar`/`./config.sh --url … --token …` commands in `/Volumes/Dev/actions-runner` (labels: leave default `self-hosted`).
+2. Install it as a login service so it survives reboots: `cd /Volumes/Dev/actions-runner && ./svc.sh install && ./svc.sh start`.
+3. Settings → Actions → General → "Require approval for all outside collaborators" (public repo + self-hosted runner hygiene). The canary workflow has no `pull_request` trigger, and CI stays on `ubuntu-latest`.
+4. Manual cloud run when the Mac is off: Actions → Canary → Run workflow → runner = `cloud` (Naver/data.go.kr checks will show AUTH/DOWN there — expected).
+
+Local secrets are **not** read by the runner (it uses GitHub Secrets like the cloud), so keep `push-secrets.sh` in sync after rotating keys.

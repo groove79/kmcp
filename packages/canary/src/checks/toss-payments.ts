@@ -16,7 +16,8 @@ export const checks: Check[] = [
   {
     id: "toss-payments.listTransactions", platform: "toss-payments", access: "read", needs: NEEDS,
     expect: z.object({ transactions: z.array(z.unknown()), startDate: z.string(), notes: z.array(z.string()) }),
-    timeoutMs: 45_000, // the client itself gives up after 20s with TIMEOUT → classified DOWN, not a hung run
+    timeoutMs: 45_000, // the client itself gives up after 20s with TIMEOUT
+    knownIssue: "Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available.",
     run: (ctx) => callTool(byName(tools, "toss_list_transactions"), client(ctx), { startDate: daysAgo(ctx.today, 2), endDate: ctx.today, limit: 10 }),
   },
   {
