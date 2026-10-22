@@ -23,7 +23,7 @@ Each entry: where to sign up, what to click, which env vars to drop into `/Volum
 ### 1. 11번가 — `packages/elevenst` (planned)
 1. 판매자 가입: https://soffice.11st.co.kr (사업자 528-73-00609, 본인인증 필요 — 유성).
 2. 셀러오피스 대시보드 하단 **[OPENAPI]** 링크 → OPEN API CENTER (openapi.11st.co.kr) → **API 관리** → 약관 동의.
-3. 접속권한 신청: 셀링툴 업체 **미선택**, IP 직접 입력 **사용** → 개발 PC IP + Mac mini 공인 IP (canary) 입력, 이메일 yusung790926@gmail.com → 신청.
+3. 접속권한 신청: 셀링툴 업체 **미선택**, IP 직접 입력 **사용** → 개발 PC IP + Mac mini 공인 IP (canary) 입력, 이메일 appmonster.kr@gmail.com → 신청.
 4. 추가 인증 후 페이지 상단의 **API KEY** 복사 → `elevenst.env`: `ELEVENST_API_KEY=…`.
 5. 매뉴얼은 로그인 후에만 보임 → **서비스 등록·확인 / API 가이드** 페이지를 PDF로 저장해 `docs/vendor/11st/`에 넣어주면 그걸로 서버 작성.
 - Auth: `openapikey` header, XML responses (legacy) — client will parse XML → JSON.
