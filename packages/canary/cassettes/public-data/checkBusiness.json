@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-22T00:07:33.138Z",
+  "recordedAt": "2026-10-22T02:53:04.147Z",
   "exchanges": [
     {
       "key": "POST https://api.odcloud.kr/api/nts-businessman/v1/status #966527aeef",
@@ -17,7 +17,7 @@
         "status": 200,
         "headers": {
           "content-type": "application/json; charset=UTF-8",
-          "date": "Thu, 22 Oct 2026 00:07:33 GMT"
+          "date": "Thu, 22 Oct 2026 02:53:04 GMT"
         },
         "body": {
           "request_cnt": 1,

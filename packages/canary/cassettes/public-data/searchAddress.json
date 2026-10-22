@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-22T00:07:33.819Z",
+  "recordedAt": "2026-10-22T02:53:04.658Z",
   "exchanges": [
     {
       "key": "GET https://business.juso.go.kr/addrlink/addrLinkApi.do?countPerPage=3&currentPage=1&keyword=인천 검단구 완정로34번길 20&resultType=json",
@@ -12,7 +12,7 @@
         "status": 200,
         "headers": {
           "content-type": "application/json;charset=UTF-8",
-          "date": "Thu, 22 Oct 2026 00:07:33 GMT"
+          "date": "Thu, 22 Oct 2026 02:53:04 GMT"
         },
         "body": {
           "results": {

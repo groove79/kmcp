@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-22T00:07:33.909Z",
+  "recordedAt": "2026-10-22T02:53:04.762Z",
   "exchanges": [
     {
       "key": "GET https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?_type=json&DEAL_YMD=202609&LAWD_CD=28245&numOfRows=1000&pageNo=1",
@@ -12,8 +12,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json;charset=utf-8",
-          "x-ratelimit-remaining": "9998",
-          "date": "Thu, 22 Oct 2026 00:07:33 GMT"
+          "x-ratelimit-remaining": "9996",
+          "date": "Thu, 22 Oct 2026 02:53:04 GMT"
         },
         "body": {
           "response": {

@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-22T00:07:33.710Z",
+  "recordedAt": "2026-10-22T02:53:04.572Z",
   "exchanges": [
     {
       "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=01&solYear=2026",
@@ -12,8 +12,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9987",
-          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+          "x-ratelimit-remaining": "9963",
+          "date": "Thu, 22 Oct 2026 02:52:47 GMT"
         },
         "body": {
           "response": {
@@ -51,8 +51,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9986",
-          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+          "x-ratelimit-remaining": "9962",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -106,8 +106,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9985",
-          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+          "x-ratelimit-remaining": "9961",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -154,8 +154,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9984",
-          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+          "x-ratelimit-remaining": "9960",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -185,8 +185,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9983",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9959",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -247,8 +247,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9982",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9958",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -295,8 +295,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9981",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9957",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -334,8 +334,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9980",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9956",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -382,8 +382,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9979",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9955",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -437,8 +437,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9978",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9954",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -492,8 +492,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9977",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9953",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
@@ -523,8 +523,8 @@
         "status": 200,
         "headers": {
           "content-type": "application/json",
-          "x-ratelimit-remaining": "9976",
-          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+          "x-ratelimit-remaining": "9952",
+          "date": "Thu, 22 Oct 2026 02:52:48 GMT"
         },
         "body": {
           "response": {
