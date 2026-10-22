@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { approverFromEnv } from "@appmonster/approval";
+import { writeGateFromEnv } from "@appmonster/approval";
 import { createServer } from "./server.js";
 
 const accessKey = process.env.COUPANG_ACCESS_KEY?.trim();
@@ -13,5 +13,5 @@ if (!accessKey || !secretKey || !vendorId) {
   );
   process.exit(1);
 }
-const server = createServer({ accessKey, secretKey, vendorId, approveWrite: approverFromEnv(process.env, { source: "coupang" }) });
+const server = createServer({ accessKey, secretKey, vendorId, writeGate: writeGateFromEnv(process.env, { source: "coupang" }) });
 await server.connect(new StdioServerTransport());

@@ -7,7 +7,7 @@
 import http from "node:http";
 import { randomBytes } from "node:crypto";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { approverFromEnv } from "@appmonster/approval";
+import { writeGateFromEnv } from "@appmonster/approval";
 import { KakaoAuth, FileTokenStore, DEFAULT_REDIRECT, DEFAULT_SCOPES } from "./auth.js";
 import { createServer } from "./server.js";
 
@@ -55,6 +55,6 @@ if (process.argv[2] === "auth") {
     import("node:child_process").then(({ exec }) => exec(`${process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open"} "${url}"`));
   });
 } else {
-  const server = createServer({ clientId, clientSecret, refreshToken: env("KAKAO_REFRESH_TOKEN"), approveWrite: approverFromEnv(process.env, { source: "kakao" }) });
+  const server = createServer({ clientId, clientSecret, refreshToken: env("KAKAO_REFRESH_TOKEN"), writeGate: writeGateFromEnv(process.env, { source: "kakao" }) });
   await server.connect(new StdioServerTransport());
 }

@@ -50,9 +50,10 @@ All writes cost Popbill points and/or reach the 국세청 or real phones, so eve
 `POPBILL_TEST=true`(default) uses Popbill's test server — invoices never reach the NTS, 알림톡 never reaches phones, and every tool description is tagged `[TEST SERVER]`. Switch to `false` only with the approval hook on:
 
 ```json
-"APPROVAL_URL": "https://okagent.kr",
-"APPROVAL_API_KEY": "ok_…"
+"OKAGENT_API_KEY": "ok_…"
 ```
+
+Without it, write tools still never run blind: the first call returns a preview and a `confirm_token`, and the agent re-calls only after you agree in the chat. With an [OK Agent](https://okagent.kr) key (free, 200/month) the request goes to your phone instead — approve on KakaoTalk, with a log. `KMCP_WRITE_MODE=direct` turns the check off for scripts you fully trust.
 
 Popbill restricts API calls by IP by default (`POPBILL_IP_RESTRICT`, default on — register your IP in 팝빌 > 연동관리, or set `false` for roaming machines).
 

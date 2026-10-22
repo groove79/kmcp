@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-cafe24",
   "description": "Cafe24 mall MCP: products, variant stock, orders, board posts. 카페24 쇼핑몰 MCP 서버.",
   "title": "Cafe24",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,13 +15,47 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-cafe24",
-      "version": "0.1.2",
-      "transport": { "type": "stdio" },
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "CAFE24_MALL_ID", "description": "Mall id (subdomain of your Cafe24 admin)", "isRequired": true, "isSecret": false },
-        { "name": "CAFE24_CLIENT_ID", "description": "App client id from developers.cafe24.com", "isRequired": true, "isSecret": false },
-        { "name": "CAFE24_CLIENT_SECRET", "description": "App client secret", "isRequired": true, "isSecret": true },
-        { "name": "CAFE24_REFRESH_TOKEN", "description": "Optional: seed refresh token instead of running `mcp-cafe24 auth`", "isRequired": false, "isSecret": true }
+        {
+          "name": "CAFE24_MALL_ID",
+          "description": "Mall id (subdomain of your Cafe24 admin)",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CAFE24_CLIENT_ID",
+          "description": "App client id from developers.cafe24.com",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CAFE24_CLIENT_SECRET",
+          "description": "App client secret",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "CAFE24_REFRESH_TOKEN",
+          "description": "Optional: seed refresh token instead of running `mcp-cafe24 auth`",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "OKAGENT_API_KEY",
+          "description": "OK Agent key (free at okagent.kr) — writes then wait for your OK on KakaoTalk. Unset: writes ask for confirmation in the chat first.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "KMCP_WRITE_MODE",
+          "description": "approval | confirm | direct (default: approval if OKAGENT_API_KEY is set, else confirm)",
+          "isRequired": false,
+          "isSecret": false
+        }
       ]
     }
   ]

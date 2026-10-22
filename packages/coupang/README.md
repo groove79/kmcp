@@ -39,13 +39,14 @@ MCP server for the **Coupang Wing Open API** (쿠팡 판매자). Lets an AI agen
 
 ### Human approval for writes (optional, recommended)
 
-Add `APPROVAL_URL` and `APPROVAL_API_KEY` from your OK Agent deployment. Every write tool then creates an approval request and only runs after you tap **승인** on your phone.
+Every write tool asks before it runs. By default the agent shows you a preview in the chat and re-calls with a `confirm_token` once you agree. Add an [OK Agent](https://okagent.kr) key (free, 200/month) to approve on KakaoTalk instead:
 
 ```json
-"APPROVAL_URL": "https://okagent.kr",
-"APPROVAL_API_KEY": "ok_…",
+"OKAGENT_API_KEY": "ok_…",
 "APPROVAL_TIMEOUT_SEC": "300"
 ```
+
+`KMCP_WRITE_MODE=direct` turns the check off for scripts you fully trust.
 
 ## Notes
 

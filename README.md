@@ -21,9 +21,9 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 | 🇯🇵 **Japan bridge** | `@appmonster/mcp-japan-bridge` | Rakuten/Yahoo! search → landed cost & price → Smart Store draft |
 | 📅 **Biz calendar** | `@appmonster/mcp-kr-biz-calendar` | tax/payroll deadlines, holidays, business-day math — no keys, offline |
 | 📦 **Delivery** | `@appmonster/mcp-delivery` | parcel tracking: CJ·우체국·한진·롯데·로젠·쿠팡 + Yamato/DHL/UPS, batch status (free key) |
-| ✅ **Approval** (library) | `@appmonster/approval` | the `approveWrite` hook every server above uses → [OK Agent](https://github.com/yumi-kim-79/okagent) |
+| ✅ **Approval** (library) | `@appmonster/approval` | the `approveWrite` hook every server above uses → [OK Agent](https://okagent.kr) |
 
-**Bold** = write tools. They are annotated `destructiveHint`, and when `APPROVAL_URL` is set they wait for a human tap on the phone before running.
+**Bold** = write tools. They are annotated `destructiveHint` and **never run blind**: by default they return a preview and wait for your OK in the chat; with an `OKAGENT_API_KEY` they wait for your tap on KakaoTalk.
 
 ## 30-second install
 
@@ -68,11 +68,19 @@ The first two need no keys. Each package README has the exact env vars and where
 
 ## Human-in-the-loop by default
 
-Money and irreversible actions (refunds, stock changes, invoices, 알림톡) go through [`@appmonster/approval`](packages/approval): the server creates a request, the owner gets a link (web, KakaoTalk, Slack), taps **승인**, and only then does the tool run. No app install, no account for the approver. Set two env vars on any server:
+Money and irreversible actions (refunds, stock changes, invoices, 알림톡) never run on the agent's first try. Every write tool goes through [`@appmonster/approval`](packages/approval):
+
+| Mode | When | What happens |
+|---|---|---|
+| **confirm** (default) | nothing set | The first call only returns a preview and a one-time `confirm_token`. The agent shows it to you; it runs only when you agree and the agent re-calls with the token. |
+| **approval** | `OKAGENT_API_KEY` set | The request goes to [OK Agent](https://okagent.kr): you get a KakaoTalk message, tap **승인**, and only then the tool runs. Works while you're away from the chat, keeps a log, and Pro adds auto-approve rules ("재고 변경은 자동 승인", "5만원 이하 환불은 자동"). |
+| **direct** | `KMCP_WRITE_MODE=direct` | Runs immediately — for scripts and CI you fully trust. |
 
 ```json
-"APPROVAL_URL": "https://okagent.kr", "APPROVAL_API_KEY": "ok_…"
+"OKAGENT_API_KEY": "ok_…"
 ```
+
+Free key (200 approvals/month, no card): **https://okagent.kr**
 
 ## Principles
 

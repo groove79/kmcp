@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-naver-commerce",
   "description": "Naver Smart Store MCP: list products, read orders and inquiries, update stock. 네이버 스마트스토어 MCP 서버.",
   "title": "Naver Commerce",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-naver-commerce",
-      "version": "0.2.2",
+      "version": "0.3.0",
       "transport": {
         "type": "stdio"
       },
@@ -31,6 +31,18 @@
           "description": "Application client secret (used as bcrypt salt)",
           "isRequired": true,
           "isSecret": true
+        },
+        {
+          "name": "OKAGENT_API_KEY",
+          "description": "OK Agent key (free at okagent.kr) — writes then wait for your OK on KakaoTalk. Unset: writes ask for confirmation in the chat first.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "KMCP_WRITE_MODE",
+          "description": "approval | confirm | direct (default: approval if OKAGENT_API_KEY is set, else confirm)",
+          "isRequired": false,
+          "isSecret": false
         }
       ]
     }

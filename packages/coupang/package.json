@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-coupang",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for Coupang Wing (seller) Open API: products, item stock/price, order sheets, shipment confirmation. 쿠팡 윙 MCP 서버.",
   "license": "MIT",
   "type": "module",

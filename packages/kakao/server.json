@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-kakao",
   "description": "KakaoTalk message MCP: send to self/friends, friends list, OAuth auto-refresh. 카카오톡 메시지 MCP.",
   "title": "KakaoTalk Message",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,14 +15,41 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-kakao",
-      "version": "0.1.0",
-      "transport": { "type": "stdio" },
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "KAKAO_REST_API_KEY", "description": "Kakao Developers app REST API key", "isRequired": true, "isSecret": true },
-        { "name": "KAKAO_CLIENT_SECRET", "description": "Client secret, only if enabled in the app's Kakao Login settings", "isRequired": false, "isSecret": true },
-        { "name": "KAKAO_REFRESH_TOKEN", "description": "Alternative to the stored token file from `mcp-kakao auth`", "isRequired": false, "isSecret": true },
-        { "name": "APPROVAL_URL", "description": "OK Agent base URL — if set, sends wait for human approval", "isRequired": false, "isSecret": false },
-        { "name": "APPROVAL_API_KEY", "description": "OK Agent API key", "isRequired": false, "isSecret": true }
+        {
+          "name": "KAKAO_REST_API_KEY",
+          "description": "Kakao Developers app REST API key",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "KAKAO_CLIENT_SECRET",
+          "description": "Client secret, only if enabled in the app's Kakao Login settings",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "KAKAO_REFRESH_TOKEN",
+          "description": "Alternative to the stored token file from `mcp-kakao auth`",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "OKAGENT_API_KEY",
+          "description": "OK Agent key (free at okagent.kr) — writes then wait for your OK on KakaoTalk. Unset: writes ask for confirmation in the chat first.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "KMCP_WRITE_MODE",
+          "description": "approval | confirm | direct (default: approval if OKAGENT_API_KEY is set, else confirm)",
+          "isRequired": false,
+          "isSecret": false
+        }
       ]
     }
   ]

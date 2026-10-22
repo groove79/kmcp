@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { approverFromEnv } from "@appmonster/approval";
+import { writeGateFromEnv } from "@appmonster/approval";
 import { createServer } from "./server.js";
 
 const env = (k: string) => process.env[k]?.trim();
@@ -16,10 +16,10 @@ if (!linkId || !secretKey || !corpNum || corpNum.length !== 10) {
   process.exit(1);
 }
 const isTest = env("POPBILL_TEST") !== "false";
-if (!isTest) console.error("[mcp-popbill] LIVE server — issued invoices go to the NTS and 알림톡 reaches real phones. Set APPROVAL_URL to require human approval.");
+if (!isTest) console.error("[mcp-popbill] LIVE server — issued invoices go to the NTS and 알림톡 reaches real phones. Writes ask for confirmation in chat; set OKAGENT_API_KEY (free at okagent.kr) to approve on KakaoTalk instead.");
 const server = createServer({
   linkId, secretKey, corpNum, userId: env("POPBILL_USER_ID"), isTest,
   ipRestrict: env("POPBILL_IP_RESTRICT") === undefined ? undefined : env("POPBILL_IP_RESTRICT") !== "false",
-  approveWrite: approverFromEnv(process.env, { source: "popbill" }),
+  writeGate: writeGateFromEnv(process.env, { source: "popbill" }),
 });
 await server.connect(new StdioServerTransport());

@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-kakao",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for KakaoTalk messages: send to self or friends via Kakao Developers message API, friends list, OAuth with auto-refresh. 카카오톡 메시지 MCP 서버.",
   "license": "MIT",
   "type": "module",

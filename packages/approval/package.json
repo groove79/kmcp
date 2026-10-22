@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/approval",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Human-in-the-loop approval client for AI agents: ask a person before a write, wait for the answer. Works with any MCP server's approveWrite hook.",
   "license": "MIT",
   "type": "module",

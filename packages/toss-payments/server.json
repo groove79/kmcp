@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-toss-payments",
   "description": "Toss Payments MCP: payment lookup, cancel/refund (approval-gated), transactions, settlements. 토스페이먼츠 MCP.",
   "title": "Toss Payments",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,12 +15,29 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-toss-payments",
-      "version": "0.1.2",
-      "transport": { "type": "stdio" },
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "TOSS_SECRET_KEY", "description": "Secret key (test_sk_… or live_sk_…) from the Toss Payments developer center", "isRequired": true, "isSecret": true },
-        { "name": "APPROVAL_URL", "description": "OK Agent base URL — if set, cancels wait for human approval", "isRequired": false, "isSecret": false },
-        { "name": "APPROVAL_API_KEY", "description": "OK Agent API key", "isRequired": false, "isSecret": true }
+        {
+          "name": "TOSS_SECRET_KEY",
+          "description": "Secret key (test_sk_… or live_sk_…) from the Toss Payments developer center",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "OKAGENT_API_KEY",
+          "description": "OK Agent key (free at okagent.kr) — writes then wait for your OK on KakaoTalk. Unset: writes ask for confirmation in the chat first.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "KMCP_WRITE_MODE",
+          "description": "approval | confirm | direct (default: approval if OKAGENT_API_KEY is set, else confirm)",
+          "isRequired": false,
+          "isSecret": false
+        }
       ]
     }
   ]
