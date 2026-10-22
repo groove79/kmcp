@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-naver-commerce",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MCP server for Naver Commerce API (Smart Store): products, stock, orders, customer inquiries. 네이버 커머스 API(스마트스토어) MCP 서버.",
   "license": "MIT",
   "type": "module",

@@ -1,0 +1,6 @@
+{
+  "jpyToKrw": "number",
+  "usdToKrw": "number",
+  "asOf": "string",
+  "source": "string"
+}

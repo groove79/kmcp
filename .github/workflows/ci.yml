@@ -18,6 +18,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - run: pnpm test
+      - name: Canary replay (recorded real responses, no network)
+        run: cd packages/canary && node dist/cli.js run --replay --status-dir "$RUNNER_TEMP/status" | tee "$GITHUB_STEP_SUMMARY"
       - name: Validate server.json against MCP registry schema (advisory)
         continue-on-error: true
         run: |

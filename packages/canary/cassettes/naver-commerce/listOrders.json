@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-10-22T00:07:38.784Z",
+  "exchanges": [
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/oauth2/token #a53f4cfdc8",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/oauth2/token",
+        "bodyHash": "a53f4cfdc8",
+        "bodyPreview": "client_id=2VjsJwbzPSWY8Exkmayf8V&timestamp=1792627658690&client_secret_sign=JDJhJDA0JGxSZmZLTDhkQUh6ek5lMGZvUTdNcGVPaUszTDlCM2kvTjB6bDNGY0JibUFlTXlDY24wdE8u&grant_type=client_credentials&type=SELF"
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "access_token": "***",
+          "expires_in": 8887,
+          "token_type": "***"
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://api.commerce.naver.com/external/v1/pay-order/seller/product-orders/last-changed-statuses?lastChangedFrom=2026-10-21T09:07:38.690+09:00",
+      "req": {
+        "method": "GET",
+        "url": "https://api.commerce.naver.com/external/v1/pay-order/seller/product-orders/last-changed-statuses?lastChangedFrom=2026-10-21T09%3A07%3A38.690%2B09%3A00",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "timestamp": "2026-10-22T09:07:38.777+09:00",
+          "traceId": "AaDw4Gdpe8CWtUdfIdomGQ^1790747632895^170953709"
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

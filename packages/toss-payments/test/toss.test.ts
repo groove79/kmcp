@@ -83,3 +83,11 @@ test("transactions: paging cursor only when the page is full; settlements sum pa
   assert.equal(out.totalPayOut, 29100);
   assert.equal(out.hasMore, false);
 });
+
+test("a hanging endpoint fails fast with TIMEOUT instead of blocking the agent", async () => {
+  const fetchImpl = ((_u: unknown, init?: RequestInit) => new Promise<Response>((_res, rej) => { init?.signal?.addEventListener("abort", () => rej(Object.assign(new Error("aborted"), { name: "TimeoutError" }))); })) as unknown as typeof fetch;
+  const c = new TossClient("test_sk_abc", { fetchImpl });
+  const keepAlive = setTimeout(() => {}, 2000); // AbortSignal.timeout uses an unref'd timer; a real socket would keep the loop alive
+  try { await assert.rejects(() => c.request("GET", "/v1/transactions", { timeoutMs: 50 }), (e: unknown) => e instanceof TossApiError && e.code === "TIMEOUT"); }
+  finally { clearTimeout(keepAlive); }
+});

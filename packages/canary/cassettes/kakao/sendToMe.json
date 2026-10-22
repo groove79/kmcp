@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-22T00:07:41.801Z",
+  "exchanges": [
+    {
+      "key": "POST https://kapi.kakao.com/v2/api/talk/memo/default/send #1202eab732",
+      "req": {
+        "method": "POST",
+        "url": "https://kapi.kakao.com/v2/api/talk/memo/default/send",
+        "bodyHash": "1202eab732",
+        "bodyPreview": "template_object=%7B%22object_type%22%3A%22text%22%2C%22text%22%3A%22%F0%9F%90%A4+K-MCP+%EC%B9%B4%EB%82%98%EB%A6%AC+2026-10-22+%E2%80%94+%EC%95%8C%EB%A6%BC+%EC%B1%84%EB%84%90+%EC%A0%95%EC%83%81%22%2C%22link%22%3A%7B%7D%7D"
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:41 GMT"
+        },
+        "body": {
+          "result_code": 0
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

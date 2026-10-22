@@ -1,0 +1,260 @@
+{
+  "recordedAt": "2026-10-22T00:07:38.407Z",
+  "exchanges": [
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/oauth2/token #a53f4cfdc8",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/oauth2/token",
+        "bodyHash": "a53f4cfdc8",
+        "bodyPreview": "client_id=2VjsJwbzPSWY8Exkmayf8V&timestamp=1792627658142&client_secret_sign=JDJhJDA0JGxSZmZLTDhkQUh6ek5lMGZvUTdNcGVXVUlQamxaZW9LaUJZaS42LmYyWXM3bGRTUTc3VkNt&grant_type=client_credentials&type=SELF"
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "access_token": "***",
+          "expires_in": 8887,
+          "token_type": "***"
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/products/search #c6a4969df7",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/products/search",
+        "bodyHash": "c6a4969df7",
+        "bodyPreview": {
+          "page": 1,
+          "size": 5,
+          "productStatusTypes": [
+            "SALE"
+          ]
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "contents": [
+            {
+              "originProductNo": 13764336172,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336172,
+                  "channelProductNo": 13825642458,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50004532",
+                  "name": "***",
+                  "sellerManagementCode": "DM-53751133",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 9400,
+                  "discountedPrice": 8460,
+                  "mobileDiscountedPrice": 8460,
+                  "stockQuantity": 20,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000008>50000061>50000881>50004532",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_50/1792585453424EVnka_JPEG/173753103756C76122DC8D59128712F5_img_760.jpg"
+                  },
+                  "sellerTags": [
+                    {
+                      "text": "수저세트"
+                    }
+                  ],
+                  "regDate": "2026-10-21T21:24:14.856+09:00",
+                  "modifiedDate": "2026-10-21T21:54:36.888+09:00"
+                }
+              ]
+            },
+            {
+              "originProductNo": 13764336171,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336171,
+                  "channelProductNo": 13825642457,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50004524",
+                  "name": "***",
+                  "sellerManagementCode": "DM-47711234",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 14200,
+                  "discountedPrice": 12780,
+                  "mobileDiscountedPrice": 12780,
+                  "stockQuantity": 10,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000008>50000061>50000881>50004524",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_102/17925854530872AgG0_JPEG/17198232599E893C362D3F234EE95E9B_img_760.jpg"
+                  },
+                  "sellerTags": [],
+                  "regDate": "2026-10-21T21:24:14.850+09:00",
+                  "modifiedDate": "2026-10-21T21:47:40.410+09:00"
+                }
+              ]
+            },
+            {
+              "originProductNo": 13764336169,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336169,
+                  "channelProductNo": 13825642456,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50000566",
+                  "name": "***",
+                  "sellerManagementCode": "DM-56283429",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 10000,
+                  "discountedPrice": 9000,
+                  "mobileDiscountedPrice": 9000,
+                  "stockQuantity": 60,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000001>50000185>50000566",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_141/1792585453781GR3vk_JPEG/1743748793F340A8DD273938F63911A3_img_760.jpg"
+                  },
+                  "sellerTags": [
+                    {
+                      "text": "여성경량패딩"
+                    }
+                  ],
+                  "regDate": "2026-10-21T21:24:14.837+09:00",
+                  "modifiedDate": "2026-10-21T21:47:36.032+09:00"
+                }
+              ]
+            },
+            {
+              "originProductNo": 13764336168,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336168,
+                  "channelProductNo": 13825642455,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50004524",
+                  "name": "***",
+                  "sellerManagementCode": "DM-9916231",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 9900,
+                  "discountedPrice": 8910,
+                  "mobileDiscountedPrice": 8910,
+                  "stockQuantity": 40,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000008>50000061>50000881>50004524",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_165/1792585453104oWgMS_JPEG/158669060780CE21A05B619BE72DEED2_img_760.jpg"
+                  },
+                  "sellerTags": [],
+                  "regDate": "2026-10-21T21:24:14.827+09:00",
+                  "modifiedDate": "2026-10-21T21:43:36.447+09:00"
+                }
+              ]
+            },
+            {
+              "originProductNo": 13764336167,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336167,
+                  "channelProductNo": 13825642454,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50003642",
+                  "name": "***",
+                  "sellerManagementCode": "DM-62933957",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 13200,
+                  "discountedPrice": 11880,
+                  "mobileDiscountedPrice": 11880,
+                  "stockQuantity": 40,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000004>50000154>50001139>50003642",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_261/1792585453106avGcU_JPEG/251027_cozymong_character_cushion_07.jpg"
+                  },
+                  "sellerTags": [
+                    {
+                      "text": "컴퓨터의자"
+                    }
+                  ],
+                  "regDate": "2026-10-21T21:24:14.812+09:00",
+                  "modifiedDate": "2026-10-21T21:46:37.147+09:00"
+                }
+              ]
+            }
+          ],
+          "page": 1,
+          "size": 5,
+          "totalElements": 868,
+          "totalPages": 174,
+          "sort": {
+            "sorted": true,
+            "fields": [
+              {
+                "name": "***",
+                "direction": "DESC"
+              },
+              {
+                "name": "***",
+                "direction": "DESC"
+              }
+            ]
+          },
+          "first": true,
+          "last": false
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

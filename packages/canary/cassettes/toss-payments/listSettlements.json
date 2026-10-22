@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-22T00:07:42.036Z",
+  "exchanges": [
+    {
+      "key": "GET https://api.tosspayments.com/v1/settlements?dateType=soldDate&endDate=2026-10-22&page=1&size=100&startDate=2026-10-15",
+      "req": {
+        "method": "GET",
+        "url": "https://api.tosspayments.com/v1/settlements?startDate=2026-10-15&endDate=2026-10-22&dateType=soldDate&page=1&size=100",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "date": "Thu, 22 Oct 2026 00:07:42 GMT"
+        },
+        "body": [],
+        "bodyIsText": false
+      }
+    }
+  ]
+}

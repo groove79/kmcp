@@ -1,0 +1,555 @@
+{
+  "recordedAt": "2026-10-22T00:07:33.710Z",
+  "exchanges": [
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=01&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=01&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9987",
+          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": {
+                  "dateKind": "01",
+                  "dateName": "***",
+                  "isHoliday": "Y",
+                  "locdate": 20260101,
+                  "seq": 1
+                }
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 1
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=02&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=02&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9986",
+          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260216,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260217,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260218,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 3
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=03&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=03&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9985",
+          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260301,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260302,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 2
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=04&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=04&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9984",
+          "date": "Thu, 22 Oct 2026 00:07:16 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": "",
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 0
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=05&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=05&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9983",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260501,
+                    "seq": 2
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260505,
+                    "seq": 2
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260524,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260525,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 4
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=06&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=06&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9982",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260603,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260606,
+                    "seq": 2
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 2
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=07&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=07&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9981",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": {
+                  "dateKind": "01",
+                  "dateName": "***",
+                  "isHoliday": "Y",
+                  "locdate": 20260717,
+                  "seq": 1
+                }
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 1
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=08&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=08&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9980",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260815,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260817,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 2
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=09&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=09&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9979",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260924,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260925,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20260926,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 3
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=10&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=10&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9978",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": [
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20261003,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20261005,
+                    "seq": 1
+                  },
+                  {
+                    "dateKind": "01",
+                    "dateName": "***",
+                    "isHoliday": "Y",
+                    "locdate": 20261009,
+                    "seq": 1
+                  }
+                ]
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 3
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=11&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=11&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9977",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": "",
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 0
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?_type=json&numOfRows=50&solMonth=12&solYear=2026",
+      "req": {
+        "method": "GET",
+        "url": "https://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=***&solYear=2026&solMonth=12&_type=json&numOfRows=50",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "9976",
+          "date": "Thu, 22 Oct 2026 00:07:17 GMT"
+        },
+        "body": {
+          "response": {
+            "header": {
+              "resultCode": "00",
+              "resultMsg": "NORMAL SERVICE."
+            },
+            "body": {
+              "items": {
+                "item": {
+                  "dateKind": "01",
+                  "dateName": "***",
+                  "isHoliday": "Y",
+                  "locdate": 20261225,
+                  "seq": 1
+                }
+              },
+              "numOfRows": 50,
+              "pageNo": 1,
+              "totalCount": 1
+            }
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

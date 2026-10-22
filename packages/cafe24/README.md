@@ -40,7 +40,7 @@ Verified live against a real mall (2026-10): products, variants, inventory write
 }
 ```
 
-Optional env: `CAFE24_REFRESH_TOKEN` (seed a token without the browser step), `CAFE24_API_VERSION` (default `2026-06-01`), `CAFE24_SHOP_NO` (default 1), `CAFE24_REDIRECT_URI`.
+Optional env: `CAFE24_REFRESH_TOKEN` (seed a token without the browser step), `CAFE24_API_VERSION` (default `2026-09-01`; if Cafe24 retires it the client switches to the version Cafe24 names in its error and continues), `CAFE24_SHOP_NO` (default 1), `CAFE24_REDIRECT_URI`.
 
 ## Tools
 

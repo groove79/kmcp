@@ -1,0 +1,449 @@
+{
+  "recordedAt": "2026-10-22T00:07:38.139Z",
+  "exchanges": [
+    {
+      "key": "GET https://appmonster.cafe24api.com/api/v2/admin/products?limit=1&offset=0",
+      "req": {
+        "method": "GET",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/products?limit=1&offset=0",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:35 GMT"
+        },
+        "body": {
+          "products": [
+            {
+              "shop_no": 1,
+              "product_no": 10,
+              "product_code": "P000000J",
+              "custom_product_code": "",
+              "product_name": "***",
+              "eng_product_name": null,
+              "supply_product_name": "***",
+              "internal_product_name": "***",
+              "model_name": "***",
+              "price_excluding_tax": "9000.00",
+              "price": "10000.00",
+              "retail_price": "10000.00",
+              "supply_price": "9000.00",
+              "display": "T",
+              "selling": "T",
+              "product_condition": "N",
+              "product_used_month": null,
+              "summary_description": "",
+              "product_tag": [],
+              "margin_rate": "10.00",
+              "tax_calculation": "M",
+              "tax_type": "A",
+              "tax_rate": 10,
+              "price_content": null,
+              "buy_limit_by_product": "F",
+              "buy_limit_type": null,
+              "buy_group_list": null,
+              "buy_member_id_list": null,
+              "repurchase_restriction": "F",
+              "single_purchase_restriction": "F",
+              "single_purchase": "F",
+              "buy_unit_type": "O",
+              "buy_unit": 1,
+              "order_quantity_limit_type": "O",
+              "minimum_quantity": 1,
+              "maximum_quantity": 0,
+              "points_by_product": "F",
+              "points_setting_by_payment": null,
+              "points_amount": null,
+              "except_member_points": "F",
+              "product_volume": {
+                "use_product_volume": "F"
+              },
+              "adult_certification": "F",
+              "detail_image": null,
+              "list_image": null,
+              "tiny_image": null,
+              "small_image": null,
+              "use_naverpay": null,
+              "naverpay_type": null,
+              "manufacturer_code": "M0000000",
+              "trend_code": "T0000000",
+              "brand_code": "B0000000",
+              "supplier_code": "S0000000",
+              "made_date": "",
+              "release_date": "",
+              "expiration_date": {
+                "start_date": null,
+                "end_date": null
+              },
+              "origin_classification": "",
+              "origin_place_no": 0,
+              "origin_place_value": "",
+              "made_in_code": null,
+              "icon_show_period": {
+                "start_date": null,
+                "end_date": null
+              },
+              "icon": null,
+              "hscode": "",
+              "product_weight": "0.10",
+              "product_material": null,
+              "created_date": "2026-10-21T21:13:37+09:00",
+              "updated_date": "2026-10-21T21:25:33+09:00",
+              "english_product_material": "",
+              "cloth_fabric": null,
+              "list_icon": {
+                "soldout_icon": false,
+                "recommend_icon": false,
+                "new_icon": false
+              },
+              "approve_status": "",
+              "classification_code": "C000000A",
+              "sold_out": "F",
+              "additional_price": "100.00",
+              "clearance_category_eng": null,
+              "clearance_category_kor": null,
+              "clearance_category_code": null,
+              "exposure_limit_type": "A",
+              "exposure_group_list": null,
+              "set_product_type": null,
+              "use_kakaopay": null,
+              "shipping_fee_by_product": "F",
+              "shipping_fee_type": "M",
+              "main": [
+                2
+              ],
+              "market_sync": "F",
+              "cultural_tax_deduction": "F",
+              "size_guide": {
+                "use": "F",
+                "type": "default",
+                "default": "",
+                "description": null
+              }
+            }
+          ]
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://appmonster.cafe24api.com/api/v2/admin/products/10/variants",
+      "req": {
+        "method": "GET",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/products/10/variants",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:35 GMT"
+        },
+        "body": {
+          "variants": [
+            {
+              "shop_no": 1,
+              "variant_code": "P000000J000A",
+              "options": null,
+              "custom_variant_code": "",
+              "display": "T",
+              "selling": "T",
+              "display_order": null,
+              "additional_amount": "0.00",
+              "supply_price": null,
+              "gtin": null,
+              "use_inventory": "F",
+              "important_inventory": "A",
+              "inventory_control_type": "B",
+              "display_soldout": "F",
+              "quantity": 0,
+              "safety_inventory": 0,
+              "image": ""
+            }
+          ]
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://appmonster.cafe24api.com/api/v2/admin/products/10?embed=variants",
+      "req": {
+        "method": "GET",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/products/10?embed=variants",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:35 GMT"
+        },
+        "body": {
+          "product": {
+            "shop_no": 1,
+            "variants": [
+              {
+                "shop_no": 1,
+                "variant_code": "P000000J000A",
+                "options": null,
+                "custom_variant_code": "",
+                "display": "T",
+                "selling": "T",
+                "display_order": null,
+                "additional_amount": "0.00",
+                "supply_price": null,
+                "gtin": null,
+                "use_inventory": "F",
+                "important_inventory": "A",
+                "inventory_control_type": "B",
+                "display_soldout": "F",
+                "quantity": 0,
+                "safety_inventory": 0,
+                "image": ""
+              }
+            ],
+            "product_no": 10,
+            "category": [
+              {
+                "category_no": 29,
+                "recommend": "F",
+                "new": "F"
+              },
+              {
+                "category_no": 33,
+                "recommend": "F",
+                "new": "F"
+              },
+              {
+                "category_no": 34,
+                "recommend": "F",
+                "new": "F"
+              },
+              {
+                "category_no": 38,
+                "recommend": "F",
+                "new": "F"
+              }
+            ],
+            "project_no": null,
+            "product_code": "P000000J",
+            "custom_product_code": "",
+            "product_name": "***",
+            "eng_product_name": null,
+            "supply_product_name": "***",
+            "internal_product_name": "***",
+            "model_name": "***",
+            "price_excluding_tax": "9000.00",
+            "price": "10000.00",
+            "retail_price": "10000.00",
+            "supply_price": "9000.00",
+            "display": "T",
+            "description": "<p><span style=\"font: 12px/normal Gulim; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; -webkit-text-stroke-width: 0px;\">샘플상품 입니다.</span></p>                ",
+            "mobile_description": null,
+            "separated_mobile_description": "F",
+            "translated_description": "",
+            "payment_info": null,
+            "shipping_info": null,
+            "exchange_info": null,
+            "service_info": null,
+            "product_tax_type_text": null,
+            "set_product_type": null,
+            "country_hscode": null,
+            "selling": "T",
+            "product_condition": "N",
+            "product_used_month": null,
+            "simple_description": "",
+            "summary_description": "",
+            "product_tag": [],
+            "margin_rate": "10.00",
+            "tax_calculation": "M",
+            "tax_type": "A",
+            "tax_rate": 10,
+            "price_content": null,
+            "buy_limit_by_product": "F",
+            "buy_limit_type": null,
+            "repurchase_restriction": "F",
+            "buy_group_list": null,
+            "buy_member_id_list": null,
+            "single_purchase_restriction": "F",
+            "single_purchase": "F",
+            "buy_unit_type": "O",
+            "buy_unit": 1,
+            "order_quantity_limit_type": "O",
+            "minimum_quantity": 1,
+            "maximum_quantity": 0,
+            "points_by_product": "F",
+            "points_setting_by_payment": null,
+            "points_amount": null,
+            "except_member_points": "F",
+            "product_volume": {
+              "use_product_volume": "F"
+            },
+            "adult_certification": "F",
+            "detail_image": null,
+            "list_image": null,
+            "tiny_image": null,
+            "small_image": null,
+            "has_option": "F",
+            "soldout_message": "",
+            "option_type": null,
+            "use_naverpay": null,
+            "naverpay_type": null,
+            "manufacturer_code": "M0000000",
+            "trend_code": "T0000000",
+            "brand_code": "B0000000",
+            "supplier_code": "S0000000",
+            "made_date": "",
+            "release_date": "",
+            "expiration_date": {
+              "start_date": null,
+              "end_date": null
+            },
+            "origin_classification": "",
+            "origin_place_no": 0,
+            "origin_place_value": "",
+            "made_in_code": null,
+            "icon_show_period": {
+              "start_date": null,
+              "end_date": null
+            },
+            "icon": null,
+            "hscode": "",
+            "product_weight": "0.10",
+            "product_material": null,
+            "shipping_calculation": "M",
+            "shipping_fee_by_product": "F",
+            "shipping_method": null,
+            "prepaid_shipping_fee": null,
+            "shipping_period": null,
+            "shipping_scope": "A",
+            "shipping_area": null,
+            "shipping_fee_type": null,
+            "shipping_rates": null,
+            "created_date": "2026-10-21T21:13:37+09:00",
+            "updated_date": "2026-10-21T21:25:33+09:00",
+            "english_product_material": "",
+            "clearance_category_eng": null,
+            "clearance_category_kor": null,
+            "clearance_category_code": null,
+            "product_shipping_type": "C",
+            "cloth_fabric": null,
+            "origin_place_code": 0,
+            "list_icon": {
+              "soldout_icon": false,
+              "recommend_icon": false,
+              "new_icon": false
+            },
+            "additional_information": null,
+            "image_upload_type": "A",
+            "classification_code": "C000000A",
+            "main": [
+              2
+            ],
+            "relational_product": null,
+            "select_one_by_option": "F",
+            "approve_status": "",
+            "sold_out": "F",
+            "additional_price": "100.00",
+            "translated_additional_description": null,
+            "exposure_limit_type": "A",
+            "exposure_group_list": null,
+            "use_kakaopay": null,
+            "market_sync": "F",
+            "cultural_tax_deduction": "F",
+            "size_guide": {
+              "use": "F",
+              "type": "default",
+              "default": "",
+              "description": null
+            },
+            "payment_info_by_product": "F",
+            "service_info_by_product": "F",
+            "shipping_info_by_product": "F",
+            "exchange_info_by_product": "F"
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "PUT https://appmonster.cafe24api.com/api/v2/admin/products/10/variants/P000000J000A/inventories #576efb3064",
+      "req": {
+        "method": "PUT",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/products/10/variants/P000000J000A/inventories",
+        "bodyHash": "576efb3064",
+        "bodyPreview": {
+          "shop_no": 1,
+          "request": {
+            "quantity": 7,
+            "use_inventory": "T"
+          }
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:36 GMT"
+        },
+        "body": {
+          "inventory": {
+            "shop_no": 1,
+            "variant_code": "P000000J000A",
+            "use_inventory": "T",
+            "important_inventory": "A",
+            "inventory_control_type": "B",
+            "display_soldout": "F",
+            "quantity": 7,
+            "safety_inventory": 0,
+            "origin_code": null
+          }
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "PUT https://appmonster.cafe24api.com/api/v2/admin/products/10/variants/P000000J000A/inventories #3e20702a71",
+      "req": {
+        "method": "PUT",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/products/10/variants/P000000J000A/inventories",
+        "bodyHash": "3e20702a71",
+        "bodyPreview": {
+          "shop_no": 1,
+          "request": {
+            "quantity": 0,
+            "use_inventory": "T"
+          }
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "inventory": {
+            "shop_no": 1,
+            "variant_code": "P000000J000A",
+            "use_inventory": "T",
+            "important_inventory": "A",
+            "inventory_control_type": "B",
+            "display_soldout": "F",
+            "quantity": 0,
+            "safety_inventory": 0,
+            "origin_code": null
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,1105 @@
+{
+  "recordedAt": "2026-10-22T00:07:35.046Z",
+  "exchanges": [
+    {
+      "key": "GET https://appmonster.cafe24api.com/api/v2/admin/boards",
+      "req": {
+        "method": "GET",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/boards",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:35 GMT"
+        },
+        "body": {
+          "boards": [
+            {
+              "shop_no": 1,
+              "board_no": 1,
+              "board_type": 1,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "T",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 1,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "F",
+              "write_permission": "A",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "A",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "공지사항입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "F"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 2,
+              "board_type": 1,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 6,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "F",
+              "write_permission": "A",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "A",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "뉴스와 이벤트입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "F"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 3,
+              "board_type": 1,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 7,
+              "attached_file": "F",
+              "attached_file_size_limit": 3000,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "F",
+              "write_permission": "A",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "A",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "이용안내 FAQ입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "F"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 4,
+              "board_type": 5,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "T",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 2,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "N"
+              },
+              "reply_feature": "F",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": "T",
+                "member_write_after": "shipend_date",
+                "use_member_write_period": "F",
+                "member_write_period": 0,
+                "is_guest_buy": "T",
+                "guest_write_after": "shipend_date",
+                "use_guest_write_period": "F",
+                "guest_write_period": 0,
+                "product_info_option": "T",
+                "post_length_limit": "F",
+                "post_min_length": 0,
+                "post_editable": "T"
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "상품 사용후기입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 5,
+              "board_type": 2,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "T",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 4,
+              "attached_file": "T",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "자유게시판입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 6,
+              "board_type": 5,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "T",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 3,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": "F",
+                "member_write_after": "place_date",
+                "use_member_write_period": "F",
+                "member_write_period": 0,
+                "is_guest_buy": "F",
+                "guest_write_after": "order_date",
+                "use_guest_write_period": "F",
+                "guest_write_period": 0,
+                "product_info_option": "T",
+                "post_length_limit": "F",
+                "post_min_length": 0,
+                "post_editable": "T"
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "상품 Q&A입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 7,
+              "board_type": 3,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 12,
+              "attached_file": "T",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "자료실입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 8,
+              "board_type": 6,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "T",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/g_board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 5,
+              "attached_file": "T",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "F",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "갤러리입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 9,
+              "board_type": 7,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "T",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/myshop/top_01.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 8,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "F",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "A",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "F",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "1:1 맞춤상담 게시판입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 10,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "F"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 101,
+              "board_type": 5,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 9,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": "F",
+                "member_write_after": "place_date",
+                "use_member_write_period": "F",
+                "member_write_period": 0,
+                "is_guest_buy": "F",
+                "guest_write_after": "order_date",
+                "use_guest_write_period": "F",
+                "guest_write_period": 0,
+                "product_info_option": "T",
+                "post_length_limit": "F",
+                "post_min_length": 0,
+                "post_editable": "T"
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "상품자유게시판입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 1001,
+              "board_type": 11,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 13,
+              "attached_file": "F",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "F",
+              "write_permission": "N",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "N",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "한줄메모를 작성해주세요",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 10,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 1002,
+              "board_type": 2,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img0001.echosting.cafe24.com/front/type_b/image/board/board_top.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 11,
+              "attached_file": "T",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "자유게시판입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            },
+            {
+              "shop_no": 1,
+              "board_no": 3001,
+              "board_type": 2,
+              "board_name": "***",
+              "use_additional_board": "F",
+              "use_board": "F",
+              "use_display": "F",
+              "use_top_image": "F",
+              "top_image_url": "http://img.echosting.cafe24.com/design/skin/admin/$language/img_board1.gif",
+              "use_report": "F",
+              "use_writer_block": "F",
+              "display_order": 9,
+              "attached_file": "T",
+              "attached_file_size_limit": 3145728,
+              "article_display_type": "A",
+              "image_display": "T",
+              "image_resize": 587,
+              "use_category": "F",
+              "categories": [],
+              "secret_only": "***",
+              "admin_confirm": "F",
+              "comment_author_display": "N",
+              "comment_author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "spam_auto_prevention": {
+                "apply_scope": [
+                  "post_actions",
+                  "comment"
+                ],
+                "member_scope": "A"
+              },
+              "reply_feature": "T",
+              "write_permission": "I",
+              "write_member_group_no": null,
+              "write_permission_extra": {
+                "is_member_buy": null,
+                "member_write_after": null,
+                "use_member_write_period": null,
+                "member_write_period": null,
+                "is_guest_buy": null,
+                "guest_write_after": null,
+                "use_guest_write_period": null,
+                "guest_write_period": null,
+                "product_info_option": null,
+                "post_length_limit": null,
+                "post_min_length": null,
+                "post_editable": null
+              },
+              "reply_permission": "M",
+              "reply_member_group_no": null,
+              "author_display": "N",
+              "author_protection": {
+                "is_use": "T",
+                "author_name_type": "count",
+                "partial_character_display": "1",
+                "alternative_text_display": ""
+              },
+              "board_guide": "자유게시판입니다.",
+              "admin_title_fixed": {
+                "is_use": "F",
+                "admin_title_list": null,
+                "staff_skip_post_title": "F"
+              },
+              "admin_reply_fixed": {
+                "is_use": "F",
+                "admin_reply_list": null,
+                "staff_skip_reply_title": "F"
+              },
+              "input_form": {
+                "is_use": "F",
+                "input_form_title": [],
+                "enable_input_form_title": []
+              },
+              "page_size": 15,
+              "product_page_size": 5,
+              "page_display_count": 10,
+              "use_comment": "T"
+            }
+          ]
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

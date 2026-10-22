@@ -1,0 +1,16 @@
+{
+  "total": "number",
+  "results": "array",
+  "results[]": "object",
+  "results[].roadAddress": "string",
+  "results[].roadAddressShort": "string",
+  "results[].lotAddress": "string",
+  "results[].postalCode": "string",
+  "results[].building": "string",
+  "results[].sido": "string",
+  "results[].sigungu": "string",
+  "results[].dong": "string",
+  "results[].englishAddress": "string",
+  "results[].buildingManagementNo": "string",
+  "results[].adminCode": "string"
+}

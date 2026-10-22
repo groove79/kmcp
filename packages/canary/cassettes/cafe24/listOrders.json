@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-22T00:07:34.703Z",
+  "exchanges": [
+    {
+      "key": "GET https://appmonster.cafe24api.com/api/v2/admin/orders?embed=items,buyer,receivers&end_date=2026-10-22&limit=5&offset=0&start_date=2026-10-22",
+      "req": {
+        "method": "GET",
+        "url": "https://appmonster.cafe24api.com/api/v2/admin/orders?start_date=2026-10-22&end_date=2026-10-22&embed=items%2Cbuyer%2Creceivers&limit=5&offset=0",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-cafe24-api-version": "2026-09-01",
+          "date": "Thu, 22 Oct 2026 00:07:34 GMT"
+        },
+        "body": {
+          "orders": []
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

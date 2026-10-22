@@ -1,0 +1,6 @@
+{
+  "id": "number",
+  "nickname": "null",
+  "scopes": "array",
+  "scopes[]": "string"
+}

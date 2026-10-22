@@ -33,7 +33,7 @@ export class TossClient {
   }
   private readonly newKey: () => string;
 
-  async request<T>(method: "GET" | "POST", path: string, opts: { query?: Query; body?: unknown; idempotencyKey?: string } = {}): Promise<T> {
+  async request<T>(method: "GET" | "POST", path: string, opts: { query?: Query; body?: unknown; idempotencyKey?: string; timeoutMs?: number } = {}): Promise<T> {
     const url = new URL(this.baseUrl + path);
     for (const [k, v] of Object.entries(opts.query ?? {})) if (v !== undefined && v !== "") url.searchParams.set(k, String(v));
     const headers: Record<string, string> = { Authorization: `Basic ${this.basic}`, Accept: "application/json" };
@@ -41,7 +41,13 @@ export class TossClient {
       headers["Content-Type"] = "application/json";
       headers["Idempotency-Key"] = opts.idempotencyKey ?? this.newKey();
     }
-    const res = await this.fetchImpl(url, { method, headers, body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined });
+    let res: Response;
+    try {
+      res = await this.fetchImpl(url, { method, headers, body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined, signal: AbortSignal.timeout(opts.timeoutMs ?? 20_000) });
+    } catch (e) {
+      if ((e as Error).name === "TimeoutError" || (e as Error).name === "AbortError") throw new TossApiError(0, "TIMEOUT", `Toss API ${method} ${path} did not answer within ${opts.timeoutMs ?? 20_000}ms`, null);
+      throw e;
+    }
     const text = await res.text();
     let json: unknown;
     try { json = text ? JSON.parse(text) : undefined; } catch { json = text; }

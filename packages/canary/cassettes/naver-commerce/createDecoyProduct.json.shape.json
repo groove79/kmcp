@@ -1,0 +1,9 @@
+{
+  "originProductNo": "number",
+  "channelProductNo": "number",
+  "requestedStatus": "string",
+  "status": "string",
+  "displayStatus": "string",
+  "url": "string",
+  "notes": "array"
+}

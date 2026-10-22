@@ -145,7 +145,7 @@ export const listInquiries = define({
     endSearchDate: z.string().optional().describe("YYYY-MM-DD, default today"),
     answered: z.boolean().optional().describe("true = answered only, false = unanswered only, omit = all"),
     page: z.number().int().min(1).default(1),
-    size: z.number().int().min(1).max(100).default(50),
+    size: z.number().int().min(10).max(100).default(50).describe("Naver rejects sizes below 10 (verified live)"),
   },
   handler: (client, { startSearchDate, endSearchDate, answered, page, size }) => {
     const day = (d: Date) => toKstIso(d).slice(0, 10);

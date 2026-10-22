@@ -1,0 +1,17 @@
+{
+  "year": "number",
+  "entity": "string",
+  "employees": "boolean",
+  "today": "string",
+  "deadlines": "array",
+  "deadlines[]": "object",
+  "deadlines[].date": "string",
+  "deadlines[].originalDate": "string",
+  "deadlines[].shifted": "boolean",
+  "deadlines[].id": "string",
+  "deadlines[].name": "string",
+  "deadlines[].category": "string",
+  "deadlines[].note": "string",
+  "deadlines[].what": "string",
+  "note": "undefined"
+}

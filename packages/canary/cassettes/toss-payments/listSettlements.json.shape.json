@@ -1,0 +1,6 @@
+{
+  "settlements": "array",
+  "totalPayOut": "number",
+  "page": "number",
+  "hasMore": "boolean"
+}

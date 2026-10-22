@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-naver-commerce",
   "description": "Naver Smart Store MCP: list products, read orders and inquiries, update stock. 네이버 스마트스토어 MCP 서버.",
   "title": "Naver Commerce",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-naver-commerce",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "transport": {
         "type": "stdio"
       },

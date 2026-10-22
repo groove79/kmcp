@@ -1,0 +1,9 @@
+{
+  "date": "string",
+  "dayOfWeek": "string",
+  "isBusinessDay": "boolean",
+  "holiday": "null",
+  "nextBusinessDay": "string",
+  "previousBusinessDay": "string",
+  "note": "undefined"
+}

@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-cafe24",
   "description": "Cafe24 mall MCP: products, variant stock, orders, board posts. 카페24 쇼핑몰 MCP 서버.",
   "title": "Cafe24",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-cafe24",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "CAFE24_MALL_ID", "description": "Mall id (subdomain of your Cafe24 admin)", "isRequired": true, "isSecret": false },

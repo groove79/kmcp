@@ -1,0 +1,10 @@
+{
+  "$": "array",
+  "[]": "object",
+  "[].b_no": "string",
+  "[].status": "string",
+  "[].status_code": "string",
+  "[].tax_type": "string",
+  "[].closed_on": "null",
+  "[].utcc_yn": "string"
+}

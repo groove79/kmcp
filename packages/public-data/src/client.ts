@@ -34,7 +34,7 @@ export class PublicClient {
     if (!res.ok) throw new PublicApiError(res.status, `HTTP ${res.status} from ${url.host}${url.pathname}: ${text.slice(0, 300)}`, json);
     // data.go.kr returns 200 with an error envelope for bad keys
     const env = (json as { response?: { header?: { resultCode?: string; resultMsg?: string } } })?.response?.header;
-    if (env && env.resultCode && env.resultCode !== "00") throw new PublicApiError(res.status, `data.go.kr error ${env.resultCode}: ${env.resultMsg}`, json);
+    if (env && env.resultCode && !/^0+$/.test(env.resultCode)) throw new PublicApiError(res.status, `data.go.kr error ${env.resultCode}: ${env.resultMsg}`, json);
     return json as T;
   }
 

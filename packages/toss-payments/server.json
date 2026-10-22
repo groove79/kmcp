@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-toss-payments",
   "description": "Toss Payments MCP: payment lookup, cancel/refund (approval-gated), transactions, settlements. 토스페이먼츠 MCP.",
   "title": "Toss Payments",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-toss-payments",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "TOSS_SECRET_KEY", "description": "Secret key (test_sk_… or live_sk_…) from the Toss Payments developer center", "isRequired": true, "isSecret": true },

@@ -1,0 +1,10 @@
+{
+  "year": "number",
+  "month": "null",
+  "count": "number",
+  "holidays": "array",
+  "holidays[]": "object",
+  "holidays[].date": "string",
+  "holidays[].name": "string",
+  "holidays[].isHoliday": "boolean"
+}

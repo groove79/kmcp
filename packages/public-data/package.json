@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-public-data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Korean public data (data.go.kr): business registration status, public holidays, road addresses, apartment trades. 공공데이터 MCP 서버.",
   "license": "MIT",
   "type": "module",

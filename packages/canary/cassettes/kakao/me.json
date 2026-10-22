@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-10-22T00:07:41.725Z",
+  "exchanges": [
+    {
+      "key": "GET https://kapi.kakao.com/v2/user/scopes",
+      "req": {
+        "method": "GET",
+        "url": "https://kapi.kakao.com/v2/user/scopes",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:41 GMT"
+        },
+        "body": {
+          "id": 5147409990,
+          "scopes": [
+            {
+              "id": "talk_message",
+              "display_name": "***",
+              "type": "SERVICE",
+              "using": true,
+              "agreed": true,
+              "revocable": true
+            }
+          ]
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://kapi.kakao.com/v2/user/me",
+      "req": {
+        "method": "GET",
+        "url": "https://kapi.kakao.com/v2/user/me",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:41 GMT"
+        },
+        "body": {
+          "id": 5147409990,
+          "connected_at": "2026-10-21T10:56:16Z"
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "inventory": "object",
+  "inventory.shop_no": "number",
+  "inventory.variant_code": "string",
+  "inventory.use_inventory": "string",
+  "inventory.important_inventory": "string",
+  "inventory.inventory_control_type": "string",
+  "inventory.display_soldout": "string",
+  "inventory.quantity": "number",
+  "inventory.safety_inventory": "number",
+  "inventory.origin_code": "null",
+  "note": "string",
+  "_revert": "object",
+  "_revert.pno": "number",
+  "_revert.variant_code": "string",
+  "_revert.quantity": "number"
+}

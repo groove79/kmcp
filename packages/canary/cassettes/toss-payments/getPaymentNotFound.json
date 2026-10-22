@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-22T00:08:02.125Z",
+  "exchanges": [
+    {
+      "key": "GET https://api.tosspayments.com/v1/payments/kmcp_canary_missing",
+      "req": {
+        "method": "GET",
+        "url": "https://api.tosspayments.com/v1/payments/kmcp_canary_missing",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": "200",
+          "date": "Thu, 22 Oct 2026 00:08:02 GMT"
+        },
+        "body": {
+          "code": "NOT_FOUND_PAYMENT",
+          "message": "존재하지 않는 결제 정보 입니다."
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

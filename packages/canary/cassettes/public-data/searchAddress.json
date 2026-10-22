@@ -1,0 +1,60 @@
+{
+  "recordedAt": "2026-10-22T00:07:33.819Z",
+  "exchanges": [
+    {
+      "key": "GET https://business.juso.go.kr/addrlink/addrLinkApi.do?countPerPage=3&currentPage=1&keyword=인천 검단구 완정로34번길 20&resultType=json",
+      "req": {
+        "method": "GET",
+        "url": "https://business.juso.go.kr/addrlink/addrLinkApi.do?confmKey=***&keyword=%EC%9D%B8%EC%B2%9C+%EA%B2%80%EB%8B%A8%EA%B5%AC+%EC%99%84%EC%A0%95%EB%A1%9C34%EB%B2%88%EA%B8%B8+20&currentPage=1&countPerPage=3&resultType=json",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:33 GMT"
+        },
+        "body": {
+          "results": {
+            "common": {
+              "countPerPage": "3",
+              "errorMessage": "정상",
+              "errorCode": "0",
+              "totalCount": "1",
+              "currentPage": "1"
+            },
+            "juso": [
+              {
+                "siNm": "인천광역시",
+                "lnbrMnnm": "1003",
+                "bdKdcd": "1",
+                "jibunAddr": "***",
+                "buldSlno": "0",
+                "bdMgtSn": "2826011300105800008029140",
+                "zipNo": "23473",
+                "roadAddr": "***",
+                "admCd": "2829010300",
+                "liNm": "",
+                "bdNm": "동아아파트",
+                "mtYn": "0",
+                "rnMgtSn": "282904268549",
+                "roadAddrPart2": " (마전동, 동아아파트)",
+                "sggNm": "검단구",
+                "buldMnnm": "20",
+                "roadAddrPart1": "인천광역시 검단구 완정로34번길 20",
+                "emdNm": "마전동",
+                "lnbrSlno": "1",
+                "engAddr": "***",
+                "udrtYn": "0",
+                "rn": "완정로34번길",
+                "detBdNmList": "114동, 102동, 101동, 115동, 103동, 104동, 105동, 106동, 107동, 108동, 109동, 110동, 111동, 112동, 113동, 재은유치원",
+                "emdNo": "01"
+              }
+            ]
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

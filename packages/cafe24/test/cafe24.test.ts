@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { Cafe24Auth, MemoryTokenStore, type TokenSet } from "../src/auth.js";
+import { Cafe24Client } from "../src/client.js";
 import { createServer } from "../src/server.js";
 
 interface Call { method: string; url: string; headers: Record<string, string>; body?: string }
@@ -98,7 +99,7 @@ test("tools: list_products sends query + version header + bearer; update_invento
   const r1 = await client.callTool({ name: "cafe24_list_products", arguments: { product_name: "드릴", display: "T" } });
   assert.equal(r1.isError, undefined);
   const lp = calls.find((c) => c.url.includes("/admin/products?"))!;
-  assert.equal(lp.headers["X-Cafe24-Api-Version"], "2026-06-01");
+  assert.equal(lp.headers["X-Cafe24-Api-Version"], "2026-09-01");
   assert.equal(lp.headers.Authorization, "Bearer seed");
   const q = new URL(lp.url).searchParams;
   assert.equal(q.get("product_name"), "드릴"); assert.equal(q.get("display"), "T"); assert.equal(q.get("limit"), "50");
@@ -122,4 +123,25 @@ test("tools: Cafe24 error surfaces code + message", async () => {
   const r = await client.callTool({ name: "cafe24_get_product", arguments: { product_no: 1 } });
   assert.equal(r.isError, true);
   assert.match((r.content as Array<{ text: string }>)[0].text, /HTTP 404 \[404\]: no route GET \/products\/1/);
+});
+
+test("client follows Cafe24's version hint when ours is retired (verified live 2026-10-22)", async () => {
+  const calls: Call[] = [];
+  const fetchImpl = (async (url: string | URL, init?: RequestInit) => {
+    const u = String(url);
+    const headers = (init?.headers as Record<string, string>) ?? {};
+    calls.push({ method: init?.method ?? "GET", url: u, headers });
+    if (u.endsWith("/oauth/token")) return json({ access_token: "at", refresh_token: "rt", expires_at: new Date(Date.now() + 7200_000).toISOString(), refresh_token_expires_at: new Date(Date.now() + 14 * 86400_000).toISOString() });
+    if (headers["X-Cafe24-Api-Version"] === "2026-01-01") return json({ error: { code: 400, message: "2026-01-01 version you requested is not available. The default value for the app version is 2026-09-01." } }, 400);
+    return json({ products: [{ product_no: 1 }] });
+  }) as unknown as typeof fetch;
+  const auth = new Cafe24Auth({ mallId: "m", clientId: "c", clientSecret: "s", store: new MemoryTokenStore(seeded()), fetchImpl });
+  const client = new Cafe24Client(auth, { fetchImpl, apiVersion: "2026-01-01" });
+  const out = await client.get<{ products: unknown[] }>("/products");
+  assert.equal(out.products.length, 1);
+  assert.equal(client.apiVersion, "2026-09-01");
+  const versions = calls.filter((c) => c.url.includes("/admin/products")).map((c) => c.headers["X-Cafe24-Api-Version"]);
+  assert.deepEqual(versions, ["2026-01-01", "2026-09-01"]);
+  await client.get("/products");
+  assert.equal(calls.filter((c) => c.url.includes("/admin/products")).length, 3, "later calls use the new version directly");
 });

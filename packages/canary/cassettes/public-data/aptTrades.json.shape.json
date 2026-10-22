@@ -1,0 +1,17 @@
+{
+  "lawd_cd": "string",
+  "year_month": "string",
+  "total": "number",
+  "returned": "number",
+  "trades": "array",
+  "trades[]": "object",
+  "trades[].apartment": "string",
+  "trades[].dong": "string",
+  "trades[].date": "string",
+  "trades[].price_10k_krw": "number",
+  "trades[].area_m2": "number",
+  "trades[].floor": "number",
+  "trades[].built_year": "number",
+  "trades[].dealing_type": "string",
+  "trades[].cancelled": "boolean"
+}

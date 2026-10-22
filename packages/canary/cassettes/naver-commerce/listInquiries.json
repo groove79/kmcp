@@ -1,0 +1,71 @@
+{
+  "recordedAt": "2026-10-22T00:07:38.888Z",
+  "exchanges": [
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/oauth2/token #a53f4cfdc8",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/oauth2/token",
+        "bodyHash": "a53f4cfdc8",
+        "bodyPreview": "client_id=2VjsJwbzPSWY8Exkmayf8V&timestamp=1792627658786&client_secret_sign=JDJhJDA0JGxSZmZLTDhkQUh6ek5lMGZvUTdNcGVKZy9TdGtjamZFSHkuVGV3NXRLanBZT25NYmd0aDh1&grant_type=client_credentials&type=SELF"
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "access_token": "***",
+          "expires_in": 8887,
+          "token_type": "***"
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://api.commerce.naver.com/external/v1/pay-user/inquiries?endSearchDate=2026-10-22&page=1&size=10&startSearchDate=2026-10-15",
+      "req": {
+        "method": "GET",
+        "url": "https://api.commerce.naver.com/external/v1/pay-user/inquiries?startSearchDate=2026-10-15&endSearchDate=2026-10-22&page=1&size=10",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "content": [],
+          "pageable": {
+            "sort": {
+              "sorted": false,
+              "unsorted": true,
+              "empty": true
+            },
+            "pageNumber": 0,
+            "pageSize": 10,
+            "offset": 0,
+            "paged": true,
+            "unpaged": false
+          },
+          "last": true,
+          "totalPages": 0,
+          "totalElements": 0,
+          "first": true,
+          "number": 0,
+          "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+          },
+          "numberOfElements": 0,
+          "size": 10,
+          "empty": true
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}

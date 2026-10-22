@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-toss-payments",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for Toss Payments: look up payments, cancel/refund (approval-gated), transactions and settlements. 토스페이먼츠 MCP 서버.",
   "license": "MIT",
   "type": "module",

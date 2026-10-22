@@ -1,0 +1,263 @@
+{
+  "recordedAt": "2026-10-22T00:07:38.686Z",
+  "exchanges": [
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/oauth2/token #a53f4cfdc8",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/oauth2/token",
+        "bodyHash": "a53f4cfdc8",
+        "bodyPreview": "client_id=2VjsJwbzPSWY8Exkmayf8V&timestamp=1792627658408&client_secret_sign=JDJhJDA0JGxSZmZLTDhkQUh6ek5lMGZvUTdNcGV3MENiYUJPbXVvN2VwbHozaXkyM1dVMEFBUkgzN1hh&grant_type=client_credentials&type=SELF"
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "access_token": "***",
+          "expires_in": 8887,
+          "token_type": "***"
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "POST https://api.commerce.naver.com/external/v1/products/search #e87c6b9d07",
+      "req": {
+        "method": "POST",
+        "url": "https://api.commerce.naver.com/external/v1/products/search",
+        "bodyHash": "e87c6b9d07",
+        "bodyPreview": {
+          "page": 1,
+          "size": 1,
+          "productStatusTypes": [
+            "SALE"
+          ]
+        }
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "contents": [
+            {
+              "originProductNo": 13764336172,
+              "channelProducts": [
+                {
+                  "originProductNo": 13764336172,
+                  "channelProductNo": 13825642458,
+                  "channelServiceType": "STOREFARM",
+                  "categoryId": "50004532",
+                  "name": "***",
+                  "sellerManagementCode": "DM-53751133",
+                  "statusType": "SALE",
+                  "channelProductDisplayStatusType": "ON",
+                  "salePrice": 9400,
+                  "discountedPrice": 8460,
+                  "mobileDiscountedPrice": 8460,
+                  "stockQuantity": 20,
+                  "knowledgeShoppingProductRegistration": true,
+                  "deliveryAttributeType": "NORMAL",
+                  "deliveryFee": 0,
+                  "returnFee": 3000,
+                  "exchangeFee": 6000,
+                  "managerPurchasePoint": 1,
+                  "textReviewPoint": 200,
+                  "photoVideoReviewPoint": 500,
+                  "wholeCategoryName": "***",
+                  "wholeCategoryId": "50000008>50000061>50000881>50004532",
+                  "representativeImage": {
+                    "url": "https://shop-phinf.pstatic.net/20261021_50/1792585453424EVnka_JPEG/173753103756C76122DC8D59128712F5_img_760.jpg"
+                  },
+                  "sellerTags": [
+                    {
+                      "text": "수저세트"
+                    }
+                  ],
+                  "regDate": "2026-10-21T21:24:14.856+09:00",
+                  "modifiedDate": "2026-10-21T21:54:36.888+09:00"
+                }
+              ]
+            }
+          ],
+          "page": 1,
+          "size": 1,
+          "totalElements": 868,
+          "totalPages": 868,
+          "sort": {
+            "sorted": true,
+            "fields": [
+              {
+                "name": "***",
+                "direction": "DESC"
+              },
+              {
+                "name": "***",
+                "direction": "DESC"
+              }
+            ]
+          },
+          "first": true,
+          "last": false
+        },
+        "bodyIsText": false
+      }
+    },
+    {
+      "key": "GET https://api.commerce.naver.com/external/v2/products/channel-products/13825642458",
+      "req": {
+        "method": "GET",
+        "url": "https://api.commerce.naver.com/external/v2/products/channel-products/13825642458",
+        "bodyHash": null
+      },
+      "res": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "date": "Thu, 22 Oct 2026 00:07:38 GMT"
+        },
+        "body": {
+          "originProduct": {
+            "statusType": "SALE",
+            "saleType": "NEW",
+            "leafCategoryId": "50004532",
+            "name": "***",
+            "detailContent": "<div style=\"max-width:860px;margin:0 auto;font-size:16px;line-height:1.75;color:#222;word-break:keep-all\"><h2 style=\"font-size:24px;line-height:1.35;margin:8px 0 6px\">티스푼 과일포크 4개입 1세트 GG664S</h2><p style=\"font-size:18px;color:#444;margin:0 0 10px\">작은 포크 4개로 과일과 디저트를 간편하게 나눠 먹을 수 있어요.</p><p style=\"font-size:14px;color:#777;margin:0 0 10px\">연관 검색어 &middot; 수저세트</p><p style=\"margin:0 0 6px\"><span style=\"display:inline-block;background:#f1f1f6;border-radius:999px;padding:6px 12px;margin:4px 6px 0 0;font-size:14px;font-weight:600\">국내 배송</span><span style=\"display:inline-block;background:#f1f1f6;border-radius:999px;padding:6px 12px;margin:4px 6px 0 0;font-size:14px;font-weight:600\">무료배송</span><span style=\"display:inline-block;background:#f1f1f6;border-radius:999px;padding:6px 12px;margin:4px 6px 0 0;font-size:14px;font-weight:600\">주문 후 1~3일</span></p><p style=\"text-align:center;margin:14px 0 4px\"><img src=\"https://cdn1.domeggook.com/upload/item/2025/01/22/173753103756C76122DC8D59128712F5/173753103756C76122DC8D59128712F5_img_760?hash=91bde44b3a3e0a04dd96f3329265106c\" style=\"max-width:100%;border-radius:8px\" /></p><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">이 상품의 포인트</h3><ul style=\"padding-left:0;list-style:none;margin:0\"><li style=\"display:flex;gap:12px;align-items:flex-start;margin:0 0 10px\"><span style=\"flex:none;width:28px;height:28px;border-radius:50%;background:#15151c;color:#fff;font-weight:700;text-align:center;line-height:28px;font-size:14px\">1</span><span style=\"font-size:17px\">4개입 1세트 구성</span></li><li style=\"display:flex;gap:12px;align-items:flex-start;margin:0 0 10px\"><span style=\"flex:none;width:28px;height:28px;border-radius:50%;background:#15151c;color:#fff;font-weight:700;text-align:center;line-height:28px;font-size:14px\">2</span><span style=\"font-size:17px\">과일과 디저트를 찍어 먹기 편한 크기</span></li><li style=\"display:flex;gap:12px;align-items:flex-start;margin:0 0 10px\"><span style=\"flex:none;width:28px;height:28px;border-radius:50%;background:#15151c;color:#fff;font-weight:700;text-align:center;line-height:28px;font-size:14px\">3</span><span style=\"font-size:17px\">식기 및 주방 생활용품</span></li></ul><p style=\"background:#fbf1dc;border-radius:10px;padding:12px 16px;margin:12px 0 0\"><b>이런 분께</b> &middot; 과일과 디저트를 간편하게 나눠 먹고 싶은 분</p><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">상품 정보</h3><table style=\"border-collapse:collapse;width:100%;font-size:15px\"><tbody><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea;width:28%\">구성</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">4개입 1세트</td></tr><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea;width:28%\">무게</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">0.07</td></tr><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea;width:28%\">사이즈</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">0.00008</td></tr><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea;width:28%\">생산국</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">중국</td></tr><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea;width:28%\">모델명</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">GG664S/GG664F</td></tr><tr><th style=\"text-align:left;background:#f4f4f6;padding:9px 12px;border:1px solid #e3e3ea\">원산지 / 구매처</th><td style=\"padding:9px 12px;border:1px solid #e3e3ea\">중국 / 국내 공식 도매처(도매매) 직송</td></tr></tbody></table><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">상품 설명</h3><p style=\"margin:0 0 10px\">과일과 디저트를 먹을 때 쓰기 좋은 작은 포크 4개입 세트입니다. 티스푼 및 티포크 형태로 가족이나 손님과 함께 사용하기 편합니다.</p><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">배송 안내</h3><p style=\"margin:0\">주문 확인 후 국내 물류센터에서 바로 발송합니다(보통 1~3일, 영업일 기준). 품절&middot;지연 시 바로 연락드리고 원하시면 전액 환불해 드립니다.</p><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">교환&middot;반품</h3><p style=\"margin:0\">상품 불량&middot;오배송은 저희가 비용을 부담해 교환&middot;환불합니다. 단순 변심은 수령 7일 안에 가능하며 왕복 배송비(약 6,000원)가 발생합니다.</p><h3 style=\"font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid #15151c\">자주 묻는 질문</h3><dl style=\"margin:0\"><dt style=\"font-weight:700;margin-top:8px\">Q. 얼마나 걸리나요?</dt><dd style=\"margin:2px 0 0 0\">주문 후 1~3일(영업일). 연휴&middot;물량에 따라 1~2일 늦어질 수 있습니다.</dd><dt style=\"font-weight:700;margin-top:8px\">Q. 사이즈&middot;색상 선택은요?</dt><dd style=\"margin:2px 0 0 0\">옵션이 없는 상품은 상세 사진의 기본 사양으로 발송됩니다. 다른 색상&middot;사이즈가 필요하면 주문 전에 문의 주세요.</dd></dl><p style=\"background:#15151c;color:#fff;border-radius:10px;padding:14px 18px;margin:28px 0 0;font-weight:600\">📷 포토 리뷰 500원 &middot; 텍스트 리뷰 200원 네이버포인트 적립 &middot; 알림받기 하시면 신상품을 먼저 알려 드립니다</p></div>",
+            "images": {
+              "representativeImage": {
+                "url": "https://shop-phinf.pstatic.net/20261021_50/1792585453424EVnka_JPEG/173753103756C76122DC8D59128712F5_img_760.jpg"
+              },
+              "optionalImages": []
+            },
+            "salePrice": 9400,
+            "stockQuantity": 20,
+            "deliveryInfo": {
+              "deliveryType": "DELIVERY",
+              "deliveryAttributeType": "NORMAL",
+              "deliveryCompany": "CJGLS",
+              "deliveryBundleGroupUsable": false,
+              "deliveryFee": {
+                "deliveryFeeType": "FREE",
+                "baseFee": 0
+              },
+              "claimDeliveryInfo": {
+                "returnDeliveryCompanyPriorityType": "PRIMARY",
+                "returnDeliveryFee": 3000,
+                "exchangeDeliveryFee": 6000,
+                "shippingAddressId": 200674675,
+                "returnAddressId": 105531336,
+                "freeReturnInsuranceYn": false
+              },
+              "installationFee": false
+            },
+            "detailAttribute": {
+              "afterServiceInfo": {
+                "afterServiceTelephoneNumber": "***",
+                "afterServiceGuideContent": "국내 정식 유통 상품으로 불량·오배송은 판매자가 책임지고 교환·환불해 드립니다. A/S 는 제조사 정책을 따릅니다."
+              },
+              "originAreaInfo": {
+                "originAreaCode": "04",
+                "content": "중국",
+                "plural": false
+              },
+              "sellerCodeInfo": {
+                "sellerManagementCode": "DM-53751133"
+              },
+              "optionInfo": {
+                "simpleOptionSortType": "CREATE",
+                "optionSimple": [],
+                "optionCustom": [],
+                "optionCombinationSortType": "CREATE",
+                "optionCombinationGroupNames": {
+                  "optionGroupName1": "품목"
+                },
+                "optionCombinations": [
+                  {
+                    "id": 60468492877,
+                    "stockQuantity": 10,
+                    "price": 0,
+                    "usable": true,
+                    "optionName1": "S티스픈4개세트"
+                  },
+                  {
+                    "id": 60468492878,
+                    "stockQuantity": 10,
+                    "price": 0,
+                    "usable": true,
+                    "optionName1": "F과일포크4개세트"
+                  }
+                ],
+                "standardOptionGroups": [],
+                "optionStandards": [],
+                "useStockManagement": true,
+                "optionDeliveryAttributes": []
+              },
+              "purchaseReviewInfo": {
+                "purchaseReviewExposure": true
+              },
+              "taxType": "TAX",
+              "certificationTargetExcludeContent": {},
+              "sellerCommentContent": "국내 도매처(도매매)에서 바로 발송하는 위탁판매 상품입니다. 주문 후 수령까지 영업일 기준 1~3일. 품절·지연 시 연락 후 전액 환불. 단순 변심 반품은 왕복 배송비 6,000원 부담, 상품 불량·오배송은 판매자 부담.",
+              "sellerCommentUsable": true,
+              "minorPurchasable": true,
+              "productInfoProvidedNotice": {
+                "productInfoProvidedNoticeType": "ETC",
+                "etc": {
+                  "returnCostReason": "0",
+                  "noRefundReason": "0",
+                  "qualityAssuranceStandard": "0",
+                  "compensationProcedure": "0",
+                  "troubleShootingContents": "0",
+                  "itemName": "***",
+                  "modelName": "***",
+                  "certificateDetails": "해당사항 없음",
+                  "manufacturer": "상세정보에 표시",
+                  "customerServicePhoneNumber": "***"
+                }
+              },
+              "productAttributes": [
+                {
+                  "attributeSeq": 10045368,
+                  "attributeValueSeq": 11492711
+                }
+              ],
+              "itselfProductionProductYn": false,
+              "seoInfo": {
+                "pageTitle": "티스푼 과일포크 4개입 1세트 GG664S 수저세트",
+                "metaDescription": "작은 포크 4개로 과일과 디저트를 간편하게 나눠 먹을 수 있어요.",
+                "sellerTags": [
+                  {
+                    "text": "수저세트"
+                  }
+                ]
+              }
+            },
+            "customerBenefit": {
+              "immediateDiscountPolicy": {
+                "discountMethod": {
+                  "value": 10,
+                  "unitType": "PERCENT"
+                }
+              },
+              "reviewPointPolicy": {
+                "textReviewPoint": 200,
+                "photoVideoReviewPoint": 500
+              }
+            }
+          },
+          "smartstoreChannelProduct": {
+            "storeKeepExclusiveProduct": false,
+            "naverShoppingRegistration": true,
+            "channelProductDisplayStatusType": "ON"
+          }
+        },
+        "bodyIsText": false
+      }
+    }
+  ]
+}
