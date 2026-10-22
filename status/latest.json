@@ -1,13 +1,13 @@
 {
-  "ranAt": "2026-10-22T09:53:22.548+09:00",
+  "ranAt": "2026-10-23T07:51:08.757+09:00",
   "mode": "live",
   "summary": {
-    "OK": 22,
+    "OK": 26,
     "DRIFT": 1,
     "BREAK": 0,
     "AUTH": 0,
     "DOWN": 0,
-    "SKIP": 5
+    "SKIP": 4
   },
   "checks": [
     {
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 1,
+      "ms": 33,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 478,
+      "ms": 732,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 2,
+      "ms": 1,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 86,
+      "ms": 131,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 1125,
+      "ms": 404,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 91,
+      "ms": 95,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 1686,
+      "ms": 1812,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 898,
+      "ms": 893,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 224,
+      "ms": 191,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 465,
+      "ms": 407,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2651,
+      "ms": 2453,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 245,
+      "ms": 260,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 484,
+      "ms": 284,
       "note": null,
       "shapeDiff": null
     },
@@ -174,7 +174,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 135,
+      "ms": 59,
       "note": null,
       "shapeDiff": null
     },
@@ -183,7 +183,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 83,
+      "ms": 82,
       "note": null,
       "shapeDiff": null
     },
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2719,
+      "ms": 2834,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 122,
+      "ms": 271,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 114,
+      "ms": 163,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +219,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 225,
+      "ms": 301,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +228,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "DRIFT",
-      "ms": 20004,
+      "ms": 20006,
       "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
       "shapeDiff": null
     },
@@ -237,7 +237,25 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 89,
+      "ms": 83,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "delivery.listCarriers",
+      "platform": "delivery",
+      "access": "read",
+      "class": "OK",
+      "ms": 60,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "delivery.trackParcel",
+      "platform": "delivery",
+      "access": "read",
+      "class": "OK",
+      "ms": 551,
       "note": null,
       "shapeDiff": null
     },
@@ -253,9 +271,19 @@
       "id": "popbill.checkAccount",
       "platform": "popbill",
       "access": "read",
-      "class": "SKIP",
-      "ms": 0,
-      "note": "needs POPBILL_LINK_ID, POPBILL_SECRET_KEY, POPBILL_CORP_NUM — https://developers.popbill.com (API 연동신청 → 테스트 LinkID)"
+      "class": "OK",
+      "ms": 286,
+      "note": null,
+      "shapeDiff": null
+    },
+    {
+      "id": "popbill.searchTaxinvoices",
+      "platform": "popbill",
+      "access": "read",
+      "class": "OK",
+      "ms": 59,
+      "note": null,
+      "shapeDiff": null
     }
   ],
   "watch": [
@@ -310,6 +338,13 @@
       "ok": false,
       "new": [],
       "note": "HTTP 503"
+    },
+    {
+      "platform": "delivery",
+      "source": "https://tracker.delivery/docs/changelog",
+      "ok": false,
+      "new": [],
+      "note": "HTTP 404"
     },
     {
       "platform": "mcp-sdk",
