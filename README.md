@@ -71,7 +71,7 @@ The first two need no keys. Each package README has the exact env vars and where
 Money and irreversible actions (refunds, stock changes, invoices, 알림톡) go through [`@appmonster/approval`](packages/approval): the server creates a request, the owner gets a link (web, KakaoTalk, Slack), taps **승인**, and only then does the tool run. No app install, no account for the approver. Set two env vars on any server:
 
 ```json
-"APPROVAL_URL": "https://okagent.vercel.app", "APPROVAL_API_KEY": "ok_…"
+"APPROVAL_URL": "https://okagent.kr", "APPROVAL_API_KEY": "ok_…"
 ```
 
 ## Principles

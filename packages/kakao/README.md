@@ -18,7 +18,7 @@ MCP server for **KakaoTalk messages** via the Kakao Developers message API: an a
 ## Setup (5분, 1회)
 
 1. https://developers.kakao.com → 내 애플리케이션 → 앱 추가. **앱 키 > REST API 키** 복사.
-2. **플랫폼 > Web**: 메시지 링크로 쓸 도메인 등록 (예: `https://okagent.vercel.app`).
+2. **플랫폼 > Web**: 메시지 링크로 쓸 도메인 등록 (예: `https://okagent.kr`).
 3. **카카오 로그인 > 활성화 ON**, Redirect URI에 `http://localhost:8788/callback` 추가.
 4. **카카오 로그인 > 동의항목**: `카카오톡 메시지 전송 (talk_message)` 을 "선택 동의"로 설정. 친구 기능까지 쓰려면 **카카오톡 소셜 > 친구 목록** 권한 신청 + `friends` 동의항목.
 5. 브라우저 로그인 1회:
@@ -48,7 +48,7 @@ KAKAO_REST_API_KEY=… npx @appmonster/mcp-kakao auth
 ### Human approval for sends (optional)
 
 ```json
-"APPROVAL_URL": "https://okagent.vercel.app",
+"APPROVAL_URL": "https://okagent.kr",
 "APPROVAL_API_KEY": "ok_…"
 ```
 

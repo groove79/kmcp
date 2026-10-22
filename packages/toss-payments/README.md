@@ -33,7 +33,7 @@ MCP server for **Toss Payments** (토스페이먼츠) core API. An agent can loo
 ### Human approval for cancels (strongly recommended with a live key)
 
 ```json
-"APPROVAL_URL": "https://okagent.vercel.app",
+"APPROVAL_URL": "https://okagent.kr",
 "APPROVAL_API_KEY": "ok_…"
 ```
 

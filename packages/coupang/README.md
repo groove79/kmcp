@@ -42,7 +42,7 @@ MCP server for the **Coupang Wing Open API** (쿠팡 판매자). Lets an AI agen
 Add `APPROVAL_URL` and `APPROVAL_API_KEY` from your OK Agent deployment. Every write tool then creates an approval request and only runs after you tap **승인** on your phone.
 
 ```json
-"APPROVAL_URL": "https://okagent.vercel.app",
+"APPROVAL_URL": "https://okagent.kr",
 "APPROVAL_API_KEY": "ok_…",
 "APPROVAL_TIMEOUT_SEC": "300"
 ```

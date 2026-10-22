@@ -50,7 +50,7 @@ All writes cost Popbill points and/or reach the 국세청 or real phones, so eve
 `POPBILL_TEST=true`(default) uses Popbill's test server — invoices never reach the NTS, 알림톡 never reaches phones, and every tool description is tagged `[TEST SERVER]`. Switch to `false` only with the approval hook on:
 
 ```json
-"APPROVAL_URL": "https://okagent.vercel.app",
+"APPROVAL_URL": "https://okagent.kr",
 "APPROVAL_API_KEY": "ok_…"
 ```
 
