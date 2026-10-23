@@ -1,5 +1,7 @@
 # K-MCP — the Korean toolkit for AI agents
 
+[![npm](https://img.shields.io/npm/dm/@appmonster/mcp-naver-commerce?label=npm%20downloads)](https://www.npmjs.com/org/appmonster) [![Glama](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.groove79-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=groove79) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![한국어](https://img.shields.io/badge/README-한국어-red)](README.ko.md)
+
 **Everything an AI agent needs to actually get work done in Korea**, as MCP servers: sell on Smart Store, Coupang and Cafe24; verify a business number; read a 한글 (.hwp) file; issue a tax invoice; send a KakaoTalk notice; know that 1/25 is a Sunday so VAT is due 1/26 — and ask a human before spending money.
 
 한국에서 일하는 AI 에이전트의 필수 도구 모음. 스마트스토어·쿠팡·카페24 운영, 사업자 검증, HWP 읽기, 세금계산서, 카카오톡 알림, 세무 일정, 그리고 돈이 나가기 전 사람 승인.
@@ -26,6 +28,14 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 **Bold** = write tools. They are annotated `destructiveHint` and **never run blind**: by default they return a preview and wait for your OK in the chat; with an `OKAGENT_API_KEY` they wait for your tap on KakaoTalk.
 
 ## 30-second install
+
+**One-click install (no keys needed):**
+
+| Server | Cursor | VS Code |
+|---|---|---|
+| 📅 Biz calendar | [![Install in Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=kr-biz-calendar&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAYXBwbW9uc3Rlci9tY3Ata3ItYml6LWNhbGVuZGFyIl19) | [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=kr-biz-calendar&config=%7B%22name%22%3A%22kr-biz-calendar%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40appmonster/mcp-kr-biz-calendar%22%5D%7D) |
+| 📄 HWP reader | [![Install in Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=hwp&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAYXBwbW9uc3Rlci9tY3AtaHdwIl19) | [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=hwp&config=%7B%22name%22%3A%22hwp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40appmonster/mcp-hwp%22%5D%7D) |
+
 
 Claude Desktop / Cursor / Windsurf — add to your MCP config:
 
