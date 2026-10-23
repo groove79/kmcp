@@ -3,7 +3,7 @@
   "name": "io.github.groove79/mcp-japan-bridge",
   "description": "Japan→Korea sourcing bridge: Rakuten/Yahoo search, JPY→KRW landed cost + price calc, Smart Store draft. 일본구매대행 MCP.",
   "title": "Japan → Korea Bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://appmonster.co.kr",
   "repository": {
     "url": "https://github.com/groove79/kmcp",
@@ -15,7 +15,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@appmonster/mcp-japan-bridge",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "RAKUTEN_APP_ID", "description": "Rakuten Web Service application id (free)", "isRequired": false, "isSecret": false },

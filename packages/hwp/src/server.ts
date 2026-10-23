@@ -11,7 +11,7 @@ const sourceShape = {
 export interface ServerOptions { fetchImpl?: typeof fetch }
 
 export function createServer(opts: ServerOptions = {}): McpServer {
-  const server = new McpServer({ name: "kmcp-hwp", version: "0.1.0" });
+  const server = new McpServer({ name: "kmcp-hwp", version: "0.1.1" });
   const text = (s: string) => ({ type: "text" as const, text: s });
   const ro = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 

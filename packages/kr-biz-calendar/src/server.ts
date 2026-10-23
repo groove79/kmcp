@@ -3,7 +3,7 @@ import { z } from "zod";
 import { tools, type Access } from "./tools.js";
 
 export function createServer(): McpServer {
-  const server = new McpServer({ name: "kmcp-kr-biz-calendar", version: "0.1.0" });
+  const server = new McpServer({ name: "kmcp-kr-biz-calendar", version: "0.1.1" });
   for (const t of tools) {
     server.registerTool(
       t.name,

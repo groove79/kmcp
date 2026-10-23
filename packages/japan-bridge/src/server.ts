@@ -19,7 +19,7 @@ export function createServer(opts: ServerOptions = {}): McpServer {
     rakutenAppId: opts.rakutenAppId, rakutenAccessKey: opts.rakutenAccessKey, rakutenReferer: opts.rakutenReferer, yahooAppId: opts.yahooAppId,
     defaults: { shippingBaseJpy: opts.shippingBaseJpy ?? 700, shippingPerKgJpy: opts.shippingPerKgJpy ?? 1500, platformFeeRate: opts.platformFeeRate ?? 0.06 },
   };
-  const server = new McpServer({ name: "kmcp-japan-bridge", version: "0.1.0" });
+  const server = new McpServer({ name: "kmcp-japan-bridge", version: "0.1.1" });
   for (const t of tools) {
     server.registerTool(
       t.name,

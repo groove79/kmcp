@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-japan-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP bridge Japan → Korea: search Rakuten/Yahoo! Shopping, JPY→KRW landed-cost & price calculator (duties, VAT, shipping, fees, margin), Smart Store listing draft. 일본구매대행 MCP.",
   "license": "MIT",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-hwp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server that converts HWP/HWPX (한글 문서) to Markdown and extracts tables, so AI agents can read Korean government and office documents.",
   "license": "MIT",
   "type": "module",

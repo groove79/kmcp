@@ -1,6 +1,6 @@
 {
   "name": "@appmonster/mcp-kr-biz-calendar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Korean business dates: tax/payroll filing deadlines (부가세·원천세·종소세·법인세·4대보험), public holidays, business-day arithmetic. No keys. 한국 세무·영업일 캘린더 MCP.",
   "license": "MIT",
   "type": "module",
