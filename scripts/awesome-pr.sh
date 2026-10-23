@@ -13,8 +13,8 @@ python3 - <<'PY'
 import re
 p="README.md"; s=open(p,encoding="utf-8").read().split("\n")
 entries={
- "e-commerce":"- [groove79/kmcp](https://github.com/groove79/kmcp) 📇 ☁️ - Korean commerce toolkit: Naver Smart Store, Coupang, Cafe24 product/order/stock management with a write-safety gate (preview + confirm token, optional KakaoTalk human approval).",
- "finance":"- [groove79/kmcp](https://github.com/groove79/kmcp) 📇 ☁️ - Korean payments & tax: Toss Payments (payments, refunds, settlements) and Popbill (e-tax invoices, KakaoTalk 알림톡) with a write-safety gate for money-moving actions.",
+ "e-commerce":"- [groove79/kmcp](https://github.com/groove79/kmcp) [![groove79/kmcp MCP server](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) 📇 ☁️ - Korean commerce toolkit: Naver Smart Store, Coupang, Cafe24 product/order/stock management with a write-safety gate (preview + confirm token, optional KakaoTalk human approval).",
+ "finance":"- [groove79/kmcp](https://github.com/groove79/kmcp) [![groove79/kmcp MCP server](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) 📇 ☁️ - Korean payments & tax: Toss Payments (payments, refunds, settlements) and Popbill (e-tax invoices, KakaoTalk 알림톡) with a write-safety gate for money-moving actions.",
 }
 def insert(key, line):
     pat = re.compile(r"^###\s.*E-[Cc]ommerce") if key=="e-commerce" else re.compile(r"^###\s.*Finance\s*&(amp;)?\s*Fintech")
