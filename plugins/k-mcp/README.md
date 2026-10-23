@@ -14,7 +14,9 @@ Ask Claude things that need Korean data and get answers from the source instead 
 
 - **Skills** — when and how Claude should use each tool and how to present the answer:
   `korean-holidays-business-days`, `korean-tax-deadlines`, `hwp-documents`, `korean-business-lookup`, `korean-parcel-tracking`, `japan-import-cost`, `korea-seller-ops`.
-- **MCP server** — `k-mcp`, a hosted, read-only server at `https://okagent.kr/api/mcp` (no sign-in, no install). 18 tools: `kr_list_holidays`, `kr_is_business_day`, `kr_add_business_days`, `kr_tax_calendar`, `kr_tax_rule`, `hwp_to_markdown`, `hwp_extract_tables`, `hwp_info`, `kr_check_business`, `kr_holidays`, `kr_search_address`, `kr_apt_trades`, `delivery_track_parcel`, `delivery_track_many`, `delivery_list_carriers`, `jp_fx_rate`, `jp_landed_cost`, `jp_listing_draft`.
+- **MCP server** — `k-mcp`, a hosted, read-only server at `https://okagent.kr/api/mcp` (no sign-in, no install). 29 tools:
+  - Korea: `kr_list_holidays`, `kr_is_business_day`, `kr_add_business_days`, `kr_tax_calendar`, `kr_tax_rule`, `hwp_to_markdown`, `hwp_extract_tables`, `hwp_info`, `kr_check_business`, `kr_holidays`, `kr_search_address`, `kr_address_english`, `kr_apt_trades`, `delivery_track_parcel`, `delivery_track_many`, `delivery_list_carriers`, `jp_fx_rate`, `jp_landed_cost`, `jp_listing_draft`
+  - Worldwide: `world_list_holidays`, `world_is_business_day`, `world_add_business_days`, `world_common_business_days`, `world_list_countries` (200+ countries), `landed_cost`, `landed_cost_rules` (import duty and VAT/GST), `ofd_to_text`, `ofd_invoice_fields`, `ofd_info` (Chinese OFD e-invoices)
 
 Every tool only reads. Nothing in this plugin changes data anywhere. To let Claude act on Naver Smart Store, Coupang, Cafe24, Toss Payments or Popbill (with a confirmation or a KakaoTalk approval before anything changes), install the K-MCP servers locally — see the `korea-seller-ops` skill and https://github.com/groove79/kmcp.
 
@@ -25,8 +27,8 @@ Light use is free: 100 tool calls per day per IP address. Heavier tools count mo
 ## What the plugin runs, sends and fetches
 
 - It runs no local code. Claude calls the hosted MCP server `https://okagent.kr/api/mcp` over HTTPS.
-- The server sends only the values needed for an answer to the official source: data.go.kr (National Tax Service business status, KASI holidays, MOLIT apartment trades), juso.go.kr (road-name addresses), tracker.delivery (parcel tracking), open.er-api.com (exchange rates). Holidays, business days and tax deadlines are computed on the server without any outside call.
-- For `hwp_*` tools you give a public URL or the file as base64; the server downloads or decodes it, converts it, and returns text. Private network addresses are refused.
+- The server sends only the values needed for an answer to the official source: data.go.kr (National Tax Service business status, KASI holidays, MOLIT apartment trades), juso.go.kr (road-name and English addresses), tracker.delivery (parcel tracking), open.er-api.com (exchange rates). Holidays, business days, tax deadlines and import-duty rules are computed on the server without any outside call.
+- For `hwp_*` and `ofd_*` tools you give a public URL or the file as base64; the server downloads or decodes it, converts it, and returns text. Private network addresses are refused.
 
 ## Privacy Policy
 
