@@ -7,7 +7,7 @@
     "name": "Appmonster",
     "url": "https://okagent.kr"
   },
-  "homepage": "https://okagent.kr/guide",
+  "homepage": "https://okagent.kr/mcp",
   "repository": "https://github.com/groove79/kmcp",
   "license": "MIT",
   "keywords": [
@@ -23,5 +23,8 @@
     "real-estate",
     "smartstore"
   ],
-  "privacyPolicyUrl": "https://okagent.kr/privacy#kmcp"
+  "privacyPolicyUrl": "https://okagent.kr/privacy#kmcp",
+  "supportUrl": "https://github.com/groove79/kmcp/issues",
+  "documentationUrl": "https://okagent.kr/guide",
+  "termsOfServiceUrl": "https://okagent.kr/terms"
 }
