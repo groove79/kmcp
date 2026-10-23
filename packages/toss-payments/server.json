@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.groove79/mcp-toss-payments",
-  "description": "Toss Payments MCP: payment lookup, cancel/refund (approval-gated), transactions, settlements. 토스페이먼츠 MCP.",
+  "description": "Toss Payments MCP: payment lookup, approval-gated cancel/refund, settlements. 토스페이먼츠 MCP.",
   "title": "Toss Payments",
   "version": "0.2.0",
   "websiteUrl": "https://appmonster.co.kr",
