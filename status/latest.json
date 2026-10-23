@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-10-23T07:51:08.757+09:00",
+  "ranAt": "2026-10-24T07:44:03.129+09:00",
   "mode": "live",
   "summary": {
-    "OK": 26,
-    "DRIFT": 1,
+    "OK": 24,
+    "DRIFT": 3,
     "BREAK": 0,
     "AUTH": 0,
     "DOWN": 0,
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 33,
+      "ms": 14,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 732,
+      "ms": 519,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 131,
+      "ms": 568,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 404,
+      "ms": 412,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 95,
+      "ms": 121,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 73,
+      "ms": 102,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 1812,
+      "ms": 1206,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 893,
+      "ms": 829,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 191,
+      "ms": 180,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 407,
+      "ms": 383,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2453,
+      "ms": 2748,
       "note": null,
       "shapeDiff": null
     },
@@ -155,26 +155,40 @@
       "id": "naver-commerce.listProducts",
       "platform": "naver-commerce",
       "access": "read",
-      "class": "OK",
-      "ms": 260,
-      "note": null,
-      "shapeDiff": null
+      "class": "DRIFT",
+      "ms": 215,
+      "note": "removed contents[].channelProducts[].sellerTags[], contents[].channelProducts[].sellerTags[].text",
+      "shapeDiff": {
+        "removed": [
+          "contents[].channelProducts[].sellerTags[]",
+          "contents[].channelProducts[].sellerTags[].text"
+        ],
+        "added": [],
+        "typeChanged": []
+      }
     },
     {
       "id": "naver-commerce.getProduct",
       "platform": "naver-commerce",
       "access": "read",
-      "class": "OK",
-      "ms": 284,
-      "note": null,
-      "shapeDiff": null
+      "class": "DRIFT",
+      "ms": 260,
+      "note": "removed originProduct.detailAttribute.seoInfo.sellerTags[], originProduct.detailAttribute.seoInfo.sellerTags[].text",
+      "shapeDiff": {
+        "removed": [
+          "originProduct.detailAttribute.seoInfo.sellerTags[]",
+          "originProduct.detailAttribute.seoInfo.sellerTags[].text"
+        ],
+        "added": [],
+        "typeChanged": []
+      }
     },
     {
       "id": "naver-commerce.listOrders",
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 59,
+      "ms": 126,
       "note": null,
       "shapeDiff": null
     },
@@ -183,7 +197,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 82,
+      "ms": 110,
       "note": null,
       "shapeDiff": null
     },
@@ -192,7 +206,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2834,
+      "ms": 2936,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +215,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 271,
+      "ms": 305,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +224,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 163,
+      "ms": 126,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +233,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 301,
+      "ms": 249,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +242,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "DRIFT",
-      "ms": 20006,
+      "ms": 20005,
       "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
       "shapeDiff": null
     },
@@ -237,7 +251,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 83,
+      "ms": 68,
       "note": null,
       "shapeDiff": null
     },
@@ -246,7 +260,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 60,
+      "ms": 44,
       "note": null,
       "shapeDiff": null
     },
@@ -255,7 +269,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 551,
+      "ms": 366,
       "note": null,
       "shapeDiff": null
     },
@@ -272,7 +286,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 286,
+      "ms": 321,
       "note": null,
       "shapeDiff": null
     },
@@ -281,7 +295,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 59,
+      "ms": 72,
       "note": null,
       "shapeDiff": null
     }
