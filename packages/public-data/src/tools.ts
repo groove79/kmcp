@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { PublicClient } from "./client.js";
+import { romanizeName } from "./romanize.js";
 
 export type Access = "read" | "write";
 export interface ToolDef<S extends z.ZodRawShape> {
@@ -103,6 +104,87 @@ export const searchAddress = define({
   },
 });
 
+/** Split "서울 강남구 테헤란로 152 101동 1203호 (역삼동, 래미안)" into the part juso can search and the unit detail. */
+export function splitKoreanAddress(input: string): { base: string; detail: string } {
+  const s = input.replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  const road = s.match(/^(.*?(?:로|길)\s*\d+(?:-\d+)?)(?=\s|,|$)(.*)$/);
+  if (road) return { base: road[1].trim(), detail: road[2].replace(/^[,\s]+/, "").trim() };
+  const lot = s.match(/^(.*?(?:동|리|가)\s*(?:산\s*)?\d+(?:-\d+)?)(?=\s|,|$)(.*)$/);
+  if (lot) return { base: lot[1].trim(), detail: lot[2].replace(/^[,\s]+/, "").trim() };
+  return { base: s, detail: "" };
+}
+
+/** "101동 1203호" → { unit: "101-dong 1203-ho", ... } plus any named building, romanized. */
+export function englishDetail(detail: string): { unit: string | null; name: string | null } {
+  let rest = detail;
+  const parts: string[] = [];
+  const take = (re: RegExp, fmt: (m: RegExpMatchArray) => string) => { const m = rest.match(re); if (m) { parts.push(fmt(m)); rest = rest.replace(m[0], " "); } };
+  take(/([A-Za-z]?\d+)\s*동(?![가-힣])/, (m) => `${m[1]}-dong`);
+  take(/지하\s*(\d+)\s*층/, (m) => `B${m[1]}F`);
+  take(/(\d+)\s*층/, (m) => `${m[1]}F`);
+  take(/([A-Za-z]?\d+(?:-\d+)?)\s*호/, (m) => `${m[1]}-ho`);
+  const left = rest.replace(/[,\s]+/g, " ").trim();
+  const name = left && /[가-힣]/.test(left) ? romanizeName(left) : left || null;
+  return { unit: parts.length ? parts.join(" ") : null, name };
+}
+
+/** Parse juso's engAddr ("152, Teheran-ro, Gangnam-gu, Seoul") into shipping-form fields. */
+export function shippingFields(engAddr: string) {
+  const p = engAddr.split(",").map((x) => x.trim()).filter(Boolean);
+  const [num, road, ...more] = p;
+  const province = more.length ? more[more.length - 1] : "";
+  const city = more.slice(0, -1).join(", ") || province;
+  return { street: [num, road].filter(Boolean).join(" "), city, province };
+}
+
+/** 국문 주소 → 해외 배송용 영문 주소 */
+export const englishAddress = define({
+  name: "kr_address_english",
+  access: "read",
+  description:
+    "Convert a Korean address (Hangul, with or without unit like 101동 1203호) into the official English address, split into shipping-form fields: street, unit, city, province, postal code, country. " +
+    "For international shipping to Korea, overseas sellers, forwarders and visa or bank forms. 한글 주소를 해외 배송용 영문 주소로 바꿉니다.",
+  schema: {
+    address: z.string().min(4).max(200).describe("Korean address, e.g. 서울 강남구 테헤란로 152 101동 1203호"),
+  },
+  handler: async (c, { address }) => {
+    const key = c.requireKey("juso", "JUSO_KEY", "https://business.juso.go.kr (도로명주소 API 신청, 무료)");
+    const { base, detail } = splitKoreanAddress(address);
+    const url = new URL("https://business.juso.go.kr/addrlink/addrLinkApi.do");
+    url.searchParams.set("confmKey", key);
+    url.searchParams.set("keyword", base);
+    url.searchParams.set("currentPage", "1");
+    url.searchParams.set("countPerPage", "5");
+    url.searchParams.set("resultType", "json");
+    const j = await c.getJson<{ results: { common: { errorCode: string; errorMessage: string; totalCount: string }; juso?: Array<Record<string, string>> } }>(url);
+    if (j.results.common.errorCode !== "0") throw new Error(`juso.go.kr error ${j.results.common.errorCode}: ${j.results.common.errorMessage}`);
+    const list = j.results.juso ?? [];
+    if (!list.length) return { found: false, searched: base, hint: "No match. Check the road name and building number (e.g. 테헤란로 152), or try the lot address (역삼동 737)." };
+    const a = list[0];
+    const f = shippingFields(a.engAddr);
+    const d = englishDetail(detail);
+    const line2 = [d.unit, d.name].filter(Boolean).join(", ") || null;
+    const country = "Republic of Korea";
+    return {
+      found: true,
+      ambiguous: list.length > 1 && Number(j.results.common.totalCount) > 1,
+      english: {
+        line1: f.street,
+        line2,
+        city: f.city,
+        stateProvince: f.province,
+        postalCode: a.zipNo,
+        country,
+        countryCode: "KR",
+        singleLine: [line2, f.street, f.city, f.province === f.city ? "" : f.province, a.zipNo, country].filter(Boolean).join(", "),
+      },
+      korean: { roadAddress: a.roadAddr, lotAddress: a.jibunAddr, detail: detail || null, postalCode: a.zipNo, building: a.bdNm || null },
+      note: "Street, city, province and postal code are official (juso.go.kr). Unit (-dong = building, -ho = unit) and building name are romanized by rule; the courier needs the postal code and unit most.",
+      otherMatches: list.slice(1, 3).map((x) => ({ roadAddress: x.roadAddr, english: x.engAddr, postalCode: x.zipNo })),
+    };
+  },
+});
+
 /** 국토부 아파트 매매 실거래가 */
 export const aptTrades = define({
   name: "kr_apt_trades",
@@ -137,4 +219,4 @@ export const aptTrades = define({
   },
 });
 
-export const tools = [checkBusiness, holidays, searchAddress, aptTrades] as const;
+export const tools = [checkBusiness, holidays, searchAddress, englishAddress, aptTrades] as const;

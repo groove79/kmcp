@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-ofd",
+  "description": "Read Chinese OFD documents: e-invoice (fapiao) fields, official documents, statements. No keys.",
+  "title": "OFD Reader (China e-invoices)",
+  "version": "0.1.0",
+  "websiteUrl": "https://okagent.kr/mcp",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/ofd"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-ofd",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": []
+    }
+  ]
+}

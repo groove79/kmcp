@@ -1,0 +1,53 @@
+{
+  "name": "@appmonster/mcp-ofd",
+  "version": "0.1.0",
+  "description": "MCP server that reads Chinese OFD documents (GB/T 33190): e-invoices 电子发票/数电票 fields, official documents, statements — text in reading order. No keys.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-ofd": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-ofd",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ofd",
+    "china",
+    "e-invoice",
+    "fapiao",
+    "电子发票",
+    "数电票",
+    "document"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/ofd"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "fast-xml-parser": "^5.0.0",
+    "fflate": "^0.8.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

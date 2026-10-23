@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-landed-cost",
+  "description": "Import duty + VAT/GST for parcels into US, UK, EU, JP, KR, CN, AU, CA, SG with de minimis rules.",
+  "title": "Cross-border Landed Cost",
+  "version": "0.1.0",
+  "websiteUrl": "https://okagent.kr/mcp",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/landed-cost"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-landed-cost",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": []
+    }
+  ]
+}

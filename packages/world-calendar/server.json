@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.groove79/mcp-world-calendar",
+  "description": "Public holidays and working-day math for 200+ countries and regions, local weekends. No keys.",
+  "title": "World Business Calendar",
+  "version": "0.1.0",
+  "websiteUrl": "https://okagent.kr/mcp",
+  "repository": {
+    "url": "https://github.com/groove79/kmcp",
+    "source": "github",
+    "subfolder": "packages/world-calendar"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appmonster/mcp-world-calendar",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": []
+    }
+  ]
+}

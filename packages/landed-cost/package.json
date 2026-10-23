@@ -1,0 +1,53 @@
+{
+  "name": "@appmonster/mcp-landed-cost",
+  "version": "0.1.0",
+  "description": "MCP server for cross-border landed cost: customs duty + import VAT/GST for parcels into the US, UK, EU, Japan, Korea, China, Australia, Canada, Singapore with current de minimis rules. No keys.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-landed-cost": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "mcpName": "io.github.groove79/mcp-landed-cost",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "customs",
+    "duty",
+    "vat",
+    "gst",
+    "import",
+    "de-minimis",
+    "landed-cost",
+    "cross-border",
+    "ecommerce"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/landed-cost"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -20,5 +20,5 @@ waitnpm() {
   echo "✗ $(name "$p")@$v 가 10분 안에 안 보임 — GitHub Actions 'Publish' 로그 확인"; exit 1
 }
 release approval; waitnpm approval
-for p in kr-biz-calendar hwp japan-bridge public-data delivery naver-commerce cafe24 toss-payments coupang kakao popbill; do release "$p"; done
+for p in kr-biz-calendar world-calendar ofd landed-cost hwp japan-bridge public-data delivery naver-commerce cafe24 toss-payments coupang kakao popbill; do release "$p"; done
 echo "완료. 진행 상황: https://github.com/groove79/kmcp/actions/workflows/publish.yml"

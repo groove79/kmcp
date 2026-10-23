@@ -103,3 +103,41 @@ test("kr_apt_trades: parses amounts, filters by apartment name", async () => {
   assert.equal(out.trades[0].price_10k_krw, 52000);
   assert.equal(out.trades[0].date, "2026-09-03");
 });
+
+import { romanize, romanizeName } from "../src/romanize.js";
+import { splitKoreanAddress, englishDetail, shippingFields } from "../src/tools.js";
+
+test("romanize: revised romanization with liaison", () => {
+  assert.equal(romanize("래미안"), "raemian");
+  assert.equal(romanize("한국"), "hanguk");
+  assert.equal(romanize("종로"), "jongro");
+  assert.equal(romanize("신라"), "sinla"); // no assimilation (silla) — documented limitation
+  assert.equal(romanize("서울"), "seoul");
+  assert.equal(romanize("굳이"), "gudi");
+  assert.equal(romanizeName("래미안아파트"), "Raemian Apt");
+  assert.equal(romanizeName("푸르지오 오피스텔"), "Pureujio Officetel");
+});
+
+test("split/detail/shipping helpers", () => {
+  assert.deepEqual(splitKoreanAddress("서울 강남구 테헤란로 152 101동 1203호 (역삼동, 래미안)"), { base: "서울 강남구 테헤란로 152", detail: "101동 1203호" });
+  assert.deepEqual(splitKoreanAddress("서울특별시 종로구 세종대로 110"), { base: "서울특별시 종로구 세종대로 110", detail: "" });
+  assert.deepEqual(splitKoreanAddress("서울 중구 을지로3가 100 2층"), { base: "서울 중구 을지로3가 100", detail: "2층" });
+  assert.deepEqual(englishDetail("101동 1203호"), { unit: "101-dong 1203-ho", name: null });
+  assert.deepEqual(englishDetail("지하1층 B02호"), { unit: "B1F B02-ho", name: null });
+  assert.deepEqual(englishDetail("래미안아파트 3동 502호"), { unit: "3-dong 502-ho", name: "Raemian Apt" });
+  assert.deepEqual(shippingFields("152, Teheran-ro, Gangnam-gu, Seoul"), { street: "152 Teheran-ro", city: "Gangnam-gu", province: "Seoul" });
+  assert.deepEqual(shippingFields("45, Hwaseo-ro, Paldal-gu, Suwon-si, Gyeonggi-do"), { street: "45 Hwaseo-ro", city: "Paldal-gu, Suwon-si", province: "Gyeonggi-do" });
+});
+
+test("kr_address_english: searches the base part and returns shipping fields", async () => {
+  const { fetchImpl, calls } = fake(() => ({ results: { common: { errorCode: "0", errorMessage: "", totalCount: "1" }, juso: [{ roadAddr: "서울특별시 강남구 테헤란로 152 (역삼동)", jibunAddr: "서울특별시 강남구 역삼동 737", zipNo: "06236", engAddr: "152, Teheran-ro, Gangnam-gu, Seoul", bdNm: "강남파이낸스센터" }] } }));
+  const client = await connect(fetchImpl);
+  const r = await client.callTool({ name: "kr_address_english", arguments: { address: "서울 강남구 테헤란로 152 101동 1203호" } });
+  assert.equal(r.isError, undefined, textOf(r));
+  assert.equal(calls[0].url.searchParams.get("keyword"), "서울 강남구 테헤란로 152");
+  const o = JSON.parse(textOf(r));
+  assert.equal(o.english.line1, "152 Teheran-ro");
+  assert.equal(o.english.line2, "101-dong 1203-ho");
+  assert.equal(o.english.postalCode, "06236");
+  assert.equal(o.english.singleLine, "101-dong 1203-ho, 152 Teheran-ro, Gangnam-gu, Seoul, 06236, Republic of Korea");
+});
