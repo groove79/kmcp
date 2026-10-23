@@ -9,7 +9,7 @@ export interface ServerOptions extends Keys {
 
 export function createServer(opts: ServerOptions): McpServer {
   const client = new PublicClient({ dataGoKr: opts.dataGoKr, juso: opts.juso }, { fetchImpl: opts.fetchImpl });
-  const server = new McpServer({ name: "kmcp-public-data", version: "0.1.2" });
+  const server = new McpServer({ name: "kmcp-public-data", version: "0.1.3" });
   for (const t of tools) {
     server.registerTool(
       t.name,

@@ -128,13 +128,18 @@ export function englishDetail(detail: string): { unit: string | null; name: stri
   return { unit: parts.length ? parts.join(" ") : null, name };
 }
 
-/** Parse juso's engAddr ("152, Teheran-ro, Gangnam-gu, Seoul") into shipping-form fields. */
+/**
+ * Parse juso's engAddr into shipping-form fields. juso writes "152 Teheran-ro, Gangnam-gu, Seoul"
+ * (older data: "152, Teheran-ro, …"). Line 1 = number + road + district; city = -si/-gun inside a -do, else the metropolitan city.
+ */
 export function shippingFields(engAddr: string) {
   const p = engAddr.split(",").map((x) => x.trim()).filter(Boolean);
-  const [num, road, ...more] = p;
-  const province = more.length ? more[more.length - 1] : "";
-  const city = more.slice(0, -1).join(", ") || province;
-  return { street: [num, road].filter(Boolean).join(" "), city, province };
+  let street = p.shift() ?? "";
+  if (/^[\d-]+$/.test(street) && p.length) street = `${street} ${p.shift()}`;
+  const province = p.pop() ?? "";
+  let city = province;
+  if (/-do$/i.test(province) && p.length && /-(si|gun)$/i.test(p[p.length - 1])) city = p.pop()!;
+  return { street: [street, ...p].join(", "), city, province };
 }
 
 /** 국문 주소 → 해외 배송용 영문 주소 */

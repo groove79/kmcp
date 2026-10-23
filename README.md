@@ -15,7 +15,7 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 | 🛒 **Naver Smart Store** | `@appmonster/mcp-naver-commerce` | list/get products, **update stock**, **create product** (+ image upload), orders, customer inquiries |
 | 🛒 **Coupang Wing** | `@appmonster/mcp-coupang` | products, **item stock/price**, order sheets, **ship confirmation** |
 | 🛒 **Cafe24** | `@appmonster/mcp-cafe24` | products, **variant stock**, orders, board posts (OAuth auto-refresh) |
-| 🏛 **Public data** | `@appmonster/mcp-public-data` | 사업자 상태(국세청), 공휴일(천문연), 도로명주소, 아파트 실거래가 |
+| 🏛 **Public data** | `@appmonster/mcp-public-data` | 사업자 상태(국세청), 공휴일(천문연), 도로명주소, **Korean address → English shipping address**, 아파트 실거래가 |
 | 📄 **HWP** | `@appmonster/mcp-hwp` | .hwp / .hwpx → Markdown + tables as JSON — own parser, no keys |
 | 💬 **KakaoTalk** | `@appmonster/mcp-kakao` | send to self / friends, friends list (Kakao Developers API) |
 | 🧾 **Popbill** | `@appmonster/mcp-popbill` | **e-tax invoices** issue/cancel/search, Hometax sync, **알림톡** |
@@ -23,6 +23,9 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 | 🇯🇵 **Japan bridge** | `@appmonster/mcp-japan-bridge` | Rakuten/Yahoo! search → landed cost & price → Smart Store draft |
 | 📅 **Biz calendar** | `@appmonster/mcp-kr-biz-calendar` | tax/payroll deadlines, holidays, business-day math — no keys, offline |
 | 📦 **Delivery** | `@appmonster/mcp-delivery` | parcel tracking: CJ·우체국·한진·롯데·로젠·쿠팡 + Yamato/DHL/UPS, batch status (free key) |
+| 🌍 **World calendar** | `@appmonster/mcp-world-calendar` | public holidays & business-day math for **200+ countries/regions**, local weekends, common working days across countries — no keys |
+| 🧮 **Landed cost** | `@appmonster/mcp-landed-cost` | import duty + VAT/GST for parcels into US, UK, EU-27, JP, KR, CN, AU, CA, SG with 2026 de minimis rules |
+| 🧾 **OFD reader** | `@appmonster/mcp-ofd` | Chinese OFD documents: **e-invoice (发票) fields**, text in reading order — no keys |
 | ✅ **Approval** (library) | `@appmonster/approval` | the `approveWrite` hook every server above uses → [OK Agent](https://okagent.kr) |
 
 **Bold** = write tools. They are annotated `destructiveHint` and **never run blind**: by default they return a preview and wait for your OK in the chat; with an `OKAGENT_API_KEY` they wait for your tap on KakaoTalk.
