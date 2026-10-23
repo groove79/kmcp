@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "k-mcp": {
+      "type": "http",
+      "url": "https://okagent.kr/api/mcp"
+    }
+  }
+}

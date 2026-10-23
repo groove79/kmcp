@@ -1,0 +1,27 @@
+{
+  "name": "k-mcp",
+  "displayName": "K-MCP — Korean everyday & business tools",
+  "version": "1.0.0",
+  "description": "Korean public holidays and business days, tax and payroll deadlines, HWP (한글) document reading, business-registration status, road-name addresses, apartment trade prices, parcel tracking and Japan import cost — as skills plus a hosted, read-only MCP server. 한국 공휴일·영업일, 세무 신고일, 한글(HWP) 문서, 사업자 조회, 도로명주소, 실거래가, 택배 조회.",
+  "author": {
+    "name": "Appmonster",
+    "url": "https://okagent.kr"
+  },
+  "homepage": "https://okagent.kr/guide",
+  "repository": "https://github.com/groove79/kmcp",
+  "license": "MIT",
+  "keywords": [
+    "korea",
+    "korean",
+    "holidays",
+    "business-days",
+    "tax",
+    "hwp",
+    "hangul",
+    "parcel-tracking",
+    "address",
+    "real-estate",
+    "smartstore"
+  ],
+  "privacyPolicyUrl": "https://okagent.kr/privacy#kmcp"
+}

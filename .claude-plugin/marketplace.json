@@ -1,0 +1,15 @@
+{
+  "name": "kmcp",
+  "owner": { "name": "Appmonster", "email": "appmonster.kr@gmail.com" },
+  "metadata": { "description": "K-MCP — Korean tools for AI agents (holidays, tax deadlines, HWP, business lookup, addresses, parcels, Japan import cost)." },
+  "plugins": [
+    {
+      "name": "k-mcp",
+      "source": "./plugins/k-mcp",
+      "description": "Korean holidays & business days, tax deadlines, HWP (한글) reading, business status, addresses, apartment prices, parcel tracking, Japan import cost — skills + hosted read-only MCP server.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "homepage": "https://okagent.kr/guide"
+    }
+  ]
+}
