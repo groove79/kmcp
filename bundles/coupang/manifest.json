@@ -1,0 +1,128 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-coupang",
+  "display_name": "쿠팡 윙 (Coupang Wing)",
+  "version": "0.2.0",
+  "description": "쿠팡 윙 상품·옵션 재고/가격·발주서 조회와 재고·가격 변경, 발송 처리. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. Wing OPEN API 키가 필요합니다.",
+  "long_description": "쿠팡 윙 상품·옵션 재고/가격·발주서 조회와 재고·가격 변경, 발송 처리. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. Wing OPEN API 키가 필요합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/coupang",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/coupang#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "COUPANG_ACCESS_KEY": "${user_config.coupang_access_key}",
+        "COUPANG_SECRET_KEY": "${user_config.coupang_secret_key}",
+        "COUPANG_VENDOR_ID": "${user_config.coupang_vendor_id}",
+        "OKAGENT_API_KEY": "${user_config.okagent_api_key}",
+        "KMCP_WRITE_MODE": "${user_config.kmcp_write_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "coupang_list_products",
+      "description": "List the seller's registered products on Coupang (paged). 쿠팡 윙에 등록된 상품 목록을 조회합니다. Use first to find sellerProductId before reading details or changing stock/price. Needs nothing; optional name/status filter and nextToken for the next page."
+    },
+    {
+      "name": "coupang_get_product",
+      "description": "Get one Coupang product with all its items (options): vendorItemId, name, prices, max buy count, shipping lead time. 상품 상세와 옵션(아이템) 목록을 조회합니다. Use to find the vendorItemId that stock/price changes need. Needs sellerProductId."
+    },
+    {
+      "name": "coupang_update_item_quantity",
+      "description": "Set the sellable quantity of one Coupang item (option). 0 marks it sold out. 옵션(아이템) 재고 수량을 변경합니다. Use after confirming vendorItemId with coupang_get_product. Needs vendorItemId and the new quantity (absolute, not delta)."
+    },
+    {
+      "name": "coupang_update_item_price",
+      "description": "Change the sale price of one Coupang item (option), in KRW. 옵션(아이템) 판매가를 변경합니다. Coupang rejects changes beyond its allowed ratio from the current price unless forceSalePriceUpdate is true. Needs vendorItemId and the new price."
+    },
+    {
+      "name": "coupang_list_orders",
+      "description": "List Coupang order sheets (발주서) in a date range by status: ACCEPT=paid, INSTRUCT=preparing, DEPARTURE=shipped, DELIVERING, FINAL_DELIVERY, NONE_TRACKING. Max 31 days per call, 50 per page. 기간·상태별 발주서 목록을 조회합니다. Use to see new paid orders to prepare, or shipments to track. Needs status; dates defa…"
+    },
+    {
+      "name": "coupang_get_order",
+      "description": "Get one Coupang order sheet by shipmentBoxId, with the latest receiver address (customers can change it after paying). 발주서 단건을 조회합니다. Use right before shipping to confirm the address, or after coupang_confirm_orders. Needs shipmentBoxId."
+    },
+    {
+      "name": "coupang_confirm_orders",
+      "description": "Acknowledge paid Coupang orders — moves them from ACCEPT (결제완료) to INSTRUCT (상품준비중). Up to 50 shipmentBoxIds per call; partial failures are reported per id. 발주서를 상품준비중으로 처리합니다. Use after reviewing new orders with coupang_list_orders. Needs shipmentBoxIds. Irreversible from the API."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "coupang",
+    "wing",
+    "ecommerce",
+    "쿠팡",
+    "판매자",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "coupang_access_key": {
+      "type": "string",
+      "title": "Access Key",
+      "description": "Wing → 판매자정보 → 추가판매정보 → OPEN API 키 발급",
+      "sensitive": true,
+      "required": true
+    },
+    "coupang_secret_key": {
+      "type": "string",
+      "title": "Secret Key",
+      "description": "Wing OPEN API Secret Key",
+      "sensitive": true,
+      "required": true
+    },
+    "coupang_vendor_id": {
+      "type": "string",
+      "title": "업체코드 (Vendor ID)",
+      "description": "예: A00012345",
+      "required": true
+    },
+    "okagent_api_key": {
+      "type": "string",
+      "title": "OK Agent API 키 (선택)",
+      "description": "넣으면 쓰기 작업(재고·환불·발행 등)이 카카오톡 승인 후에만 실행됩니다. 무료 키: https://okagent.kr — OK Agent key; writes wait for your tap on KakaoTalk.",
+      "sensitive": true,
+      "required": false
+    },
+    "kmcp_write_mode": {
+      "type": "string",
+      "title": "쓰기 모드 (선택)",
+      "description": "비워두면 자동: 키가 있으면 approval(카톡 승인), 없으면 confirm(대화창 확인). direct는 확인 없이 바로 실행 — approval | confirm | direct",
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

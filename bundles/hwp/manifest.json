@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-hwp",
+  "display_name": "한글(HWP) 파일 읽기 (HWP/HWPX Reader)",
+  "version": "0.1.0",
+  "description": "한글 .hwp/.hwpx 문서를 텍스트(Markdown)와 표(JSON)로 변환합니다. 한컴오피스 없이, 키 없이 동작합니다.",
+  "long_description": "한글 .hwp/.hwpx 문서를 텍스트(Markdown)와 표(JSON)로 변환합니다. 한컴오피스 없이, 키 없이 동작합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/hwp",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/hwp#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "hwp_to_markdown",
+      "description": "Convert a Korean HWP or HWPX (한글) document to Markdown: paragraphs, outline headings, tables. Pass exactly one of path | url | base64. 한글 문서를 마크다운으로 변환합니다. Use whenever a user gives you a .hwp/.hwpx file or link (공문, 계약서, 입찰서류). Needs the file location."
+    },
+    {
+      "name": "hwp_extract_tables",
+      "description": "Extract all tables from an HWP/HWPX document as JSON arrays (rows × columns of cell text). 한글 문서의 표를 JSON 배열로 추출합니다. Use for 물품내역, 견적, 일정표 — anything you will compute on. Needs the file location."
+    },
+    {
+      "name": "hwp_info",
+      "description": "Quick facts about an HWP/HWPX file without the full text: format, version, title, section/paragraph/table/image counts, whether it is encrypted or a 배포용 copy. 변환 전에 문서 정보를 확인합니다. Needs the file location."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "hwp",
+    "hwpx",
+    "hangul",
+    "korean",
+    "document",
+    "한글",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

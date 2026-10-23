@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-delivery",
+  "display_name": "택배 배송조회 (Parcel Tracking)",
+  "version": "0.1.0",
+  "description": "CJ대한통운·우체국·한진·롯데·로젠·쿠팡 등 국내외 택배 배송 추적과 여러 건 일괄 조회. tracker.delivery 무료 키가 필요합니다.",
+  "long_description": "CJ대한통운·우체국·한진·롯데·로젠·쿠팡 등 국내외 택배 배송 추적과 여러 건 일괄 조회. tracker.delivery 무료 키가 필요합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://github.com/groove79/kmcp/tree/master/packages/delivery",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/delivery#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "DELIVERY_TRACKER_CLIENT_ID": "${user_config.delivery_tracker_client_id}",
+        "DELIVERY_TRACKER_CLIENT_SECRET": "${user_config.delivery_tracker_client_secret}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "delivery_track_parcel",
+      "description": "Track one parcel: current status (접수/집화/이동중/배송출발/배송완료/배송실패/수령대기/이상), last event, full event history with KST times. Carrier can be a Korean or English name (CJ대한통운, 우체국, 한진, 롯데, 로젠, 쿠팡, 야마토, DHL…) or a Delivery Tracker id like kr.cjlogistics. 운송장 1건을 조회합니다. Use for '이 주문 어디쯤이야?' or to confirm del…"
+    },
+    {
+      "name": "delivery_track_many",
+      "description": "Track up to 20 parcels in one call and get a compact table: status per parcel plus counts of delivered / in transit / needs attention. Each item may carry your own reference (orderId) that is echoed back. 여러 운송장을 한 번에 조회합니다. Use after naver_list_orders / coupang_list_orders to answer '오늘 발송분 어디쯤?…"
+    },
+    {
+      "name": "delivery_list_carriers",
+      "description": "List carriers Delivery Tracker supports (id + name), optionally filtered by text, plus the built-in Korean/Japanese aliases this server understands. 지원 택배사 목록을 조회합니다. Use when a carrier name is ambiguous or to get the id for delivery_track_parcel. Needs nothing; optional searchText."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "korea",
+    "delivery",
+    "parcel",
+    "tracking",
+    "택배",
+    "배송조회",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "delivery_tracker_client_id": {
+      "type": "string",
+      "title": "Delivery Tracker Client ID",
+      "description": "https://console.tracker.delivery → 프로젝트 생성 → Credentials (무료)",
+      "required": true
+    },
+    "delivery_tracker_client_secret": {
+      "type": "string",
+      "title": "Delivery Tracker Client Secret",
+      "description": "위 콘솔의 Client Secret",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

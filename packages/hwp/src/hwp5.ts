@@ -11,6 +11,9 @@ import CFB from "cfb";
 import { inflateRawSync } from "node:zlib";
 import type { Block, HwpDocument, Paragraph, TableCell } from "./model.js";
 
+/** Max bytes of one decompressed stream (DocInfo / BodyText section). */
+export const MAX_STREAM_BYTES = 64 * 1024 * 1024;
+
 const TAG = {
   BEGIN: 0x10,
   get STYLE() { return this.BEGIN + 19; },
@@ -71,7 +74,12 @@ function readStream(cfb: CFB.CFB$Container, name: string, compressed: boolean): 
   if (!e) return null;
   const raw = Buffer.from(e.content as Uint8Array);
   if (!compressed) return raw;
-  try { return inflateRawSync(raw); } catch { try { return inflateRawSync(raw.subarray(2)); } catch { return raw; } }
+  // Cap decompressed size (inflate bombs): a real section stream is far below this.
+  const opts = { maxOutputLength: MAX_STREAM_BYTES };
+  try { return inflateRawSync(raw, opts); } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === "ERR_BUFFER_TOO_LARGE" || /maxOutputLength|buffer too large/i.test(String(e))) throw new Error("HWP stream too large after decompression.");
+    try { return inflateRawSync(raw.subarray(2), opts); } catch { return raw; }
+  }
 }
 
 /** Map styleId → heading level using DocInfo STYLE names ("개요 1" … "개요 7", "제목"). */

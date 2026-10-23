@@ -1,0 +1,102 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-toss-payments",
+  "display_name": "토스페이먼츠 (Toss Payments)",
+  "version": "0.2.0",
+  "description": "토스페이먼츠 결제 조회, 취소·환불, 거래·정산 내역. 환불 같은 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다.",
+  "long_description": "토스페이먼츠 결제 조회, 취소·환불, 거래·정산 내역. 환불 같은 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/toss-payments",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/toss-payments#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "TOSS_SECRET_KEY": "${user_config.toss_secret_key}",
+        "OKAGENT_API_KEY": "${user_config.okagent_api_key}",
+        "KMCP_WRITE_MODE": "${user_config.kmcp_write_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "toss_get_payment",
+      "description": "Look up one Toss Payments payment by paymentKey or by the merchant's orderId: status, amounts, method, card/virtual-account details, cancel history, receipt URL. 결제 1건을 조회합니다. Use before cancelling (check balanceAmount) or to answer 'did order X get paid?'. Needs paymentKey or orderId. [TEST KEY …"
+    },
+    {
+      "name": "toss_cancel_payment",
+      "description": "Cancel (refund) a Toss payment — full by default, or partial with cancelAmount. Money moves back to the customer; irreversible. Virtual-account payments need refundReceiveAccount. Idempotent per call. 결제를 취소/환불합니다. Use only after confirming with toss_get_payment; the human approval hook should ga…"
+    },
+    {
+      "name": "toss_list_transactions",
+      "description": "List Toss transactions (approvals and cancels) in a date range, newest first, paged with startingAfter. Max 5000 per call. Test merchants may query at most 3 days per call (the tool clamps the range and says so). 기간별 거래 내역을 조회합니다. Use for daily reconciliation or 'what was paid today'. Needs start…"
+    },
+    {
+      "name": "toss_list_settlements",
+      "description": "List Toss settlement (정산) records: per-payment fees, VAT, and payOutAmount actually paid to the merchant, by sold date or payout date. 정산 내역을 조회합니다. Use for bookkeeping, fee checks, or 'how much lands in the account on day X'. Needs startDate/endDate; dateType soldDate (default) or paidOutDate. […"
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "toss",
+    "tosspayments",
+    "payments",
+    "refund",
+    "토스페이먼츠",
+    "정산",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "toss_secret_key": {
+      "type": "string",
+      "title": "시크릿 키",
+      "description": "test_sk_… 또는 live_sk_… — developers.tosspayments.com → 내 개발정보 → API 키. 처음엔 test 키로 시작하세요.",
+      "sensitive": true,
+      "required": true
+    },
+    "okagent_api_key": {
+      "type": "string",
+      "title": "OK Agent API 키 (선택)",
+      "description": "넣으면 쓰기 작업(재고·환불·발행 등)이 카카오톡 승인 후에만 실행됩니다. 무료 키: https://okagent.kr — OK Agent key; writes wait for your tap on KakaoTalk.",
+      "sensitive": true,
+      "required": false
+    },
+    "kmcp_write_mode": {
+      "type": "string",
+      "title": "쓰기 모드 (선택)",
+      "description": "비워두면 자동: 키가 있으면 approval(카톡 승인), 없으면 confirm(대화창 확인). direct는 확인 없이 바로 실행 — approval | confirm | direct",
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

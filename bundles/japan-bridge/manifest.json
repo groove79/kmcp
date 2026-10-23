@@ -1,0 +1,129 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-japan-bridge",
+  "display_name": "일본 구매대행 브릿지 (Japan→Korea Sourcing)",
+  "version": "0.1.0",
+  "description": "라쿠텐·야후쇼핑 상품 검색, 엔화 환율, 관부가세·배송비 포함 원가 계산, 스마트스토어 등록 초안. 환율·원가 계산은 키 없이 됩니다.",
+  "long_description": "라쿠텐·야후쇼핑 상품 검색, 엔화 환율, 관부가세·배송비 포함 원가 계산, 스마트스토어 등록 초안. 환율·원가 계산은 키 없이 됩니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/japan-bridge",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/japan-bridge#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "RAKUTEN_APP_ID": "${user_config.rakuten_app_id}",
+        "RAKUTEN_ACCESS_KEY": "${user_config.rakuten_access_key}",
+        "YAHOO_JP_APP_ID": "${user_config.yahoo_jp_app_id}",
+        "BRIDGE_SHIPPING_BASE_JPY": "${user_config.bridge_shipping_base_jpy}",
+        "BRIDGE_SHIPPING_PER_KG_JPY": "${user_config.bridge_shipping_per_kg_jpy}",
+        "BRIDGE_PLATFORM_FEE_RATE": "${user_config.bridge_platform_fee_rate}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "jp_search_rakuten",
+      "description": "Search Rakuten Ichiba (楽天市場) products by keyword: name, JPY price, shop, image, review score, stock, postage flag, item URL. 라쿠텐 상품을 검색합니다. Use to source Japanese items for a Korean listing; pass results to jp_landed_cost. Needs a keyword; RAKUTEN_APP_ID + RAKUTEN_ACCESS_KEY env."
+    },
+    {
+      "name": "jp_search_yahoo",
+      "description": "Search Yahoo! JAPAN Shopping products by keyword: name, JPY price, seller, image, reviews, stock, free-shipping flag, URL. 1 request/sec limit. 야후재팬 쇼핑 상품을 검색합니다. Use alongside jp_search_rakuten to compare Japanese prices. Needs a keyword; YAHOO_JP_APP_ID env."
+    },
+    {
+      "name": "jp_fx_rate",
+      "description": "Current JPY→KRW and USD→KRW mid-market rates (open.er-api.com, refreshed daily) for use in jp_landed_cost. Customs uses its own weekly rate; this is for estimates. 엔·달러 환율을 가져옵니다. Use before jp_landed_cost unless you already have rates. Needs nothing."
+    },
+    {
+      "name": "jp_landed_cost",
+      "description": "Compute the full Korea landed cost of a Japanese item and a suggested Smart Store price: JPY→KRW, forwarder shipping, Korean customs (USD 150 de minimis, 간이세율 20% or duty+VAT), marketplace fees, target margin. Pure calculation, explains every step. 일본 상품의 한국 도착 원가와 권장 판매가를 계산합니다. Use after pickin…"
+    },
+    {
+      "name": "jp_listing_draft",
+      "description": "Build a Naver Smart Store listing draft for a Japanese item: Korean title/description slots, price from jp_landed_cost, images, origin 일본, plus the 해외구매대행 disclosures Korean law requires (shipping days, customs, no-return cases, 개인통관고유부호). Returns JSON for review — nothing is posted. 스마트스토어 등록 초안…"
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "japan",
+    "rakuten",
+    "yahoo-shopping",
+    "sourcing",
+    "구매대행",
+    "일본직구",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "rakuten_app_id": {
+      "type": "string",
+      "title": "라쿠텐 Application ID (선택)",
+      "description": "Rakuten Web Service 무료 앱 ID — 라쿠텐 검색용",
+      "required": false
+    },
+    "rakuten_access_key": {
+      "type": "string",
+      "title": "라쿠텐 Access Key (선택)",
+      "description": "앱 ID와 짝인 액세스 키",
+      "sensitive": true,
+      "required": false
+    },
+    "yahoo_jp_app_id": {
+      "type": "string",
+      "title": "야후 재팬 Client ID (선택)",
+      "description": "Yahoo! JAPAN 개발자 Client ID — 야후쇼핑 검색용",
+      "required": false
+    },
+    "bridge_shipping_base_jpy": {
+      "type": "number",
+      "title": "배송대행 기본요금 (엔)",
+      "description": "박스당 기본요금",
+      "default": 700,
+      "required": false
+    },
+    "bridge_shipping_per_kg_jpy": {
+      "type": "number",
+      "title": "배송대행 kg당 요금 (엔)",
+      "description": "kg당 요금",
+      "default": 1500,
+      "required": false
+    },
+    "bridge_platform_fee_rate": {
+      "type": "number",
+      "title": "마켓+결제 수수료율",
+      "description": "예: 0.06 = 6%",
+      "default": 0.06,
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

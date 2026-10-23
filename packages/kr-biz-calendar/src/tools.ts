@@ -12,8 +12,8 @@ export interface ToolDef<S extends z.ZodRawShape> {
 }
 const define = <S extends z.ZodRawShape>(t: ToolDef<S>) => t;
 
-const dateStr = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe("yyyy-MM-dd");
-const extraHolidays = z.array(z.object({ date: dateStr, name: z.string() })).optional().describe("Additional holidays (e.g. from kr_holidays of the public-data server, or company days off)");
+const dateStr = z.string().regex(/^(19|20|21)\d{2}-\d{2}-\d{2}$/, "yyyy-MM-dd between 1900 and 2199").describe("yyyy-MM-dd");
+const extraHolidays = z.array(z.object({ date: dateStr, name: z.string().max(100) })).max(500).optional().describe("Additional holidays (e.g. from kr_holidays of the public-data server, or company days off)");
 const todayKst = () => { const d = new Date(Date.now() + 9 * 3600_000); return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`; };
 const coverageNote = (y: number) => (hasLunarTable(y) ? undefined : `Lunar holidays (설날·추석·부처님오신날) for ${y} are not tabled — pass extraHolidays from the public-data kr_holidays tool.`);
 
@@ -55,6 +55,7 @@ export const addBusinessDays = define({
     const from = parse(a.from ?? todayKst());
     if (a.to) {
       const to = parse(a.to);
+      if (Math.abs(to.getTime() - from.getTime()) > 3660 * 86400_000) throw new Error("Range too long: count at most 10 years at a time.");
       return { from: ymd(from), to: ymd(to), businessDays: cal.countBusinessDays(from, to), calendarDays: Math.round((to.getTime() - from.getTime()) / 86400_000) + 1 };
     }
     if (a.days === undefined) throw new Error("Give days (to add) or to (to count).");

@@ -37,6 +37,10 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf, n8n, and anything that
 | 📄 HWP reader | [![Install in Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=hwp&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAYXBwbW9uc3Rlci9tY3AtaHdwIl19) | [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=hwp&config=%7B%22name%22%3A%22hwp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40appmonster/mcp-hwp%22%5D%7D) |
 
 
+**No install — remote MCP (read-only tools: holidays & business days, tax deadlines, HWP reader, business-status check, address search, apartment prices, parcel tracking, Japan import cost):** add `https://okagent.kr/api/mcp` as a custom connector in Claude, ChatGPT or Cursor. Same tools as a REST API: `GET https://okagent.kr/api/tools` · [OpenAPI](https://okagent.kr/api/tools/openapi.json). Free for light use (100 calls/day per IP); a free key from [okagent.kr](https://okagent.kr) raises it.
+
+**Claude Desktop one-click:** download a `.mcpb` file from [Releases](https://github.com/groove79/kmcp/releases) and double-click it.
+
 Claude Desktop / Cursor / Windsurf — add to your MCP config:
 
 ```json

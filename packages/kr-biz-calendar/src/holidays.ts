@@ -1,8 +1,11 @@
 /**
  * Korean public holidays. Fixed-date holidays are generated; lunar ones (설날·추석·부처님오신날) are tabled per year
- * because the lunar calendar needs a lookup. 대체공휴일 (substitute holidays) are computed per the 2023+ rules:
- * every public holiday that falls on a Saturday/Sunday (or on another holiday) is substituted by the next
- * non-holiday weekday — except 1월 1일 and 현충일, which have no substitute.
+ * because the lunar calendar needs a lookup. 대체공휴일 (substitute holidays) follow 관공서의 공휴일에 관한 규정 제3조:
+ *  - 국경일(삼일절·제헌절·광복절·개천절·한글날)·어린이날·부처님오신날·기독탄신일·노동절: Saturday, Sunday or overlap with
+ *    another holiday → the next non-holiday weekday.
+ *  - 설날·추석 연휴: only a Sunday or an overlap with another holiday triggers one (a Saturday does not).
+ *  - 1월 1일, 현충일, election days: no substitute.
+ * 노동절(5/1)·제헌절(7/17) are public holidays from 2026 (amendment approved 2026-04-28).
  *
  * Years covered by the lunar table: 2025–2028. For other years the fixed holidays still work; callers should
  * pass `extraHolidays` (e.g. from the public-data server's kr_holidays) for authoritative data.
@@ -36,23 +39,26 @@ const SPECIAL: Record<number, Array<[string, string]>> = {
   2028: [["04-12", "국회의원 선거일"]],
 };
 
-const FIXED: Array<[string, string, boolean]> = [
-  // mm-dd, name, eligible for substitute holiday
-  ["01-01", "신정", false],
-  ["03-01", "삼일절", true],
-  ["05-05", "어린이날", true],
-  ["06-06", "현충일", false],
-  ["08-15", "광복절", true],
-  ["10-03", "개천절", true],
-  ["10-09", "한글날", true],
-  ["12-25", "기독탄신일", true],
+type SubRule = "weekend" | "sunday" | "none";
+const FIXED: Array<[string, string, SubRule, number?]> = [
+  // mm-dd, name, substitute rule, first year it applies
+  ["01-01", "신정", "none"],
+  ["03-01", "삼일절", "weekend"],
+  ["05-01", "노동절", "weekend", 2026],
+  ["05-05", "어린이날", "weekend"],
+  ["06-06", "현충일", "none"],
+  ["07-17", "제헌절", "weekend", 2026],
+  ["08-15", "광복절", "weekend"],
+  ["10-03", "개천절", "weekend"],
+  ["10-09", "한글날", "weekend"],
+  ["12-25", "기독탄신일", "weekend"],
 ];
 
 export function holidaysForYear(year: number): Holiday[] {
-  const base: Array<Holiday & { sub: boolean }> = [];
-  for (const [md, name, sub] of FIXED) base.push({ date: `${year}-${md}`, name, sub });
-  for (const [md, name] of LUNAR[year] ?? []) base.push({ date: `${year}-${md}`, name, sub: true });
-  for (const [md, name] of SPECIAL[year] ?? []) base.push({ date: `${year}-${md}`, name, sub: false });
+  const base: Array<Holiday & { sub: SubRule }> = [];
+  for (const [md, name, sub, from] of FIXED) if (!from || year >= from) base.push({ date: `${year}-${md}`, name, sub });
+  for (const [md, name] of LUNAR[year] ?? []) base.push({ date: `${year}-${md}`, name, sub: name === "부처님오신날" ? "weekend" : "sunday" });
+  for (const [md, name] of SPECIAL[year] ?? []) base.push({ date: `${year}-${md}`, name, sub: "none" });
   base.sort((a, b) => a.date.localeCompare(b.date));
 
   const taken = new Set(base.map((h) => h.date));
@@ -61,11 +67,12 @@ export function holidaysForYear(year: number): Holiday[] {
   const occupied = new Set(taken);
   const substituted = new Set<string>();
   for (const h of base) {
-    if (!h.sub || substituted.has(h.date)) continue;
+    if (h.sub === "none" || substituted.has(h.date)) continue;
     const d = parse(h.date);
-    // overlap with another holiday on a weekday also triggers one substitute (e.g. 어린이날 == 부처님오신날 in 2025)
+    // overlap with another holiday also triggers one substitute (e.g. 어린이날 == 부처님오신날 in 2025)
     const overlaps = base.filter((o) => o.date === h.date).length > 1;
-    if (!isWeekend(d) && !overlaps) continue;
+    const dayOff = h.sub === "weekend" ? isWeekend(d) : dow(d) === 0;
+    if (!dayOff && !overlaps) continue;
     substituted.add(h.date);
     let s = addDays(d, 1);
     while (isWeekend(s) || occupied.has(ymd(s))) s = addDays(s, 1);

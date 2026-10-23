@@ -83,3 +83,15 @@ test("MCP: three tools; hwp_to_markdown via base64 and via url; bad input is an 
   assert.equal(r4.isError, true);
   assert.match((r4.content as Array<{ text: string }>)[0].text, /exactly one/);
 });
+
+test("hostile HWPX: huge declared table size is clamped, entity declarations refused, unrelated parts ignored", async () => {
+  const { zipSync, strToU8 } = await import("fflate");
+  const { convert } = await import("../src/convert.js");
+  const sec = (body: string) => `<?xml version="1.0" encoding="UTF-8"?><hs:sec xmlns:hs="h" xmlns:hp="p"><hp:p><hp:run>${body}</hp:run></hp:p></hs:sec>`;
+  const tbl = `<hp:tbl rowCnt="100000000" colCnt="100000000"><hp:tr><hp:tc><hp:cellAddr colAddr="0" rowAddr="0"/><hp:cellSpan colSpan="99999999" rowSpan="99999999"/><hp:subList><hp:p><hp:run><hp:t>x</hp:t></hp:run></hp:p></hp:subList></hp:tc></hp:tr></hp:tbl>`;
+  const big = Buffer.from(zipSync({ "Contents/section0.xml": strToU8(sec(tbl)), "BinData/huge.bin": new Uint8Array(1024) }));
+  const r = convert(big);
+  assert.ok(r.tables.length === 1 && r.tables[0].length <= 1000 && r.tables[0][0].length <= 1000, "grid clamped to real content");
+  const ent = Buffer.from(zipSync({ "Contents/section0.xml": strToU8(`<!DOCTYPE x [<!ENTITY a "aaaa">]>` + sec("<hp:t>&a;</hp:t>")) }));
+  assert.throws(() => convert(ent), /entity/i);
+});

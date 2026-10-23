@@ -34,6 +34,10 @@ K-MCP는 그 연결 도구(MCP 서버)를 한국 플랫폼별로 만들어 **무
 
 ## 30초 설치
 
+**설치 없이 바로 쓰기 (원격 MCP)** — Claude·ChatGPT·Cursor의 "커스텀 커넥터 추가"에 `https://okagent.kr/api/mcp` 주소 하나만 넣으면 됩니다. 공휴일·영업일, 세무 일정, 한글(HWP) 읽기, 사업자 상태조회, 도로명주소, 아파트 실거래가, 택배 조회, 일본 직구 원가 계산을 바로 쓸 수 있습니다(조회 전용, IP당 하루 100회 무료). 일반 API: `https://okagent.kr/api/tools`
+
+**Claude 데스크톱 원클릭 설치** — [Releases](https://github.com/groove79/kmcp/releases)에서 `.mcpb` 파일을 받아 더블클릭.
+
 **Claude Desktop / Cursor / Windsurf** — MCP 설정 파일에 추가:
 
 ```json

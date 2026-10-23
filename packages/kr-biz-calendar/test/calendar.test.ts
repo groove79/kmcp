@@ -13,7 +13,9 @@ test("2026 holidays: fixed + lunar + substitutes + election day", () => {
   assert.ok(h.get("2026-05-25")?.includes("부처님오신날"), "부처님오신날 Sunday → Monday");
   assert.equal(h.get("2026-06-03"), "전국동시지방선거일");
   assert.ok(h.get("2026-08-17")?.includes("광복절"), "광복절 Saturday → Monday");
-  assert.ok(h.get("2026-09-28")?.includes("추석"), "추석 연휴 Saturday → Monday");
+  assert.equal(h.has("2026-09-28"), false, "추석 연휴 on Saturday → no substitute (설·추석 only Sunday/overlap)");
+  assert.equal(h.get("2026-05-01"), "노동절", "노동절 is a public holiday from 2026");
+  assert.equal(h.get("2026-07-17"), "제헌절", "제헌절 is a public holiday from 2026");
   assert.ok(h.get("2026-10-05")?.includes("개천절"), "개천절 Saturday → Monday");
   assert.equal(h.has("2026-01-02"), false, "신정 has no substitute");
 });
@@ -25,6 +27,15 @@ test("2025: 어린이날 == 부처님오신날 → exactly one substitute (5/6);
   assert.equal(h.has("2025-05-07"), false);
   // 2026-06-06 is Saturday → no substitute for 현충일
   assert.equal(dates(2026).has("2026-06-08"), false);
+});
+
+test("2027: 설 Sunday → one substitute (2/9 only); 노동절·제헌절 Saturday → Monday", () => {
+  const h = dates(2027);
+  assert.ok(h.get("2027-02-09")?.startsWith("대체공휴일"));
+  assert.equal(h.has("2027-02-10"), false);
+  assert.ok(h.get("2027-05-03")?.includes("노동절"));
+  assert.ok(h.get("2027-07-19")?.includes("제헌절"));
+  assert.equal(dates(2025).has("2025-05-01"), false, "노동절 not a public holiday before 2026");
 });
 
 test("2028: 추석 overlaps 개천절 (10/3) → substitute generated", () => {
@@ -71,5 +82,5 @@ test("tools: month filter, upcoming window, is-business-day shape", async () => 
   assert.equal(bd.holiday, "설날");
   assert.equal(bd.nextBusinessDay, "2026-02-19");
   const add = await addBusinessDays.handler({ from: "2026-09-23", days: 2 }) as { result: string };
-  assert.equal(add.result, "2026-09-30", "skips 추석 연휴 + substitute 9/28");
+  assert.equal(add.result, "2026-09-29", "skips 추석 연휴 (no substitute: 9/26 is a Saturday)");
 });

@@ -7,3 +7,9 @@ dist/
 .DS_Store
 packages/hwp/test/fixtures/*.hwp
 packages/hwp/test/fixtures/*.hwpx
+
+# Claude Desktop bundles (built by scripts/build-bundles.mjs)
+dist-bundles/
+bundles/.build/
+bundles/*/server/
+bundles/*/icon.png

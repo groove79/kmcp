@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-naver-commerce",
+  "display_name": "네이버 스마트스토어 (Naver Smart Store)",
+  "version": "0.3.0",
+  "description": "스마트스토어 상품·재고·주문·고객문의 조회와 재고 변경·상품 등록. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. 커머스API센터 키가 필요합니다.",
+  "long_description": "스마트스토어 상품·재고·주문·고객문의 조회와 재고 변경·상품 등록. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. 커머스API센터 키가 필요합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/smartstore",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/naver-commerce#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "NAVER_COMMERCE_CLIENT_ID": "${user_config.naver_commerce_client_id}",
+        "NAVER_COMMERCE_CLIENT_SECRET": "${user_config.naver_commerce_client_secret}",
+        "OKAGENT_API_KEY": "${user_config.okagent_api_key}",
+        "KMCP_WRITE_MODE": "${user_config.kmcp_write_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "naver_list_products",
+      "description": "List products in the seller's Naver Smart Store with paging and optional filters (status, name, product numbers). 스마트스토어 상품 목록을 조회합니다. Use first to find channelProductNo/originProductNo before updating stock. Needs nothing but optional filters."
+    },
+    {
+      "name": "naver_get_product",
+      "description": "Get full detail of one channel product (name, price, options, stock, status) by channelProductNo — the number in the smartstore URL. 채널상품 상세를 조회합니다. Use to read option/stock before changing them. Needs channelProductNo."
+    },
+    {
+      "name": "naver_update_stock",
+      "description": "Change stock quantity of a product or its options. For a product WITHOUT options pass channelProductNo + stockQuantity; for a product WITH options pass originProductNo + options[]. 상품/옵션 재고를 변경합니다. IRREVERSIBLE: changes the live store. Needs channelProductNo (no-option) or originProductNo (option…"
+    },
+    {
+      "name": "naver_list_orders",
+      "description": "List product orders whose status changed since a time (default: last 24h) — new payments, cancellations, returns — then optionally fetch details. 변경된 상품주문 내역을 조회합니다. Use for 'any new orders?' questions. Needs nothing; lastChangedFrom optional (ISO 8601)."
+    },
+    {
+      "name": "naver_list_inquiries",
+      "description": "List customer 1:1 inquiries (고객문의) in a date range, optionally only unanswered ones. 고객 문의 목록을 조회합니다. Use for 'any customer questions to answer?'. Needs nothing; defaults to last 7 days."
+    },
+    {
+      "name": "naver_upload_images",
+      "description": "Upload up to 10 product images (from https URLs or base64) to Naver and get back the Naver-hosted URLs that naver_create_product requires. JPG/PNG/GIF, ≤10MB each. 상품 이미지를 네이버 서버에 올리고 등록에 쓸 URL을 받습니다. Use before naver_create_product. Needs image URLs or base64 data."
+    },
+    {
+      "name": "naver_create_product",
+      "description": "Create a new Smart Store product (origin product + smartstore channel product) and put it on sale. Accepts the draft shape from jp_listing_draft. Images must already be Naver-hosted (naver_upload_images). Returns originProductNo and channelProductNo. 스마트스토어에 새 상품을 등록합니다. IRREVERSIBLE: goes live i…"
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "naver",
+    "smartstore",
+    "commerce",
+    "ecommerce",
+    "스마트스토어",
+    "네이버",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "naver_commerce_client_id": {
+      "type": "string",
+      "title": "애플리케이션 ID",
+      "description": "https://apicenter.commerce.naver.com 에서 만든 애플리케이션 ID",
+      "required": true
+    },
+    "naver_commerce_client_secret": {
+      "type": "string",
+      "title": "애플리케이션 시크릿",
+      "description": "애플리케이션 시크릿 ($2a$… 형식)",
+      "sensitive": true,
+      "required": true
+    },
+    "okagent_api_key": {
+      "type": "string",
+      "title": "OK Agent API 키 (선택)",
+      "description": "넣으면 쓰기 작업(재고·환불·발행 등)이 카카오톡 승인 후에만 실행됩니다. 무료 키: https://okagent.kr — OK Agent key; writes wait for your tap on KakaoTalk.",
+      "sensitive": true,
+      "required": false
+    },
+    "kmcp_write_mode": {
+      "type": "string",
+      "title": "쓰기 모드 (선택)",
+      "description": "비워두면 자동: 키가 있으면 approval(카톡 승인), 없으면 confirm(대화창 확인). direct는 확인 없이 바로 실행 — approval | confirm | direct",
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

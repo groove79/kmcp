@@ -23,7 +23,7 @@ export interface ToolDef<S extends z.ZodRawShape> {
 const define = <S extends z.ZodRawShape>(t: ToolDef<S>) => t;
 
 async function getJson<T>(ctx: Ctx, url: URL, headers: Record<string, string> = {}): Promise<T> {
-  const res = await ctx.fetchImpl(url, { headers: { Accept: "application/json", ...headers } });
+  const res = await ctx.fetchImpl(url, { headers: { Accept: "application/json", ...headers }, signal: AbortSignal.timeout(15_000) });
   const text = await res.text();
   if (!res.ok) throw new Error(`${url.host} → HTTP ${res.status}: ${text.slice(0, 300)}`);
   return JSON.parse(text) as T;

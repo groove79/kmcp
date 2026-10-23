@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-kakao",
+  "display_name": "카카오톡 메시지 (KakaoTalk)",
+  "version": "0.2.0",
+  "description": "카카오톡 나에게 보내기·친구에게 보내기·친구 목록. 보내기 전에 확인(또는 카톡 승인)을 받습니다. Kakao Developers 앱 키와 리프레시 토큰이 필요합니다.",
+  "long_description": "카카오톡 나에게 보내기·친구에게 보내기·친구 목록. 보내기 전에 확인(또는 카톡 승인)을 받습니다. Kakao Developers 앱 키와 리프레시 토큰이 필요합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/kakaotalk",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/kakao#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "KAKAO_REST_API_KEY": "${user_config.kakao_rest_api_key}",
+        "KAKAO_CLIENT_SECRET": "${user_config.kakao_client_secret}",
+        "KAKAO_REFRESH_TOKEN": "${user_config.kakao_refresh_token}",
+        "OKAGENT_API_KEY": "${user_config.okagent_api_key}",
+        "KMCP_WRITE_MODE": "${user_config.kmcp_write_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "kakao_me",
+      "description": "Show which Kakao account is connected (id, nickname) and the granted scopes — a quick connectivity check. 연결된 카카오 계정과 동의 항목을 확인합니다. Use first when a send fails with a scope/token error. Needs nothing."
+    },
+    {
+      "name": "kakao_send_to_me",
+      "description": "Send a KakaoTalk message to the connected account itself (나에게 보내기) — arrives in the '나와의 채팅' room. Text or a feed card with a link. 연결된 카카오 계정의 나와의 채팅방으로 메시지를 보냅니다. Use to notify the owner (reports, alerts, approval links) without any app install. Needs text; optional title/url."
+    },
+    {
+      "name": "kakao_list_friends",
+      "description": "List KakaoTalk friends who also connected this app (uuid, nickname, profile thumbnail). Only those can receive kakao_send_to_friends. 앱에 연결된 카카오톡 친구 목록을 조회합니다. Use to find receiver uuids. Needs the app's 카카오톡 소셜 > 친구 목록 permission and the `friends` scope."
+    },
+    {
+      "name": "kakao_send_to_friends",
+      "description": "Send a KakaoTalk message to up to 5 friends by uuid (친구에게 보내기). Recipients must have the app connected too; partial failures are reported per uuid. 친구 uuid로 메시지를 보냅니다. Use after kakao_list_friends. Needs receiverUuids (≤5) and text. Daily per-sender limits apply."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "kakao",
+    "kakaotalk",
+    "message",
+    "카카오톡",
+    "메시지",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "kakao_rest_api_key": {
+      "type": "string",
+      "title": "REST API 키",
+      "description": "developers.kakao.com → 내 애플리케이션 → 앱 키",
+      "sensitive": true,
+      "required": true
+    },
+    "kakao_client_secret": {
+      "type": "string",
+      "title": "Client Secret (선택)",
+      "description": "카카오 로그인 보안에서 Client Secret을 켠 경우에만",
+      "sensitive": true,
+      "required": false
+    },
+    "kakao_refresh_token": {
+      "type": "string",
+      "title": "Refresh Token",
+      "description": "카카오 로그인 리프레시 토큰. 확장 프로그램에서는 터미널 인증(mcp-kakao auth)을 쓸 수 없으니 여기에 넣어 주세요.",
+      "sensitive": true,
+      "required": false
+    },
+    "okagent_api_key": {
+      "type": "string",
+      "title": "OK Agent API 키 (선택)",
+      "description": "넣으면 쓰기 작업(재고·환불·발행 등)이 카카오톡 승인 후에만 실행됩니다. 무료 키: https://okagent.kr — OK Agent key; writes wait for your tap on KakaoTalk.",
+      "sensitive": true,
+      "required": false
+    },
+    "kmcp_write_mode": {
+      "type": "string",
+      "title": "쓰기 모드 (선택)",
+      "description": "비워두면 자동: 키가 있으면 approval(카톡 승인), 없으면 confirm(대화창 확인). direct는 확인 없이 바로 실행 — approval | confirm | direct",
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}

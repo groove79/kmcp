@@ -8,6 +8,13 @@ import type { Block, HwpDocument, TableCell } from "./model.js";
 
 type Node = Record<string, unknown> & { ":@"?: Record<string, string>; "#text"?: string };
 const parser = new XMLParser({ preserveOrder: true, ignoreAttributes: false, attributeNamePrefix: "", removeNSPrefix: true, trimValues: false, parseTagValue: false });
+/** Real HWPX never declares entities; refuse DOCTYPE/ENTITY declarations (entity-expansion bombs). */
+const parseXml = (xml: string) => { if (/<!(DOCTYPE|ENTITY)/i.test(xml)) throw new Error("Unsupported HWPX: XML entity declarations are not allowed."); return parser.parse(xml); };
+
+/** Only the parts we read are inflated, each and in total capped (zip bombs). */
+const WANTED = /^Contents\/(section\d+\.xml|header\.xml|content\.hpf)$/;
+export const MAX_PART_BYTES = 32 * 1024 * 1024;
+export const MAX_TOTAL_BYTES = 96 * 1024 * 1024;
 
 const tagOf = (n: Node) => Object.keys(n).find((k) => k !== ":@") ?? "";
 const kids = (n: Node): Node[] => (n[tagOf(n)] as Node[]) ?? [];
@@ -28,14 +35,20 @@ function* walk(nodes: Node[]): Generator<Node> {
 
 export function parseHwpx(file: Buffer): HwpDocument {
   let files: Record<string, Uint8Array>;
-  try { files = unzipSync(new Uint8Array(file)); } catch { throw new Error("Not an HWPX file: not a valid ZIP container."); }
+  let tooBig = false;
+  try {
+    files = unzipSync(new Uint8Array(file), { filter: (f) => { if (!WANTED.test(f.name)) return false; if (f.originalSize > MAX_PART_BYTES) { tooBig = true; return false; } return true; } });
+  } catch { throw new Error("Not an HWPX file: not a valid ZIP container."); }
+  if (tooBig) throw new Error("HWPX part too large after decompression.");
+  let total = 0;
+  for (const v of Object.values(files)) { total += v.byteLength; if (v.byteLength > MAX_PART_BYTES || total > MAX_TOTAL_BYTES) throw new Error("HWPX content too large after decompression."); }
   const names = Object.keys(files);
   if (!names.some((n) => /^Contents\/section\d+\.xml$/.test(n))) throw new Error("Not an HWPX file: Contents/section0.xml missing.");
 
   // styles → heading levels
   const headings = new Map<string, number>();
   if (files["Contents/header.xml"]) {
-    const h = parser.parse(strFromU8(files["Contents/header.xml"])) as Node[];
+    const h = parseXml(strFromU8(files["Contents/header.xml"])) as Node[];
     for (const n of walk(h)) {
       if (tagOf(n) === "style") {
         const a = attrs(n);
@@ -57,7 +70,7 @@ export function parseHwpx(file: Buffer): HwpDocument {
   const sections = names.filter((n) => /^Contents\/section\d+\.xml$/.test(n)).sort((a, b) => Number(a.match(/\d+/)![0]) - Number(b.match(/\d+/)![0]));
   for (const name of sections) {
     meta.sections++;
-    const xml = parser.parse(strFromU8(files[name])) as Node[];
+    const xml = parseXml(strFromU8(files[name])) as Node[];
     const sec = xml.find((n) => tagOf(n) === "sec");
     if (!sec) continue;
     for (const p of kids(sec)) if (tagOf(p) === "p") emitParagraph(p, headings, blocks, meta);

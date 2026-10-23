@@ -1,0 +1,155 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.3",
+  "name": "kmcp-popbill",
+  "display_name": "팝빌 전자세금계산서·알림톡 (Popbill)",
+  "version": "0.2.0",
+  "description": "전자세금계산서 발행·취소·조회, 홈택스 매입·매출 수집, 카카오 알림톡 발송. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. 팝빌 연동 키가 필요합니다.",
+  "long_description": "전자세금계산서 발행·취소·조회, 홈택스 매입·매출 수집, 카카오 알림톡 발송. 쓰기 작업은 실행 전에 확인(또는 카톡 승인)을 받습니다. 팝빌 연동 키가 필요합니다.\n\nK-MCP — 한국에서 일하는 AI 에이전트를 위한 오픈소스(MIT) MCP 서버 모음. 키는 이 컴퓨터에만 저장되고 각 플랫폼 API하고만 통신합니다.",
+  "author": {
+    "name": "Appmonster (앱몬스터)",
+    "url": "https://appmonster.co.kr"
+  },
+  "homepage": "https://okagent.kr/mcp/popbill",
+  "documentation": "https://github.com/groove79/kmcp/tree/master/packages/popbill#readme",
+  "support": "https://github.com/groove79/kmcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "POPBILL_LINK_ID": "${user_config.popbill_link_id}",
+        "POPBILL_SECRET_KEY": "${user_config.popbill_secret_key}",
+        "POPBILL_CORP_NUM": "${user_config.popbill_corp_num}",
+        "POPBILL_USER_ID": "${user_config.popbill_user_id}",
+        "POPBILL_TEST": "${user_config.popbill_test}",
+        "OKAGENT_API_KEY": "${user_config.okagent_api_key}",
+        "KMCP_WRITE_MODE": "${user_config.kmcp_write_mode}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "popbill_check_account",
+      "description": "Check the Popbill connection: membership of the configured business number and remaining point balance. 팝빌 회원 여부와 포인트 잔액을 확인합니다. Use first, or when an issue/send fails. Needs nothing. [TEST SERVER — nothing reaches the NTS or real phones]"
+    },
+    {
+      "name": "popbill_search_taxinvoices",
+      "description": "Search e-tax invoices (전자세금계산서) issued through Popbill — sales (SELL) or purchases (BUY) — by date range, state, and free text. 팝빌에서 발행·수신한 세금계산서를 검색합니다. Use for '이번 달 발행한 세금계산서', unsent/failed NTS transmissions, or finding a mgtKey before cancelling. Needs keyType and dates; dateType W=작성일 R=등록일…"
+    },
+    {
+      "name": "popbill_get_taxinvoice",
+      "description": "Get one e-tax invoice in full (parties, line items, amounts, NTS confirmation number, state) plus a Popbill view URL. 세금계산서 1건의 상세를 조회합니다. Use after popbill_search_taxinvoices. Needs keyType and the mgtKey (문서번호). [TEST SERVER — nothing reaches the NTS or real phones]"
+    },
+    {
+      "name": "popbill_issue_taxinvoice",
+      "description": "Issue a sales e-tax invoice (정발행 세금계산서) in one step: saved + issued, emailed to the buyer, then reported to the NTS (국세청). Costs Popbill points. Totals are computed from the items. 매출 세금계산서를 즉시 발행합니다. Use when the sale is confirmed and the buyer's business number is verified. Needs the supplier (…"
+    },
+    {
+      "name": "popbill_cancel_taxinvoice",
+      "description": "Cancel an issued e-tax invoice (발행취소) before it is transmitted to the NTS; after transmission a 수정세금계산서 is required instead. 발행완료 상태의 세금계산서를 발행취소합니다. Use when an invoice was issued by mistake and its state is 3xx (not yet 6xx). Needs keyType, mgtKey, and a memo. [TEST SERVER — nothing reaches the…"
+    },
+    {
+      "name": "popbill_hometax_request",
+      "description": "Start a Hometax (홈택스) collection job for e-tax invoices issued OUTSIDE Popbill too — sales or purchases in a date range (max 6 months). Returns a jobId; collection takes a few seconds to minutes. 홈택스에서 매출/매입 세금계산서를 수집하는 작업을 요청합니다. Use for bookkeeping, VAT prep (부가세 신고), or checking what suppliers…"
+    },
+    {
+      "name": "popbill_hometax_results",
+      "description": "Read the results of a Hometax collection job: state (collecting / done / failed) and, when done, the collected invoices with parties, amounts, NTS numbers, paged. 홈택스 수집 작업 결과를 조회합니다. Use after popbill_hometax_request. Needs jobId; optional filters taxType (T/N/Z), purposeType (R 영수/C 청구/N 없음), q…"
+    },
+    {
+      "name": "popbill_list_alimtalk_templates",
+      "description": "List approved KakaoTalk 알림톡 templates (code, content with #{variables}, buttons) registered for this Popbill member. 승인된 알림톡 템플릿 목록을 조회합니다. Use before popbill_send_alimtalk to pick a templateCode and see its variables. Needs nothing. [TEST SERVER — nothing reaches the NTS or real phones]"
+    },
+    {
+      "name": "popbill_send_alimtalk",
+      "description": "Send KakaoTalk 알림톡 (official business notification) to up to 1,000 phone numbers using an approved template; falls back to SMS/LMS when the recipient can't receive it. Costs points per message. 승인된 템플릿으로 알림톡을 발송합니다. Use for order/shipping/approval notices to customers. Needs templateCode, the reg…"
+    },
+    {
+      "name": "popbill_get_alimtalk_result",
+      "description": "Get delivery results for an 알림톡 send by receiptNum: per-recipient state, result code, send/receive times, fallback used. 알림톡 발송 결과를 조회합니다. Use a minute after popbill_send_alimtalk. Needs receiptNum. [TEST SERVER — nothing reaches the NTS or real phones]"
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "popbill",
+    "tax-invoice",
+    "alimtalk",
+    "전자세금계산서",
+    "알림톡",
+    "팝빌",
+    "kmcp",
+    "mcp"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "popbill_link_id": {
+      "type": "string",
+      "title": "LinkID",
+      "description": "developers.popbill.com API 연동 신청 후 발급",
+      "required": true
+    },
+    "popbill_secret_key": {
+      "type": "string",
+      "title": "SecretKey",
+      "description": "팝빌 API SecretKey",
+      "sensitive": true,
+      "required": true
+    },
+    "popbill_corp_num": {
+      "type": "string",
+      "title": "사업자번호",
+      "description": "팝빌 회원 사업자번호 10자리 (하이픈 없이)",
+      "required": true
+    },
+    "popbill_user_id": {
+      "type": "string",
+      "title": "팝빌 회원 아이디 (선택)",
+      "description": "팝빌 사이트 로그인 아이디",
+      "required": false
+    },
+    "popbill_test": {
+      "type": "boolean",
+      "title": "테스트 서버 사용",
+      "description": "켜두면 테스트 환경(실제 발행 안 됨). 실제 발행 시 끄세요.",
+      "default": true,
+      "required": false
+    },
+    "okagent_api_key": {
+      "type": "string",
+      "title": "OK Agent API 키 (선택)",
+      "description": "넣으면 쓰기 작업(재고·환불·발행 등)이 카카오톡 승인 후에만 실행됩니다. 무료 키: https://okagent.kr — OK Agent key; writes wait for your tap on KakaoTalk.",
+      "sensitive": true,
+      "required": false
+    },
+    "kmcp_write_mode": {
+      "type": "string",
+      "title": "쓰기 모드 (선택)",
+      "description": "비워두면 자동: 키가 있으면 approval(카톡 승인), 없으면 confirm(대화창 확인). direct는 확인 없이 바로 실행 — approval | confirm | direct",
+      "required": false
+    }
+  },
+  "privacy_policies": [
+    "https://okagent.kr/privacy"
+  ]
+}
