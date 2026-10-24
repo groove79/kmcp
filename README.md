@@ -1,6 +1,6 @@
 # K-MCP — the Korean toolkit for AI agents
 
-[![npm](https://img.shields.io/npm/dm/@appmonster/mcp-naver-commerce?label=npm%20downloads)](https://www.npmjs.com/org/appmonster) [![Glama](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.groove79-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=groove79) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![한국어](https://img.shields.io/badge/README-한국어-red)](README.ko.md)
+[![npm](https://img.shields.io/npm/dm/@appmonster/mcp-naver-commerce?label=npm%20downloads)](https://www.npmjs.com/org/appmonster) [![Glama](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/groove79/kmcp) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.groove79-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=groove79) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![한국어](https://img.shields.io/badge/README-한국어-red)](README.ko.md)
 
 **Everything an AI agent needs to actually get work done in Korea**, as MCP servers: sell on Smart Store, Coupang and Cafe24; verify a business number; read a 한글 (.hwp) file; issue a tax invoice; send a KakaoTalk notice; know that 1/25 is a Sunday so VAT is due 1/26 — and ask a human before spending money.
 

@@ -1,6 +1,6 @@
 # K-MCP — 한국에서 일하는 AI 에이전트를 위한 MCP 서버 모음
 
-[![Glama](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![English](https://img.shields.io/badge/README-English-blue)](README.md)
+[![Glama](https://glama.ai/mcp/servers/groove79/kmcp/badges/score.svg)](https://glama.ai/mcp/servers/groove79/kmcp) [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/groove79/kmcp) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![English](https://img.shields.io/badge/README-English-blue)](README.md)
 
 Claude·ChatGPT·Cursor 같은 AI에게 **"스마트스토어 재고 맞춰줘", "이 사업자번호 정상이야?", "이 한글파일 표 뽑아줘", "세금계산서 발행해"** 를 시키면, 지금까지는 "그건 할 수 없어요"라는 답이 돌아왔습니다. 한국 플랫폼에 연결된 도구가 없었기 때문입니다.
 
