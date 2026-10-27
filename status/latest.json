@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-27T08:32:54.174+09:00",
+  "ranAt": "2026-10-28T08:21:45.113+09:00",
   "mode": "live",
   "summary": {
     "OK": 23,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 35,
+      "ms": 21,
       "note": null,
       "shapeDiff": null
     },
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 50,
+      "ms": 14,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 864,
+      "ms": 789,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 1,
+      "ms": 0,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 165,
+      "ms": 100,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 374,
+      "ms": 593,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 93,
+      "ms": 130,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 116,
+      "ms": 113,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 3503,
+      "ms": 2119,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 1044,
+      "ms": 819,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 148,
+      "ms": 169,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 364,
+      "ms": 362,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2614,
+      "ms": 2686,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 253,
+      "ms": 261,
       "note": "removed contents[].channelProducts[].sellerTags[], contents[].channelProducts[].sellerTags[].text",
       "shapeDiff": {
         "removed": [
@@ -172,7 +172,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 228,
+      "ms": 293,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 125,
+      "ms": 112,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 65,
+      "ms": 89,
       "note": "added content[], content[].inquiryNo, content[].category, content[].title, content[].inquiryContent",
       "shapeDiff": {
         "removed": [],
@@ -242,7 +242,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2701,
+      "ms": 2871,
       "note": null,
       "shapeDiff": null
     },
@@ -251,7 +251,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 346,
+      "ms": 274,
       "note": null,
       "shapeDiff": null
     },
@@ -260,7 +260,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 114,
+      "ms": 119,
       "note": null,
       "shapeDiff": null
     },
@@ -269,7 +269,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 280,
+      "ms": 251,
       "note": null,
       "shapeDiff": null
     },
@@ -278,7 +278,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "DRIFT",
-      "ms": 20028,
+      "ms": 20006,
       "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
       "shapeDiff": null
     },
@@ -287,7 +287,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 77,
+      "ms": 99,
       "note": null,
       "shapeDiff": null
     },
@@ -296,7 +296,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 191,
+      "ms": 58,
       "note": null,
       "shapeDiff": null
     },
@@ -305,7 +305,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 789,
+      "ms": 420,
       "note": null,
       "shapeDiff": null
     },
@@ -322,7 +322,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 1155,
+      "ms": 476,
       "note": null,
       "shapeDiff": null
     },
@@ -331,7 +331,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 80,
+      "ms": 87,
       "note": null,
       "shapeDiff": null
     }
