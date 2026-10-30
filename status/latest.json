@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-10-30T08:45:40.256+09:00",
+  "ranAt": "2026-10-31T08:25:34.382+09:00",
   "mode": "live",
   "summary": {
-    "OK": 23,
-    "DRIFT": 4,
+    "OK": 24,
+    "DRIFT": 3,
     "BREAK": 0,
     "AUTH": 0,
     "DOWN": 0,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 19,
+      "ms": 20,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 889,
+      "ms": 833,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 0,
+      "ms": 1,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 120,
+      "ms": 66,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 342,
+      "ms": 324,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 130,
+      "ms": 132,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 117,
+      "ms": 97,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2272,
+      "ms": 2587,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 795,
+      "ms": 813,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 159,
+      "ms": 230,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 365,
+      "ms": 335,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2694,
+      "ms": 2606,
       "note": null,
       "shapeDiff": null
     },
@@ -155,24 +155,17 @@
       "id": "naver-commerce.listProducts",
       "platform": "naver-commerce",
       "access": "read",
-      "class": "DRIFT",
-      "ms": 652,
-      "note": "removed contents[].channelProducts[].sellerTags[], contents[].channelProducts[].sellerTags[].text",
-      "shapeDiff": {
-        "removed": [
-          "contents[].channelProducts[].sellerTags[]",
-          "contents[].channelProducts[].sellerTags[].text"
-        ],
-        "added": [],
-        "typeChanged": []
-      }
+      "class": "OK",
+      "ms": 237,
+      "note": null,
+      "shapeDiff": null
     },
     {
       "id": "naver-commerce.getProduct",
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 288,
+      "ms": 259,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -188,9 +181,7 @@
           "originProduct.detailAttribute.productAttributes",
           "originProduct.detailAttribute.productAttributes[]",
           "originProduct.detailAttribute.productAttributes[].attributeSeq",
-          "originProduct.detailAttribute.productAttributes[].attributeValueSeq",
-          "originProduct.detailAttribute.seoInfo.sellerTags[]",
-          "originProduct.detailAttribute.seoInfo.sellerTags[].text"
+          "originProduct.detailAttribute.productAttributes[].attributeValueSeq"
         ],
         "added": [],
         "typeChanged": []
@@ -201,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 125,
+      "ms": 113,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 151,
+      "ms": 102,
       "note": "added content[], content[].inquiryNo, content[].category, content[].title, content[].inquiryContent",
       "shapeDiff": {
         "removed": [],
@@ -242,7 +233,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2835,
+      "ms": 2621,
       "note": null,
       "shapeDiff": null
     },
@@ -251,7 +242,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 284,
+      "ms": 303,
       "note": null,
       "shapeDiff": null
     },
@@ -260,7 +251,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 123,
+      "ms": 151,
       "note": null,
       "shapeDiff": null
     },
@@ -269,7 +260,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 355,
+      "ms": 291,
       "note": null,
       "shapeDiff": null
     },
@@ -287,7 +278,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 90,
+      "ms": 68,
       "note": null,
       "shapeDiff": null
     },
@@ -296,7 +287,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 63,
+      "ms": 55,
       "note": null,
       "shapeDiff": null
     },
@@ -305,7 +296,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 712,
+      "ms": 369,
       "note": null,
       "shapeDiff": null
     },
@@ -322,7 +313,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 1233,
+      "ms": 388,
       "note": null,
       "shapeDiff": null
     },
@@ -331,7 +322,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 58,
+      "ms": 81,
       "note": null,
       "shapeDiff": null
     }
