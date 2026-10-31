@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-10-31T08:25:34.382+09:00",
+  "ranAt": "2026-11-01T07:57:20.831+09:00",
   "mode": "live",
   "summary": {
-    "OK": 24,
-    "DRIFT": 3,
+    "OK": 25,
+    "DRIFT": 2,
     "BREAK": 0,
     "AUTH": 0,
     "DOWN": 0,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 20,
+      "ms": 13,
       "note": null,
       "shapeDiff": null
     },
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 18,
+      "ms": 19,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 833,
+      "ms": 578,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 1,
+      "ms": 2,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 66,
+      "ms": 86,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 324,
+      "ms": 370,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 132,
+      "ms": 107,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 97,
+      "ms": 110,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2587,
+      "ms": 2525,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 813,
+      "ms": 855,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 230,
+      "ms": 165,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 335,
+      "ms": 363,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2606,
+      "ms": 4101,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 237,
+      "ms": 264,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 259,
+      "ms": 187,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 113,
+      "ms": 89,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 102,
+      "ms": 98,
       "note": "added content[], content[].inquiryNo, content[].category, content[].title, content[].inquiryContent",
       "shapeDiff": {
         "removed": [],
@@ -233,7 +233,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2621,
+      "ms": 2792,
       "note": null,
       "shapeDiff": null
     },
@@ -242,7 +242,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 303,
+      "ms": 277,
       "note": null,
       "shapeDiff": null
     },
@@ -251,7 +251,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 151,
+      "ms": 176,
       "note": null,
       "shapeDiff": null
     },
@@ -260,7 +260,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 291,
+      "ms": 322,
       "note": null,
       "shapeDiff": null
     },
@@ -268,9 +268,9 @@
       "id": "toss-payments.listTransactions",
       "platform": "toss-payments",
       "access": "read",
-      "class": "DRIFT",
-      "ms": 20006,
-      "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
+      "class": "OK",
+      "ms": 13280,
+      "note": null,
       "shapeDiff": null
     },
     {
@@ -278,7 +278,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 68,
+      "ms": 85,
       "note": null,
       "shapeDiff": null
     },
@@ -287,7 +287,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 55,
+      "ms": 56,
       "note": null,
       "shapeDiff": null
     },
@@ -296,7 +296,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 369,
+      "ms": 246,
       "note": null,
       "shapeDiff": null
     },
@@ -313,7 +313,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 388,
+      "ms": 392,
       "note": null,
       "shapeDiff": null
     },
@@ -322,7 +322,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 81,
+      "ms": 58,
       "note": null,
       "shapeDiff": null
     }
