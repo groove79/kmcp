@@ -24,6 +24,7 @@
     "네이버",
     "스마트스토어"
   ],
+  "homepage": "https://okagent.kr/mcp/smartstore",
   "repository": {
     "type": "git",
     "url": "https://github.com/groove79/kmcp",

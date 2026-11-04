@@ -27,6 +27,7 @@
     "관세",
     "smartstore"
   ],
+  "homepage": "https://okagent.kr/mcp/japan-bridge",
   "repository": {
     "type": "git",
     "url": "https://github.com/groove79/kmcp",

@@ -6,14 +6,35 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "README.md"],
-  "keywords": ["mcp", "agent", "approval", "human-in-the-loop", "guardrail", "korea"],
-  "repository": { "type": "git", "url": "https://github.com/groove79/kmcp", "directory": "packages/approval" },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "agent",
+    "approval",
+    "human-in-the-loop",
+    "guardrail",
+    "korea"
+  ],
+  "homepage": "https://okagent.kr/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groove79/kmcp",
+    "directory": "packages/approval"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "node --test --import tsx test/*.test.ts"
   },
-  "devDependencies": { "@types/node": "^22.10.0", "tsx": "^4.19.2", "typescript": "^5.6.3" },
-  "engines": { "node": ">=20" }
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

@@ -25,6 +25,7 @@
     "settlement",
     "토스페이먼츠"
   ],
+  "homepage": "https://okagent.kr/mcp/toss-payments",
   "repository": {
     "type": "git",
     "url": "https://github.com/groove79/kmcp",

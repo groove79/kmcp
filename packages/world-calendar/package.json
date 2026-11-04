@@ -14,7 +14,18 @@
     "README.md"
   ],
   "mcpName": "io.github.groove79/mcp-world-calendar",
-  "keywords": ["mcp", "model-context-protocol", "holidays", "public-holidays", "business-days", "working-days", "calendar", "deadline", "weekend"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "holidays",
+    "public-holidays",
+    "business-days",
+    "working-days",
+    "calendar",
+    "deadline",
+    "weekend"
+  ],
+  "homepage": "https://okagent.kr/mcp/world-calendar",
   "repository": {
     "type": "git",
     "url": "https://github.com/groove79/kmcp",

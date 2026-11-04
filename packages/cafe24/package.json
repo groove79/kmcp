@@ -23,6 +23,7 @@
     "카페24",
     "쇼핑몰"
   ],
+  "homepage": "https://okagent.kr/mcp/cafe24",
   "repository": {
     "type": "git",
     "url": "https://github.com/groove79/kmcp",
