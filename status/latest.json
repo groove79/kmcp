@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-05T09:41:15.184+09:00",
+  "ranAt": "2026-11-06T09:41:08.072+09:00",
   "mode": "live",
   "summary": {
     "OK": 23,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 20,
+      "ms": 16,
       "note": null,
       "shapeDiff": null
     },
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 25,
+      "ms": 14,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 811,
+      "ms": 568,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 949,
+      "ms": 95,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 1163,
+      "ms": 1501,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 114,
+      "ms": 119,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 105,
+      "ms": 110,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2976,
+      "ms": 3273,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 823,
+      "ms": 918,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 160,
+      "ms": 159,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 381,
+      "ms": 456,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2698,
+      "ms": 2470,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 224,
+      "ms": 301,
       "note": "removed contents[].channelProducts[].sellerTags[], contents[].channelProducts[].sellerTags[].text",
       "shapeDiff": {
         "removed": [
@@ -172,7 +172,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 256,
+      "ms": 412,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 237,
+      "ms": 173,
       "note": "removed timestamp, traceId · added changed, changed.lastChangeStatuses, changed.lastChangeStatuses[], changed.lastChangeStatuses[].orderId, changed.lastChangeStatuses[].productOrderId",
       "shapeDiff": {
         "removed": [
@@ -260,6 +260,7 @@
           "details.data[].productOrder.productClass",
           "details.data[].productOrder.originalProductId",
           "details.data[].productOrder.merchantChannelId",
+          "details.data[].productOrder.decisionDate",
           "details.data[].productOrder.expectedDeliveryCompany",
           "details.data[].productOrder.deliveryAttributeType",
           "details.data[].productOrder.placeOrderDate",
@@ -310,11 +311,13 @@
           "details.data[].productOrder.takingAddress",
           "details.data[].productOrder.takingAddress.name",
           "details.data[].productOrder.takingAddress.tel1",
-          "details.data[].productOrder.takingAddress.tel2",
           "details.data[].productOrder.takingAddress.zipCode",
           "details.data[].productOrder.takingAddress.baseAddress",
           "details.data[].productOrder.takingAddress.detailedAddress",
           "details.data[].productOrder.takingAddress.isRoadNameAddress",
+          "details.data[].productOrder.takingAddress.city",
+          "details.data[].productOrder.takingAddress.state",
+          "details.data[].productOrder.takingAddress.country",
           "details.data[].productOrder.takingAddress.addressType",
           "details.data[].productOrder.commissionRatingType",
           "details.data[].productOrder.commissionPrePayStatus",
@@ -325,8 +328,10 @@
           "details.data[].productOrder.expectedSettlementAmount",
           "details.data[].productOrder.taxType",
           "details.data[].delivery",
+          "details.data[].delivery.deliveredDate",
           "details.data[].delivery.deliveryCompany",
           "details.data[].delivery.deliveryMethod",
+          "details.data[].delivery.deliveryStatus",
           "details.data[].delivery.sendDate",
           "details.data[].delivery.trackingNumber",
           "details.data[].delivery.isWrongTrackingNumber"
@@ -339,7 +344,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 96,
+      "ms": 79,
       "note": null,
       "shapeDiff": null
     },
@@ -348,7 +353,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2822,
+      "ms": 2893,
       "note": null,
       "shapeDiff": null
     },
@@ -357,7 +362,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 308,
+      "ms": 1011,
       "note": null,
       "shapeDiff": null
     },
@@ -366,7 +371,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 180,
+      "ms": 710,
       "note": null,
       "shapeDiff": null
     },
@@ -375,7 +380,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 290,
+      "ms": 263,
       "note": null,
       "shapeDiff": null
     },
@@ -393,7 +398,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 83,
+      "ms": 90,
       "note": null,
       "shapeDiff": null
     },
@@ -402,7 +407,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 65,
+      "ms": 63,
       "note": null,
       "shapeDiff": null
     },
@@ -411,7 +416,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 354,
+      "ms": 303,
       "note": null,
       "shapeDiff": null
     },
@@ -428,7 +433,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 584,
+      "ms": 813,
       "note": null,
       "shapeDiff": null
     },
@@ -437,7 +442,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 64,
+      "ms": 73,
       "note": null,
       "shapeDiff": null
     }
