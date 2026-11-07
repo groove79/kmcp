@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-07T08:56:13.142+09:00",
+  "ranAt": "2026-11-08T08:16:10.176+09:00",
   "mode": "live",
   "summary": {
     "OK": 24,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 50,
+      "ms": 25,
       "note": null,
       "shapeDiff": null
     },
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 23,
+      "ms": 15,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 755,
+      "ms": 754,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 87,
+      "ms": 67,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 352,
+      "ms": 603,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 115,
+      "ms": 113,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 78,
+      "ms": 94,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2337,
+      "ms": 2804,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 846,
+      "ms": 1127,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 175,
+      "ms": 159,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 358,
+      "ms": 683,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2759,
+      "ms": 2750,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 244,
+      "ms": 333,
       "note": "removed contents[].channelProducts[].sellerTags[], contents[].channelProducts[].sellerTags[].text",
       "shapeDiff": {
         "removed": [
@@ -172,7 +172,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 213,
+      "ms": 243,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 57,
+      "ms": 96,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 100,
+      "ms": 53,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +219,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 3035,
+      "ms": 2738,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +228,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 282,
+      "ms": 284,
       "note": null,
       "shapeDiff": null
     },
@@ -237,7 +237,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 123,
+      "ms": 148,
       "note": null,
       "shapeDiff": null
     },
@@ -246,7 +246,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 312,
+      "ms": 332,
       "note": null,
       "shapeDiff": null
     },
@@ -273,7 +273,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 79,
+      "ms": 81,
       "note": null,
       "shapeDiff": null
     },
@@ -282,7 +282,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "OK",
-      "ms": 342,
+      "ms": 290,
       "note": null,
       "shapeDiff": null
     },
@@ -299,7 +299,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 561,
+      "ms": 778,
       "note": null,
       "shapeDiff": null
     },
@@ -308,7 +308,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 77,
+      "ms": 53,
       "note": null,
       "shapeDiff": null
     }
