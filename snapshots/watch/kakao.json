@@ -1,6 +1,11 @@
 {
-  "checkedAt": "2026-11-12T01:49:29.318Z",
+  "checkedAt": "2026-11-13T00:52:15.311Z",
   "entries": [
+    {
+      "title": "[iOS] 토큰 발급 시 Misconfigured “IOS bundleId validation failed” — 번들 ID 등록·요청값 일치",
+      "date": "Thu, 12 Nov 2026 09:31:04 +0000",
+      "url": "https://devtalk.kakao.com/t/ios-misconfigured-ios-bundleid-validation-failed-id/152760"
+    },
     {
       "title": "Https://developers.kakao.com/console/app/1635257/config#business-info",
       "date": "Tue, 03 Nov 2026 23:55:31 +0000",
@@ -120,11 +125,6 @@
       "title": "iOS 카카오 로그인 Redirect URI 설정 메뉴가 콘솔에서 사라졌습니다 (12/3 개편 이후)",
       "date": "Wed, 10 Dec 2025 03:46:33 +0000",
       "url": "https://devtalk.kakao.com/t/ios-redirect-uri-12-3/147511"
-    },
-    {
-      "title": "Ios rest api 에서 native sdk",
-      "date": "Sun, 30 Nov 2025 20:24:34 +0000",
-      "url": "https://devtalk.kakao.com/t/ios-rest-api-native-sdk/147358"
     }
   ]
 }

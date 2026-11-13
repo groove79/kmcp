@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-11-12T10:49:34.624+09:00",
+  "ranAt": "2026-11-13T09:52:20.867+09:00",
   "mode": "live",
   "summary": {
-    "OK": 24,
-    "DRIFT": 1,
+    "OK": 23,
+    "DRIFT": 2,
     "BREAK": 0,
     "AUTH": 2,
     "DOWN": 0,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 21,
+      "ms": 22,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 788,
+      "ms": 1422,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 0,
+      "ms": 1,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 124,
+      "ms": 207,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 402,
+      "ms": 1197,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 85,
+      "ms": 96,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 98,
+      "ms": 94,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2512,
+      "ms": 2960,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 933,
+      "ms": 809,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 166,
+      "ms": 171,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 355,
+      "ms": 443,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2735,
+      "ms": 2721,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 334,
+      "ms": 246,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 213,
+      "ms": 238,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 101,
+      "ms": 117,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 94,
+      "ms": 85,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 3287,
+      "ms": 2785,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +219,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 326,
+      "ms": 285,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +228,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 145,
+      "ms": 123,
       "note": null,
       "shapeDiff": null
     },
@@ -237,7 +237,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 389,
+      "ms": 275,
       "note": null,
       "shapeDiff": null
     },
@@ -245,9 +245,9 @@
       "id": "toss-payments.listTransactions",
       "platform": "toss-payments",
       "access": "read",
-      "class": "OK",
-      "ms": 16392,
-      "note": null,
+      "class": "DRIFT",
+      "ms": 20003,
+      "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
       "shapeDiff": null
     },
     {
@@ -255,7 +255,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 70,
+      "ms": 81,
       "note": null,
       "shapeDiff": null
     },
@@ -264,7 +264,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 49,
+      "ms": 46,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -273,7 +273,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 40,
+      "ms": 30,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -290,7 +290,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 1153,
+      "ms": 579,
       "note": null,
       "shapeDiff": null
     },
