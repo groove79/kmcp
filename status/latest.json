@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-11-14T09:37:09.496+09:00",
+  "ranAt": "2026-11-15T08:33:32.602+09:00",
   "mode": "live",
   "summary": {
-    "OK": 23,
-    "DRIFT": 2,
+    "OK": 24,
+    "DRIFT": 1,
     "BREAK": 0,
     "AUTH": 2,
     "DOWN": 0,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 20,
+      "ms": 27,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 811,
+      "ms": 843,
       "note": null,
       "shapeDiff": null
     },
@@ -66,7 +66,7 @@
       "platform": "japan-bridge",
       "access": "pure",
       "class": "OK",
-      "ms": 1,
+      "ms": 0,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 108,
+      "ms": 324,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 1276,
+      "ms": 367,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 112,
+      "ms": 98,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 120,
+      "ms": 95,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2469,
+      "ms": 2584,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 1000,
+      "ms": 907,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 212,
+      "ms": 423,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 373,
+      "ms": 333,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2487,
+      "ms": 2914,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 551,
+      "ms": 254,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 274,
+      "ms": 369,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 128,
+      "ms": 58,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 58,
+      "ms": 52,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 3009,
+      "ms": 2833,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +219,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 316,
+      "ms": 305,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +228,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 155,
+      "ms": 126,
       "note": null,
       "shapeDiff": null
     },
@@ -237,7 +237,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 380,
+      "ms": 254,
       "note": null,
       "shapeDiff": null
     },
@@ -245,9 +245,9 @@
       "id": "toss-payments.listTransactions",
       "platform": "toss-payments",
       "access": "read",
-      "class": "DRIFT",
-      "ms": 20005,
-      "note": "known issue: Toss test merchants: GET /v1/transactions never answers (observed 2026-10-21/22). Re-check after a live key is available. · Toss API GET /v1/transactions did not answer within 20000ms",
+      "class": "OK",
+      "ms": 13264,
+      "note": null,
       "shapeDiff": null
     },
     {
@@ -255,7 +255,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 90,
+      "ms": 96,
       "note": null,
       "shapeDiff": null
     },
@@ -264,7 +264,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 41,
+      "ms": 45,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -290,7 +290,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 1031,
+      "ms": 1101,
       "note": null,
       "shapeDiff": null
     },
