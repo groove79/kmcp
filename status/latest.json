@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-15T08:33:32.602+09:00",
+  "ranAt": "2026-11-16T08:43:07.483+09:00",
   "mode": "live",
   "summary": {
     "OK": 24,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 27,
+      "ms": 22,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 843,
+      "ms": 832,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 324,
+      "ms": 96,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 367,
+      "ms": 358,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 98,
+      "ms": 142,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 95,
+      "ms": 100,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2584,
+      "ms": 3467,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 907,
+      "ms": 925,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 423,
+      "ms": 254,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 333,
+      "ms": 387,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2914,
+      "ms": 2649,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 254,
+      "ms": 419,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 369,
+      "ms": 271,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 58,
+      "ms": 91,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 52,
+      "ms": 139,
       "note": null,
       "shapeDiff": null
     },
@@ -210,7 +210,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2833,
+      "ms": 2912,
       "note": null,
       "shapeDiff": null
     },
@@ -219,7 +219,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "OK",
-      "ms": 305,
+      "ms": 313,
       "note": null,
       "shapeDiff": null
     },
@@ -228,7 +228,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 126,
+      "ms": 121,
       "note": null,
       "shapeDiff": null
     },
@@ -237,7 +237,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 254,
+      "ms": 321,
       "note": null,
       "shapeDiff": null
     },
@@ -246,7 +246,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 13264,
+      "ms": 8143,
       "note": null,
       "shapeDiff": null
     },
@@ -255,7 +255,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 96,
+      "ms": 66,
       "note": null,
       "shapeDiff": null
     },
@@ -264,7 +264,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 45,
+      "ms": 54,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -273,7 +273,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 35,
+      "ms": 42,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -290,7 +290,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 1101,
+      "ms": 1268,
       "note": null,
       "shapeDiff": null
     },
@@ -299,7 +299,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 76,
+      "ms": 56,
       "note": null,
       "shapeDiff": null
     }
@@ -323,7 +323,7 @@
       "source": "https://developers.coupangcorp.com/hc/ko/sections/360001148053",
       "ok": false,
       "new": [],
-      "note": "extractor found 0 entries (layout changed?)"
+      "note": "HTTP 403"
     },
     {
       "platform": "toss-payments",
