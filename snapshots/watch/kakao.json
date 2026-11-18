@@ -1,6 +1,11 @@
 {
-  "checkedAt": "2026-11-17T02:46:34.479Z",
+  "checkedAt": "2026-11-18T02:02:36.751Z",
   "entries": [
+    {
+      "title": "[iOS] 카카오톡 화면 잠금이 켜져 있고 앱이 종료된 상태에서 오픈채팅 링크로 실행하면 입장 화면이 열리지 않습니다",
+      "date": "Tue, 17 Nov 2026 07:50:05 +0000",
+      "url": "https://devtalk.kakao.com/t/ios/152856"
+    },
     {
       "title": "[iOS] 토큰 발급 시 Misconfigured “IOS bundleId validation failed” — 번들 ID 등록·요청값 일치",
       "date": "Thu, 12 Nov 2026 09:31:04 +0000",
@@ -120,11 +125,6 @@
       "title": "iOS 라이트 모드에서 카카오 로그인 화면 아이디/비밀번호 입력 텍스트 가독성 문제",
       "date": "Wed, 17 Dec 2025 03:20:11 +0000",
       "url": "https://devtalk.kakao.com/t/ios/147619"
-    },
-    {
-      "title": "iOS 카카오 로그인 Redirect URI 설정 메뉴가 콘솔에서 사라졌습니다 (12/3 개편 이후)",
-      "date": "Wed, 10 Dec 2025 03:46:33 +0000",
-      "url": "https://devtalk.kakao.com/t/ios-redirect-uri-12-3/147511"
     }
   ]
 }
