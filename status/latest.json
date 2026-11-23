@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-22T09:04:09.832+09:00",
+  "ranAt": "2026-11-23T09:35:36.473+09:00",
   "mode": "live",
   "summary": {
     "OK": 21,
@@ -15,7 +15,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 18,
+      "ms": 20,
       "note": null,
       "shapeDiff": null
     },
@@ -24,7 +24,7 @@
       "platform": "kr-biz-calendar",
       "access": "pure",
       "class": "OK",
-      "ms": 19,
+      "ms": 22,
       "note": null,
       "shapeDiff": null
     },
@@ -57,7 +57,7 @@
       "platform": "japan-bridge",
       "access": "read",
       "class": "OK",
-      "ms": 777,
+      "ms": 711,
       "note": null,
       "shapeDiff": null
     },
@@ -75,7 +75,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 89,
+      "ms": 93,
       "note": null,
       "shapeDiff": null
     },
@@ -84,7 +84,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 360,
+      "ms": 996,
       "note": null,
       "shapeDiff": null
     },
@@ -93,7 +93,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 129,
+      "ms": 92,
       "note": null,
       "shapeDiff": null
     },
@@ -102,7 +102,7 @@
       "platform": "public-data",
       "access": "read",
       "class": "OK",
-      "ms": 72,
+      "ms": 134,
       "note": null,
       "shapeDiff": null
     },
@@ -111,7 +111,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 2976,
+      "ms": 3666,
       "note": null,
       "shapeDiff": null
     },
@@ -120,7 +120,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 945,
+      "ms": 863,
       "note": null,
       "shapeDiff": null
     },
@@ -129,7 +129,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 181,
+      "ms": 187,
       "note": null,
       "shapeDiff": null
     },
@@ -138,7 +138,7 @@
       "platform": "cafe24",
       "access": "read",
       "class": "OK",
-      "ms": 475,
+      "ms": 600,
       "note": null,
       "shapeDiff": null
     },
@@ -147,7 +147,7 @@
       "platform": "cafe24",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2663,
+      "ms": 3192,
       "note": null,
       "shapeDiff": null
     },
@@ -156,7 +156,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 265,
+      "ms": 266,
       "note": null,
       "shapeDiff": null
     },
@@ -165,7 +165,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 258,
+      "ms": 261,
       "note": "removed originProduct.detailAttribute.optionInfo.optionCombinationGroupNames, originProduct.detailAttribute.optionInfo.optionCombinationGroupNames.optionGroupName1, originProduct.detailAttribute.optionInfo.optionCombinations, originProduct.detailAttribute.optionInfo.optionCombinations[], originProduct.detailAttribute.optionInfo.optionCombinations[].id",
       "shapeDiff": {
         "removed": [
@@ -192,7 +192,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "OK",
-      "ms": 129,
+      "ms": 176,
       "note": null,
       "shapeDiff": null
     },
@@ -201,7 +201,7 @@
       "platform": "naver-commerce",
       "access": "read",
       "class": "DRIFT",
-      "ms": 100,
+      "ms": 70,
       "note": "added content[], content[].inquiryNo, content[].category, content[].title, content[].inquiryContent",
       "shapeDiff": {
         "removed": [],
@@ -233,7 +233,7 @@
       "platform": "naver-commerce",
       "access": "write-sandbox",
       "class": "OK",
-      "ms": 2705,
+      "ms": 2983,
       "note": null,
       "shapeDiff": null
     },
@@ -242,7 +242,7 @@
       "platform": "kakao",
       "access": "read",
       "class": "AUTH",
-      "ms": 71,
+      "ms": 74,
       "note": "Kakao refresh token expired (~2 months). Run:  npx @appmonster/mcp-kakao auth",
       "shapeDiff": null
     },
@@ -251,7 +251,7 @@
       "platform": "kakao",
       "access": "write-sandbox",
       "class": "AUTH",
-      "ms": 71,
+      "ms": 73,
       "note": "Kakao refresh token expired (~2 months). Run:  npx @appmonster/mcp-kakao auth",
       "shapeDiff": null
     },
@@ -260,7 +260,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 279,
+      "ms": 292,
       "note": null,
       "shapeDiff": null
     },
@@ -269,7 +269,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 17744,
+      "ms": 7154,
       "note": null,
       "shapeDiff": null
     },
@@ -278,7 +278,7 @@
       "platform": "toss-payments",
       "access": "read",
       "class": "OK",
-      "ms": 91,
+      "ms": 70,
       "note": null,
       "shapeDiff": null
     },
@@ -287,7 +287,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 46,
+      "ms": 50,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -296,7 +296,7 @@
       "platform": "delivery",
       "access": "read",
       "class": "AUTH",
-      "ms": 42,
+      "ms": 36,
       "note": "Delivery Tracker [UNAUTHENTICATED]: Invalid or expired token. — Check DELIVERY_TRACKER_CLIENT_ID / DELIVERY_TRACKER_CLIENT_SECRET (console.tracker.delivery → project → Credentials). IDs created before 2024-05-13 cannot be used as API keys — create new ones.",
       "shapeDiff": null
     },
@@ -313,7 +313,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 549,
+      "ms": 558,
       "note": null,
       "shapeDiff": null
     },
@@ -322,7 +322,7 @@
       "platform": "popbill",
       "access": "read",
       "class": "OK",
-      "ms": 54,
+      "ms": 53,
       "note": null,
       "shapeDiff": null
     }
@@ -346,7 +346,7 @@
       "source": "https://developers.coupangcorp.com/hc/ko/sections/360001148053",
       "ok": false,
       "new": [],
-      "note": "extractor found 0 entries (layout changed?)"
+      "note": "HTTP 403"
     },
     {
       "platform": "toss-payments",
