@@ -1,6 +1,9 @@
 #!/bin/bash
 # PR #17323 충돌 해결: 최신 upstream/main 위에 K-MCP 두 줄을 다시 넣고 add-kmcp 브랜치를 강제 푸시 (PR 은 그대로 갱신됨)
 set -e
+BODY="$(cd "$(dirname "$0")" && pwd)/awesome-pr-body.md"
+# groove79 계정으로 실행 (맥미니 기본 gh 계정이 yumi-kim-79 이어도 동작)
+export GH_TOKEN=$(gh auth token -u groove79)
 WORK=$(mktemp -d)
 cd "$WORK"
 gh repo sync groove79/awesome-mcp-servers -b main >/dev/null 2>&1 || true
@@ -29,6 +32,7 @@ PY
 git add README.md
 git commit -q -m "Add K-MCP (Korean commerce, payments & tax MCP servers)"
 git diff --stat upstream/main
-git push -q -f origin add-kmcp
+git -c credential.helper= -c "credential.helper=!f() { echo username=groove79; echo password=$GH_TOKEN; }; f" push -q -f origin add-kmcp
+gh pr edit 17323 -R punkpeye/awesome-mcp-servers --body-file "$BODY" >/dev/null && echo "PR 설명 갱신(Glama 배지 언급)"
 echo "완료: https://github.com/punkpeye/awesome-mcp-servers/pull/17323"
-gh pr view 17323 -R punkpeye/awesome-mcp-servers --json mergeable,mergeStateStatus
+sleep 5; gh pr view 17323 -R punkpeye/awesome-mcp-servers --json mergeable,mergeStateStatus
